@@ -123,7 +123,7 @@ function createDirectiveFromProp(prop, content) {
 
   return {
     type: NodeTypes.DIRECTIVE,
-    name: "bind", // This will become a v-bind or : directive
+    name: "bind",
     rawName: `:${prop.name}`,
     exp: {
       type: NodeTypes.SIMPLE_EXPRESSION,
@@ -132,7 +132,7 @@ function createDirectiveFromProp(prop, content) {
     },
     arg: {
       type: NodeTypes.SIMPLE_EXPRESSION,
-      content: prop.name, // The original prop name
+      content: prop.name,
       isStatic: true,
     },
     modifiers: [],
