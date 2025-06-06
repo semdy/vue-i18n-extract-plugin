@@ -1,7 +1,7 @@
 {
   "name": "vue-i18n-extract-plugin",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/extract.js",
   "scripts": {
     "extract-i18n": "node src/cli.js --includePath='[\"demo\"]' --rewrite"
   },
