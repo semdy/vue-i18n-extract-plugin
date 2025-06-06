@@ -9,7 +9,7 @@
 node vue-i18n-extract-plugin/extract.js --includePath='[\"demo\"]' --rewrite
 ```
 
-## Program API
+## Programming API
 ```javascript
 const { extractI18n } = require("vue-i18n-extract-plugin/extract");
 
