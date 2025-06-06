@@ -65,9 +65,9 @@ export default function i18nHashPlugin(option = defaultOptions) {
   };
 }
 
-/* import VitePluginI18n from 'vue-i18n-extract-plugin/vite-plugin-i18n'
+/* import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { defineConfig } from 'vite'
+import VitePluginI18n from 'vue-i18n-extract-plugin/vite-plugin-i18n'
 
 export default defineConfig({
     plugins: [
