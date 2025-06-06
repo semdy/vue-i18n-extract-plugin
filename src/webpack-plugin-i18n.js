@@ -1,5 +1,6 @@
 const path = require("path");
-const { allowedExtensions, defaultOptions } = require("./utils");
+const { allowedExtensions } = require("./utils");
+const { defaultOptions } = require("./options");
 
 /**
  * Webpack 插件实现，用于自动化处理国际化翻译功能

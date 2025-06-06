@@ -3,8 +3,8 @@ const { createI18nPlugin, addI18nImportIfNeeded } = require("./visitors");
 const {
   checkAgainstRegexArray,
   allowedExtensions,
-  defaultOptions,
 } = require("./utils");
+const { defaultOptions } = require("./options");
 
 export default function i18nHashPlugin(option = defaultOptions) {
   let config;

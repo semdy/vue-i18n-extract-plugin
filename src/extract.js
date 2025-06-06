@@ -15,12 +15,13 @@ const {
 const MagicString = require("magic-string");
 const { createI18nPlugin, addI18nImportIfNeeded } = require("./visitors");
 const {
-  defaultOptions,
   relativeCWDPath,
   shouldExtract,
   trimEmptyLine,
   padEmptyLine,
 } = require("./utils");
+const { defaultOptions } = require("./options");
+const { autoTranslate } = require("./translate");
 
 const i18nMap = {};
 
@@ -362,6 +363,10 @@ async function extractI18n(options = defaultOptions) {
   await fs.outputJson(relativeCWDPath(options.outputPath), i18nMap, {
     spaces: 2,
   });
+
+  if  (options.autoTranslate) {
+    await autoTranslate(options, i18nMap);
+  }
 }
 
 module.exports = { extractI18n };

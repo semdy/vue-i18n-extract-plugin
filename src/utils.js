@@ -25,7 +25,6 @@ function generateId(text, length = 6) {
 function parseJSON(json) {
   try {
     if (json === 'true' || json === 'false' || json === 'null' || json.startsWith('[') || json.startsWith('{')) {
-      console.log(json, JSON.parse(json))
       return JSON.parse(json);
     }
   } catch (error) {
@@ -112,20 +111,6 @@ const EXCLUDED_CALL = [
   "_createCommentVNode",
 ];
 
-const defaultOptions = {
-  translateKey: "$t", // 翻译函数的名称
-  rewrite: true, // 是否重写翻译函数的参数为哈希值
-  extractFromText: true, // 是否从文本中提取翻译内容
-  autoImportI18n: true, // 是否自动导入 i18n 模块
-  sourcemap: false, // 是否生成sourcemap
-  excludedCall: [], // 排除的调用函数名称数组
-  includePath: ['src'], // 包含路径的正则表达式数组
-  excludedPath: [], // 排除路径的正则表达式数组
-  extraFileExtensions: [], // 需要额外支持的文件扩展名
-  i18nPath: "@/src/i18n", // i18n语言包路径
-  outputPath: "src/i18n/zh-CN.json", // 输出文件路径
-};
-
 module.exports = {
   hashKey,
   generateId,
@@ -139,6 +124,5 @@ module.exports = {
   padEmptyLine,
   allowedExtensions,
   excludeDirectives,
-  EXCLUDED_CALL,
-  defaultOptions,
+  EXCLUDED_CALL
 };

@@ -4,10 +4,10 @@ const t = require("@babel/types");
 const {
   generateId,
   extractFunctionName,
-  defaultOptions,
   EXCLUDED_CALL,
   shouldExtract,
 } = require("./utils");
+const { defaultOptions } = require("./options");
 
 // const allowedObjects = ["this", "i18n", "vm"];
 

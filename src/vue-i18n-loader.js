@@ -1,6 +1,7 @@
 const { transformSync } = require("@babel/core");
 const { createI18nPlugin, addI18nImportIfNeeded } = require("./visitors");
-const { checkAgainstRegexArray, defaultOptions } = require("./utils");
+const { checkAgainstRegexArray } = require("./utils");
+const { defaultOptions } = require("./options");
 
 module.exports = function (source) {
   // 获取 Webpack 的 Loader 上下文，方便访问文件路径及其他相关信息

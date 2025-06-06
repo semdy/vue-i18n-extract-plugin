@@ -1,4 +1,5 @@
-const { defaultOptions, parseJSON } = require("./utils");
+const { parseJSON } = require("./utils");
+const { defaultOptions } = require("./options");
 const { extractI18n } = require("./extract");
 
 const cli = function (args) {
