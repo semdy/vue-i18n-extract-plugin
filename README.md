@@ -6,7 +6,7 @@
 # USAGE
 ## CLI
 ```bash
-node vue-i18n-extract-plugin/extract.js --includePath='[\"demo\"]' --rewrite
+node vue-i18n-extract-plugin/cli.js --includePath='[\"demo\"]' --rewrite
 ```
 
 ## Programming API
