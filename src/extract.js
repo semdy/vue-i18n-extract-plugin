@@ -258,11 +258,7 @@ function transformTemplate(templateContent, options, filePath) {
                 }
               }
             }
-            if (
-              prop.type === NodeTypes.DIRECTIVE &&
-              prop.name !== "model" &&
-              prop.name !== "slot"
-            ) {
+            if (prop.type === NodeTypes.DIRECTIVE && prop.name === "bind") {
               text = prop.exp?.content;
               if (text && typeof text === "string" && shouldExtract(text)) {
                 try {

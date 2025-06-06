@@ -94,6 +94,7 @@ function padEmptyLine(str) {
 }
 
 const allowedExtensions = [".vue", ".tsx", ".jsx", ".js", ".ts"];
+const excludeDirectives = ["model", "slot", "if", "show", "for", "on", "once", "memo"];
 const EXCLUDED_CALL = [
   "$deepScan",
   "console.log",
@@ -137,6 +138,7 @@ module.exports = {
   trimEmptyLine,
   padEmptyLine,
   allowedExtensions,
+  excludeDirectives,
   EXCLUDED_CALL,
   defaultOptions,
 };
