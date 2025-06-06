@@ -67,3 +67,6 @@ module.exports = {
     ]
 }
 ```
+
+# TODO
+ - Auto Translator(Goggle Translate、Baidu Translate、YouDao Translate、Custom Translate)
