@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "extract-i18n": "node src/extract.js --includePath='[\"demo\"]' --rewrite"
+    "extract-i18n": "node src/cli.js --includePath='[\"demo\"]' --rewrite"
   },
   "keywords": [],
   "author": "501859275@qq.com",

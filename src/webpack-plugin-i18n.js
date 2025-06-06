@@ -137,8 +137,8 @@ function generateAdvancedRegex(extensions, option) {
 }
 
 /*
-const WebpackPluginsI18n = require('webpack-plugin-i18n')
-const i18nPlugin = new WebpackPluginsI18n()
+const WebpackPluginI18n = require('vue-i18n-extract-plugin/webpack-plugin-i18n')
+const i18nPlugin = new WebpackPluginI18n()
 
 module.exports = {
     plugins: [
