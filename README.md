@@ -37,3 +37,33 @@ const defaultOptions = {
   outputPath: "src/i18n/zh-CN.json", // 输出文件路径
 };
 ```
+
+## Vite plugin
+```javascript
+import VitePluginI18n from 'vue-i18n-extract-plugin/vite-plugin-i18n'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+    plugins: [
+        vue(),
+        VitePluginI18n()
+    ]
+})
+```
+
+## Webpack plugin
+```javascript
+const WebpackPluginI18n = require('vue-i18n-extract-plugin/webpack-plugin-i18n')
+const i18nPlugin = new WebpackPluginI18n()
+
+module.exports = {
+    plugins: [
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            template: './public/index.html'
+        }),
+        i18nPlugin
+    ]
+}
+```
