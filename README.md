@@ -36,8 +36,8 @@ const defaultOptions = {
   extraFileExtensions: [], // 需要额外支持的文件扩展名
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["en"], // 需要翻译为的语言键
-  i18nPath: "@/src/i18n", // i18n语言包路径
-  outputPath: "src/i18n/zh-CN.json", // 输出文件路径
+  i18nPkgImportPath: "@/src/i18n", // i18n语言包路径
+  outputPath: "src/i18n", // 输出文件路径
   /** 翻译器，决定自动翻译使用的api与调用方式，默认使用 Google 翻译器并使用7890(clash)端口代理 */
   translator: new GoogleTranslator({
     proxyOption: {
@@ -137,10 +137,10 @@ translator: new BaiduTranslator({
 需要开通大模型服务并申请API，[api文档](https://www.volcengine.com/docs/82379/1298454)。
 
 ```javascript
-import { VolcengineTranslator } from 'vue-i18n-extract-plugin/translators'
+import { VolcEngineTranslator } from 'vue-i18n-extract-plugin/translators'
 
 ...
-translator: new VolcengineTranslator({
+translator: new VolcEngineTranslator({
     apiKey: '你申请的apiKey',
     model: '你要调用的模型，如：`doubao-1-5-pro-32k-250115`，请确保使用前已在控制台开通了对应模型'
 })

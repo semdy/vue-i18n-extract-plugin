@@ -364,7 +364,9 @@ async function extractI18n(options = defaultOptions) {
     }
   }
 
-  await fs.outputJson(relativeCWDPath(options.outputPath), i18nMap, {
+  const outputJSONPath = options.outputPath.replace(/\/$/, "") + "/" + options.fromLang + ".json";
+  
+  await fs.outputJson(relativeCWDPath(outputJSONPath), i18nMap, {
     spaces: 2,
   });
 

@@ -87,7 +87,7 @@ function addI18nImportIfNeeded(ast, options, generateCode) {
   traverse(ast, {
     ImportDeclaration(path) {
       const source = path.node.source.value;
-      if (source === options.i18nPath) {
+      if (source === options.i18nPkgImportPath) {
         hasI18nImport = true;
       }
       lastImportPath = path;
@@ -103,7 +103,7 @@ function addI18nImportIfNeeded(ast, options, generateCode) {
           t.identifier(options.translateKey)
         ),
       ],
-      t.stringLiteral(options.i18nPath)
+      t.stringLiteral(options.i18nPkgImportPath)
     );
 
     // 如果存在其他 import 语句，插入到最后一个导入语句之后

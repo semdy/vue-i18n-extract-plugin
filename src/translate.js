@@ -89,10 +89,7 @@ function createTextSplitter(values, maxChunkSize) {
 }
 
 function getLangJsonPath(langKey, option) {
-    const path = relativeCWDPath(option.i18nPath.replace(/^@/, "").replace(/\/$/, "") + "/" + langKey + ".json")
-    if (path.startsWith("/")) {
-        return path.slice(1)
-    }
+    const path = relativeCWDPath(option.outputPath.replace(/^@/, "").replace(/\/$/, "") + "/" + langKey + ".json")
     return path
 }
 
