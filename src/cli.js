@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
 const { parseArg } = require("./utils");
-const { defaultOptions } = require("./options");
 const { extractI18n } = require("./extract");
 
 const cli = function (args) {
   const options = {
-    ...defaultOptions,
     rewrite: false,
     ...args.reduce((acc, arg) => {
       const [key, value] = arg.split("=");

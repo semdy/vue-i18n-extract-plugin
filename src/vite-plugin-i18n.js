@@ -6,7 +6,9 @@ const {
 } = require("./utils");
 const { defaultOptions } = require("./options");
 
-function VitePluginI18n(option = defaultOptions) {
+function VitePluginI18n(option) {
+  option = { ...defaultOptions, ...option };
+
   let config;
 
   return {

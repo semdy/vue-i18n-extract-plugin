@@ -1,11 +1,12 @@
 {
   "name": "vue-i18n-extract-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "src/index.js",
   "bin": {
     "extract-i18n": "src/cli.js"
   },
   "exports": {
+    ".": "./src/index.js",
     "./translators": "./src/translators/index.js"
   },
   "keywords": ["vue-i18n-extract-plugin", "vue-i18n", "i18n", "i18n-extract", "i18n-extract-plugin"],

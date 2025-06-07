@@ -336,7 +336,8 @@ function processVueFile(content, options, filePath) {
   }
 }
 
-async function extractI18n(options = defaultOptions) {
+async function extractI18n(options) {
+  options = { ...defaultOptions, ...options };
   let includePath = Array.isArray(options.includePath)
     ? options.includePath
     : [options.includePath];

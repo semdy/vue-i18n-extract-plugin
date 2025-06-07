@@ -126,7 +126,7 @@ function addI18nImportIfNeeded(ast, options, generateCode) {
   return ast;
 }
 
-function createI18nPlugin(option = defaultOptions, i18nMap) {
+function createI18nPlugin(option, i18nMap) {
   const excludedCall = [...option.excludedCall, ...EXCLUDED_CALL];
 
   return {
