@@ -11,7 +11,7 @@ const defaultOptions = {
   includePath: ['src'], // 包含路径的正则表达式数组
   excludedPath: [], // 排除路径的正则表达式数组
   extraFileExtensions: [], // 需要额外支持的文件扩展名
-  fromLang: 'zh-cn', // 源语言
+  fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["en"], // 需要翻译为的语言键
   i18nPath: "@/src/i18n", // i18n语言包路径
   outputPath: "src/i18n/zh-CN.json", // 输出文件路径

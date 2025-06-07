@@ -1,14 +1,17 @@
 {
   "name": "vue-i18n-extract-plugin",
   "version": "1.0.0",
-  "main": "src/extract.js",
+  "main": "src/index.js",
+  "bin": {
+    "extract-i18n": "src/cli.js"
+  },
   "scripts": {
-    "extract-i18n": "node src/cli.js --includePath='[\"demo\"]' --rewrite"
+    "extract-i18n": "extract-i18n --includePath='[\"demo\"]' --rewrite"
   },
   "keywords": [],
   "author": "501859275@qq.com",
   "license": "ISC",
-  "description": "针对vue/react项目，从js/jsx/ts/tsx/vue文件提取中文，并生成语言包到json文件中，并支持将生成的key重写入文件中.",
+  "description": "针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，并生成语言包到json文件中，并支持将生成的key重写入文件中.",
   "devDependencies": {
     "@babel/core": "^7.27.3",
     "@babel/generator": "^7.27.3",

@@ -236,7 +236,7 @@ function transformTemplate(templateContent, options, filePath) {
             let text = "";
             if (prop.type === NodeTypes.ATTRIBUTE) {
               text = prop.value?.content;
-              if (text && typeof text === "string" && shouldExtract(text)) {
+              if (text && typeof text === "string" && shouldExtract(text, options.fromLang)) {
                 try {
                   const newValue = transformScriptExpression(
                     encodeToString(text.trim()),
@@ -261,7 +261,7 @@ function transformTemplate(templateContent, options, filePath) {
             }
             if (prop.type === NodeTypes.DIRECTIVE && prop.name === "bind") {
               text = prop.exp?.content;
-              if (text && typeof text === "string" && shouldExtract(text)) {
+              if (text && typeof text === "string" && shouldExtract(text, options.fromLang)) {
                 try {
                   const newValue = extractTCallsFromInterpolation(
                     text.trim(),

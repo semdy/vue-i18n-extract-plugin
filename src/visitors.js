@@ -59,7 +59,7 @@ function CallExpression(path, option, i18nMap) {
 
   if (!keyText) return;
 
-  if (!shouldExtract(keyText)) {
+  if (!shouldExtract(keyText, option.fromLang)) {
     return;
   }
 
@@ -173,7 +173,7 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
         // }
 
         if (value.trim() === "") return;
-        if (!shouldExtract(value)) {
+        if (!shouldExtract(value, option.fromLang)) {
           return;
         }
 
@@ -211,7 +211,7 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
 
       //   const raw = node.quasis.map((q) => q.value.cooked).join("${}");
       //   if (!raw.trim()) return;
-      //   if (!shouldExtract(raw)) {
+      //   if (!shouldExtract(raw, option.fromLang)) {
       //     return;
       //   }
 
@@ -267,7 +267,7 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
           return;
         }
 
-        if (!shouldExtract(value)) {
+        if (!shouldExtract(value, option.fromLang)) {
           return;
         }
 
@@ -294,7 +294,7 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
         const text = path.node.value.trim();
         if (!text) return; // 空白或换行等，跳过
 
-        if (!shouldExtract(text)) {
+        if (!shouldExtract(text, option.fromLang)) {
           return;
         }
 
@@ -322,7 +322,7 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
         // <div>{"Hi"}</div>
         const expr = path.node.expression;
         if (t.isStringLiteral(expr)) {
-          if (!shouldExtract(expr.value)) {
+          if (!shouldExtract(expr.value, option.fromLang)) {
             return;
           }
 

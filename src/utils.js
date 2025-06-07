@@ -22,13 +22,14 @@ function generateId(text, length = 6) {
     .slice(-length);
 }
 
-function parseJSON(json) {
+function parseArg(arg) {
   try {
-    if (json === 'true' || json === 'false' || json === 'null' || json.startsWith('[') || json.startsWith('{')) {
-      return JSON.parse(json);
+    if (arg === 'true' || arg === 'false' || arg === 'null' || arg.startsWith('[') || arg.startsWith('{')) {
+      return JSON.parse(arg);
     }
+    return arg;
   } catch (error) {
-    return json;
+    return arg;
   }
 }
 
@@ -76,12 +77,11 @@ function relativeCWDPath(subPath) {
   return path.resolve(fs.realpathSync(process.cwd()), subPath);
 }
 
-function containsChineseText(str) {
-  return /[\u4e00-\u9fa5]/.test(str);
-}
-
-function shouldExtract(str) {
-  return containsChineseText(str);
+function shouldExtract(str, langKey) {
+  if (REGEX_MAP[langKey]) {
+    return REGEX_MAP[langKey].test(str);
+  }
+  return REGEX_MAP[translateLangKeyEnum.ZH].test(str);
 }
 
 function trimEmptyLine(str) {
@@ -92,6 +92,20 @@ function padEmptyLine(str) {
   return "\n" + str + "\n";
 }
 
+const translateLangKeyEnum = {
+    ZH : 'zh-cn',
+    EN : 'en',
+    JA : 'ja',
+    KO : 'ko',
+    RU : 'ru'
+}
+const REGEX_MAP = {
+    [translateLangKeyEnum.ZH]: /[\u4e00-\u9fff]/,
+    [translateLangKeyEnum.EN]: /[a-zA-Z]/,
+    [translateLangKeyEnum.JA]: /[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF]/, // 日语假名和汉字
+    [translateLangKeyEnum.KO]: /[\uAC00-\uD7A3]/, // 韩语字母
+    [translateLangKeyEnum.RU]: /[йцукенгшщзхъфывапролджэячсмитьбюё .-]{1,}/ // 俄语字母
+}
 const allowedExtensions = [".vue", ".tsx", ".jsx", ".js", ".ts"];
 const excludeDirectives = ["model", "slot", "if", "show", "for", "on", "once", "memo"];
 const EXCLUDED_CALL = [
@@ -114,11 +128,10 @@ const EXCLUDED_CALL = [
 module.exports = {
   hashKey,
   generateId,
-  parseJSON,
+  parseArg,
   checkAgainstRegexArray,
   extractFunctionName,
   relativeCWDPath,
-  containsChineseText,
   shouldExtract,
   trimEmptyLine,
   padEmptyLine,

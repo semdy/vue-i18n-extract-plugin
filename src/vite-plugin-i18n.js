@@ -6,11 +6,11 @@ const {
 } = require("./utils");
 const { defaultOptions } = require("./options");
 
-export default function i18nHashPlugin(option = defaultOptions) {
+function VitePluginI18n(option = defaultOptions) {
   let config;
 
   return {
-    name: "vite:i18n-hash-full",
+    name: "vite-plugin-i18n-hash",
 
     configResolved(resolvedConfig) {
       // 存储最终解析的配置
@@ -65,9 +65,11 @@ export default function i18nHashPlugin(option = defaultOptions) {
   };
 }
 
+module.exports = VitePluginI18n;
+
 /* import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VitePluginI18n from 'vue-i18n-extract-plugin/vite-plugin-i18n'
+import VitePluginI18n from 'vue-i18n-extract-plugin'
 
 export default defineConfig({
     plugins: [

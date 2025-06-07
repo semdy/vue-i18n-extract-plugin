@@ -1,17 +1,17 @@
 # vue-i18n-extract-plugin
 
-- 针对vue/react项目，从js/jsx/ts/tsx/vue文件提取中文，并生成语言包到json文件中，并支持将生成的key重写入文件中.
+- 针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，并生成语言包到json文件中，并支持将生成的key重写入文件中.
 - 包含了vite和webpack的插件.
 
 # USAGE
 ## CLI
 ```bash
-node vue-i18n-extract-plugin/cli.js --includePath='[\"demo\"]' --rewrite
+extract-i18n --includePath='["demo"]' --rewrite
 ```
 
 ## Programming API
 ```javascript
-const { extractI18n } = require("vue-i18n-extract-plugin/extract");
+const { extractI18n } = require("vue-i18n-extract-plugin");
 
 extractI18n(options)
   .then(() => {
@@ -34,7 +34,7 @@ const defaultOptions = {
   includePath: ['src'], // 包含路径的正则表达式数组
   excludedPath: [], // 排除路径的正则表达式数组
   extraFileExtensions: [], // 需要额外支持的文件扩展名
-  fromLang: 'zh-cn', // 源语言
+  fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["en"], // 需要翻译为的语言键
   i18nPath: "@/src/i18n", // i18n语言包路径
   outputPath: "src/i18n/zh-CN.json", // 输出文件路径
@@ -55,7 +55,7 @@ const defaultOptions = {
 ```javascript
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VitePluginI18n from 'vue-i18n-extract-plugin/vite-plugin-i18n'
+import { VitePluginI18n } from 'vue-i18n-extract-plugin'
 
 export default defineConfig({
     plugins: [
@@ -67,7 +67,7 @@ export default defineConfig({
 
 ## Webpack plugin
 ```javascript
-const WebpackPluginI18n = require('vue-i18n-extract-plugin/webpack-plugin-i18n')
+const { WebpackPluginI18n } = require('vue-i18n-extract-plugin')
 const i18nPlugin = new WebpackPluginI18n()
 
 module.exports = {
@@ -172,7 +172,7 @@ translator: new Translator({
     name: '我的翻译器',
     // 翻译的方法
     fetchMethod: (str, fromKey, toKey, _separator) => {
-        // 实际的接口调用可能比示例更复杂，具体可参考源码中YoudaoTranslator的实现，路径：packages\autoI18nPluginCore\src\translators\youdao.ts
+        // 实际的接口调用可能比示例更复杂，具体可参考源码中YoudaoTranslator的实现，路径：src\translators\youdao.js
         const myApi = 'https://www.my-i18n.cn/api/translate?from=${fromKey}&to=${toKey}&t={+new Date}'
         return axios.post(myApi, { str })
             .then(res => res.data)

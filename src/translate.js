@@ -230,5 +230,8 @@ async function translateChunks(transLangObj, toTranslateLang, option) {
 }
 
 module.exports = {
-    autoTranslate
+    autoTranslate,
+    translateChunks,
+    createTextSplitter,
+    getLangJsonPath
 }

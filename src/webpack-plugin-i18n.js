@@ -5,7 +5,7 @@ const { defaultOptions } = require("./options");
 /**
  * Webpack 插件实现，用于自动化处理国际化翻译功能
  */
-export default class WebpackPluginsI18n {
+class WebpackPluginI18n {
   options = defaultOptions;
   /**
    * 初始化插件并合并用户配置
@@ -137,8 +137,10 @@ function generateAdvancedRegex(extensions, option) {
   return new RegExp(finalRegex, "i");
 }
 
+module.exports = WebpackPluginI18n;
+
 /*
-const WebpackPluginI18n = require('vue-i18n-extract-plugin/webpack-plugin-i18n')
+const WebpackPluginI18n = require('vue-i18n-extract-plugin')
 const i18nPlugin = new WebpackPluginI18n()
 
 module.exports = {

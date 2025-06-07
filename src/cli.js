@@ -1,4 +1,6 @@
-const { parseJSON } = require("./utils");
+#!/usr/bin/env node
+
+const { parseArg } = require("./utils");
 const { defaultOptions } = require("./options");
 const { extractI18n } = require("./extract");
 
@@ -8,7 +10,7 @@ const cli = function (args) {
     rewrite: false,
     ...args.reduce((acc, arg) => {
       const [key, value] = arg.split("=");
-      acc[key.replace("--", "")] = !value ? true : parseJSON(value);
+      acc[key.replace("--", "")] = !value ? true : parseArg(value);
       return acc;
     }, {}),
   };
