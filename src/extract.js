@@ -165,7 +165,11 @@ function transformScript(code, options, useAst) {
 }
 
 function transformTemplate(templateContent, options, filePath) {
-  const magicString = new MagicString(templateContent);
+  let magicString
+
+  if (options.rewrite) {
+    magicString = new MagicString(templateContent);
+  }
 
   const ast = parseTemplate(templateContent, {
     comments: true, // 保留注释
@@ -194,7 +198,7 @@ function transformTemplate(templateContent, options, filePath) {
             }
             if (newContent) {
               content.content = newContent;
-              magicString.overwrite(
+              magicString?.overwrite(
                 node.loc.start.offset,
                 node.loc.end.offset,
                 `{{ ${newContent} }}`
@@ -221,7 +225,7 @@ function transformTemplate(templateContent, options, filePath) {
               // 替换原来的 TEXT 节点为 INTERPOLATION 节点
               Object.assign(node, interpolationNode);
 
-              magicString.overwrite(
+              magicString?.overwrite(
                 node.loc.start.offset,
                 node.loc.end.offset,
                 `{{ ${newContent} }}`
@@ -248,7 +252,7 @@ function transformTemplate(templateContent, options, filePath) {
                     // 将原属性替换为指令
                     node.props[index] = directive;
 
-                    magicString.overwrite(
+                    magicString?.overwrite(
                       prop.loc.start.offset,
                       prop.loc.end.offset,
                       `:${prop.name}="${newValue.replace(/"/g, "'")}"`
@@ -270,7 +274,7 @@ function transformTemplate(templateContent, options, filePath) {
                   if (newValue) {
                     prop.exp.content = newValue;
 
-                    magicString.overwrite(
+                    magicString?.overwrite(
                       prop.loc.start.offset,
                       prop.loc.end.offset,
                       `${prop.rawName}="${newValue.replace(/"/g, "'")}"`
