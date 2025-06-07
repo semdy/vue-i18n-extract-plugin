@@ -24,7 +24,6 @@ const {
 const {
   shouldTransform,
   isTFunction,
-  generateId,
   addI18nImportIfNeeded,
   createI18nPlugin,
 } = require('./visitors')
@@ -54,7 +53,6 @@ module.exports = {
     EXCLUDED_CALL,
     shouldTransform,
     isTFunction,
-    generateId,
     addI18nImportIfNeeded,
     createI18nPlugin,
     VitePluginI18n,

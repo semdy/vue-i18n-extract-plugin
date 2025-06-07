@@ -352,7 +352,6 @@ function createI18nPlugin(option = defaultOptions, i18nMap) {
 module.exports = {
   shouldTransform,
   isTFunction,
-  generateId,
   addI18nImportIfNeeded,
   createI18nPlugin,
 };
