@@ -8,8 +8,9 @@
   "scripts": {
     "extract-i18n": "extract-i18n --includePath='[\"demo\"]' --rewrite"
   },
-  "keywords": [],
+  "keywords": ["vue-i18n-extract-plugin", "vue-i18n", "i18n", "i18n-extract", "i18n-extract-plugin"],
   "author": "501859275@qq.com",
+  "homepage": "https://github.com/semdy/vue-i18n-extract-plugin",
   "license": "ISC",
   "description": "针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，并生成语言包到json文件中，并支持将生成的key重写入文件中.",
   "devDependencies": {
