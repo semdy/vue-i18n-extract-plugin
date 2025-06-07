@@ -12,7 +12,7 @@ const { Translator } = require('./translator')
  * 
  * 使用方式：
  * ```ts
- * vitePluginsAutoI18n({
+ * VitePluginI18n({
     ...
     translator: new VolcEngineTranslator({
         apiKey: '你申请的apiKey',

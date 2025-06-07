@@ -9,7 +9,7 @@ const CryptoJS = require('crypto-js')
  * 
  * 使用方式：
  * ```ts
- * vitePluginsAutoI18n({
+ * VitePluginI18n({
     ...
     translator: new BaiduTranslator({
         appId: '你申请的appId',
@@ -22,6 +22,7 @@ class BaiduTranslator extends Translator {
     /** 百度的语言类型映射不标准，需要手动控制 */
     BAIDU_TRANSLATE_KEY_CONVERT_MAP = {
         'zh-cn': 'zh',
+        'zh-tw': 'cht',
         ja: 'jp',
         ko: 'kor'
     }

@@ -9,7 +9,7 @@ const tunnel = require('tunnel')
  * 
  * 使用方式：
  * ```ts
- * vitePluginsAutoI18n({
+ * VitePluginI18n({
     ...
     translator: translator: new GoogleTranslator({
         proxyOption: {

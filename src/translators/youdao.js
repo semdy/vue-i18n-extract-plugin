@@ -9,7 +9,7 @@ const CryptoJS = require('crypto-js')
  * 
  * 使用方式：
  * ```ts
- * vitePluginsAutoI18n({
+ * VitePluginI18n({
     ...
     translator: new YoudaoTranslator({
         appId: '你申请的appId',
