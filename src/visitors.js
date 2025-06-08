@@ -45,41 +45,6 @@ function shouldTransform(path) {
   );
 }
 
-function CallExpression(path, option, i18nMap) {
-  if (!isTFunction(path.node, option)) return;
-
-  const [firstArg] = path.node.arguments;
-  let keyText = null;
-
-  if (t.isStringLiteral(firstArg)) {
-    keyText = firstArg.value;
-  } else if (t.isTemplateLiteral(firstArg)) {
-    keyText = firstArg.quasis.map((q) => q.value.cooked).join("${}");
-  }
-
-  if (!keyText) return;
-
-  if (!shouldExtract(keyText, option.fromLang)) {
-    return;
-  }
-
-  // console.log("CallExpression", path.node.arguments);
-
-  const hashed = generateId(keyText);
-
-  if (i18nMap) {
-    i18nMap[hashed] = keyText;
-  }
-
-  if (option.rewrite) {
-    const newArg = t.stringLiteral(hashed);
-    path.node.arguments[0] = newArg;
-  }
-
-  // // 停止对当前节点的遍历
-  // path.stop();
-}
-
 function addI18nImportIfNeeded(ast, options, generateCode) {
   let hasI18nImport = false;
   let lastImportPath = null;
@@ -132,7 +97,35 @@ function createI18nPlugin(option, i18nMap) {
   return {
     visitor: {
       CallExpression(path) {
-        CallExpression(path, option, i18nMap);
+        if (!isTFunction(path.node, option)) return;
+
+        const [firstArg] = path.node.arguments;
+        let keyText = null;
+
+        if (t.isStringLiteral(firstArg)) {
+          keyText = firstArg.value;
+        } else if (t.isTemplateLiteral(firstArg)) {
+          keyText = firstArg.quasis.map((q) => q.value.cooked).join("${}");
+        }
+
+        if (!keyText) return;
+
+        if (!shouldExtract(keyText, option.fromLang)) {
+          return;
+        }
+
+        // console.log("CallExpression", path.node.arguments);
+
+        const hashed = generateId(keyText);
+
+        if (i18nMap) {
+          i18nMap[hashed] = keyText;
+        }
+
+        if (option.rewrite) {
+          const newArg = t.stringLiteral(hashed);
+          path.node.arguments[0] = newArg;
+        }
       },
 
       StringLiteral(path) {
@@ -201,58 +194,6 @@ function createI18nPlugin(option, i18nMap) {
         }
       },
 
-      // TemplateLiteral(path) {
-      //   const { node, parent } = path;
-      //   // 获取真实调用函数
-      //   const extractFnName = extractFunctionName(parent);
-      //   // 调用语句判断当前调用语句是否包含需要过滤的调用语句
-      //   if (
-      //     t.isCallExpression(parent) &&
-      //     extractFnName &&
-      //     (excludedCall.includes(extractFnName) ||
-      //       (extractFnName?.split(".")?.pop() &&
-      //         excludedCall.includes(extractFnName?.split(".")?.pop() || "")))
-      //   ) {
-      //     return;
-      //   }
-
-      //   const raw = node.quasis.map((q) => q.value.cooked).join("${}");
-      //   if (!raw.trim()) return;
-      //   if (!shouldExtract(raw, option.fromLang)) {
-      //     return;
-      //   }
-
-      //   if (option.extractFromText === false) return;
-
-      //   console.log("TemplateLiteral", path.node.quasis);
-
-      //   const hashed = generateId(raw);
-
-      //   if (i18nMap) {
-      //     i18nMap[hashed] = raw;
-      //   }
-
-      //   if (option.rewrite) {
-      //     const callExpression = t.callExpression(
-      //       t.identifier(option.translateKey),
-      //       [t.stringLiteral(hashed)]
-      //     );
-      //     path.replaceWith(callExpression);
-      //     // path.replaceWith(t.stringLiteral(hashed));
-      //     node.expressions.forEach((expr) =>
-      //       CallExpression(
-      //         {
-      //           node: expr,
-      //           parent: node,
-      //           scope: path.scope,
-      //           stop: path.stop,
-      //         },
-      //         option,
-      //         i18nMap
-      //       )
-      //     );
-      //   }
-      // },
       TemplateElement(path) {
         const { node, parent } = path;
         if (!node.value) return;
