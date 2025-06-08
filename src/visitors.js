@@ -190,7 +190,14 @@ function createI18nPlugin(option, i18nMap) {
             t.identifier(option.translateKey),
             [t.stringLiteral(hashed)]
           );
-          path.replaceWith(callExpression);
+          // 如果是 JSX 属性值，需要包裹在 JSXExpressionContainer 中
+          if (parentPath.isJSXAttribute()) {
+            const jsxExpression = t.jsxExpressionContainer(callExpression);
+            path.replaceWith(jsxExpression);
+          } else {
+            // 其他情况直接替换
+            path.replaceWith(callExpression);
+          }
         }
       },
 
