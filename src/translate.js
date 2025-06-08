@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-const { relativeCWDPath } = require("./utils");
+const { relativeCWDPath, isEmptyObject } = require("./utils");
 
 const SEPARATOR = '\n┇┇┇\n'
 const SPLIT_SEPARATOR_REGEX = /\n┇ *┇ *┇\n/
@@ -107,10 +107,6 @@ function valuesToObject(values, keys) {
         obj[keys[i]] = values[i]
     }
     return obj
-}
-
-function isEmptyObject(obj) {
-    return Object.keys(obj).length === 0
 }
 
 async function autoTranslate(option, i18nMap) {

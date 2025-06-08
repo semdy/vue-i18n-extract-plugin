@@ -33,6 +33,10 @@ function parseArg(arg) {
   }
 }
 
+function isEmptyObject(obj) {
+    return Object.keys(obj).length === 0
+}
+
 function checkAgainstRegexArray(value, regexArray = []) {
   for (let i = 0; i < regexArray.length; i++) {
     const regex =
@@ -129,6 +133,7 @@ module.exports = {
   hashKey,
   generateId,
   parseArg,
+  isEmptyObject,
   checkAgainstRegexArray,
   extractFunctionName,
   relativeCWDPath,

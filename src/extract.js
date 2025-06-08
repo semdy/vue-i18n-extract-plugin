@@ -19,6 +19,7 @@ const {
   shouldExtract,
   trimEmptyLine,
   padEmptyLine,
+  isEmptyObject
 } = require("./utils");
 const { defaultOptions } = require("./options");
 const { autoTranslate } = require("./translate");
@@ -142,22 +143,31 @@ function createDirectiveFromProp(prop, content) {
 }
 
 function transformScript(code, options, useAst) {
+  const innerI18nMap = {}
   const ast = parser.parse(code, {
     sourceType: "module",
     plugins: ["typescript", "jsx"],
   });
 
-  if (options.autoImportI18n && options.rewrite) {
-    addI18nImportIfNeeded(ast, options);
-  }
+  traverse(ast, createI18nPlugin(options, innerI18nMap).visitor);
 
-  traverse(ast, createI18nPlugin(options, i18nMap).visitor);
+  const isEmpty = isEmptyObject(innerI18nMap)
+
+  if (!isEmpty) {
+    if (options.autoImportI18n && options.rewrite) {
+      addI18nImportIfNeeded(ast, options);
+    }
+    Object.assign(i18nMap, innerI18nMap)
+  }
 
   if (useAst) {
     return ast;
   }
 
   if (options.rewrite) {
+    if (isEmpty) {
+      return code;
+    }
     return generate(ast).code;
   }
 
