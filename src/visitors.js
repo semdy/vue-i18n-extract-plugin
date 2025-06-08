@@ -7,21 +7,6 @@ const {
   EXCLUDED_CALL,
   shouldExtract,
 } = require("./utils");
-const { defaultOptions } = require("./options");
-
-// const allowedObjects = ["this", "i18n", "vm"];
-
-// function isTFunction(node, option) {
-//   return (
-//     t.isCallExpression(node) &&
-//     (t.isIdentifier(node.callee, { name: option.translateKey }) || // $t(...)
-//       (t.isMemberExpression(node.callee) &&
-//         // t.isThisExpression(node.callee.object) &&
-//         t.isIdentifier(node.callee.property, { name: option.translateKey }) && // xxx.$t(...)
-//         t.isIdentifier(node.callee.object) &&
-//         allowedObjects.includes(node.callee.object.name)))
-//   );
-// };
 
 function isTFunction(node, option) {
   return (
@@ -266,8 +251,8 @@ function createI18nPlugin(option, i18nMap) {
         }
       },
       JSXExpressionContainer(path) {
-        if (option.extractFromText === false) return;
         // <div>{"Hi"}</div>
+        if (option.extractFromText === false) return;
         const expr = path.node.expression;
         if (t.isStringLiteral(expr)) {
           if (!shouldExtract(expr.value, option.fromLang)) {
