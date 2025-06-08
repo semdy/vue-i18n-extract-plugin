@@ -195,11 +195,15 @@ async function translateChunks(transLangObj, toTranslateLang, option) {
 
     // 等待所有分块完成并合并结果
     const chunkResults = await Promise.all(translatePromises)
+    const handleTranslatedText = typeof option.handleTranslatedText !== 'function'
+        ? (text) => text
+        : option.handleTranslatedText
+    
     return chunkResults
         .map(item => {
             // 提取分割逻辑到单独的函数中，提高代码复用性
             const splitTranslation = (text, separatorRegex) => {
-                return text.split(separatorRegex).map(v => v.trim())
+                return text.split(separatorRegex).map(v => handleTranslatedText(v.trim(), toTranslateLang))
             }
 
             // 分割符可能会被翻译，所以这里做了兼容处理

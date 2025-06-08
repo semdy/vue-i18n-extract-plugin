@@ -38,6 +38,7 @@ const defaultOptions = {
   translateLangKeys: ["en"], // 需要翻译为的语言键
   i18nPkgImportPath: "@/src/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
+  handleTranslatedText: (text, toLang) => text, // 翻译后的文本处理函数, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举
   /** 翻译器，决定自动翻译使用的api与调用方式，默认使用 Google 翻译器并使用7890(clash)端口代理 */
   translator: new GoogleTranslator({
     proxyOption: {
