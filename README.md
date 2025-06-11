@@ -33,7 +33,6 @@ const defaultOptions = {
   rewrite: true, // 是否重写翻译函数的参数为哈希值
   extractFromText: true, // 是否从文本中提取翻译内容
   autoImportI18n: true, // 是否自动导入 i18n 模块
-  sourcemap: false, // 是否生成sourcemap
   autoTranslate: true, // 提取完成后是否自动翻译
   excludedCall: [], // 排除的调用函数名称数组
   includePath: ['src'], // 包含路径的正则表达式数组
