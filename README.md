@@ -4,12 +4,15 @@
 - 包含了vite和webpack的插件.
 
 # USAGE
+
 ## CLI
+
 ```bash
 extract-i18n --includePath='["demo"]' --rewrite
 ```
 
 ## Programming API
+
 ```javascript
 const { extractI18n } = require("vue-i18n-extract-plugin");
 
@@ -17,11 +20,13 @@ extractI18n(options)
   .then(() => {
     console.log("extract done！");
   })
-  .catch((err) => {
+  .catch(err => {
     console.error("extract error:", err);
   });
 ```
+
 ## options
+
 ```javascript
 const defaultOptions = {
   translateKey: "$t", // 翻译函数的名称
@@ -38,7 +43,8 @@ const defaultOptions = {
   translateLangKeys: ["en"], // 需要翻译为的语言键
   i18nPkgImportPath: "@/src/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
-  handleTranslatedText: (text, toLang) => text, // 翻译后的文本处理函数, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
+  customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
+  customTranslatedText: (text, toLang) => text, // 翻译后的文本处理函数, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
   /* 翻译器，默认使用GoogleTranslator，也可以自定义实现Translator接口 */
   translator: new GoogleTranslator()
   /** 如开启了端口代理，请配置port，如：7890 */
@@ -55,51 +61,56 @@ const defaultOptions = {
 ```
 
 ## Configuration file
+
 在项目根目录创建extract-i18n.config.js，用于cli参数的配置.
 
 ```javascript
-import { YoudaoTranslator } from 'vite-i18n-extract-plugin/translators'
+import { YoudaoTranslator } from "vite-i18n-extract-plugin/translators";
 
 export default {
-    rewrite: true,
-    translator: new YoudaoTranslator({appId: 'youdao appId', appKey: 'youdao appKey'})
-}
+  rewrite: true,
+  translator: new YoudaoTranslator({
+    appId: "youdao appId",
+    appKey: "youdao appKey"
+  })
+};
 ```
 
 ## Vite plugin
+
 ```javascript
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { VitePluginI18n } from 'vue-i18n-extract-plugin'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { VitePluginI18n } from "vue-i18n-extract-plugin";
 
 export default defineConfig({
-    plugins: [
-        vue(),
-        VitePluginI18n()
-    ]
-})
+  plugins: [vue(), VitePluginI18n()]
+});
 ```
 
 ## Webpack plugin
+
 ```javascript
-const { WebpackPluginI18n } = require('vue-i18n-extract-plugin')
-const i18nPlugin = new WebpackPluginI18n()
+const { WebpackPluginI18n } = require("vue-i18n-extract-plugin");
+const i18nPlugin = new WebpackPluginI18n();
 
 module.exports = {
-    plugins: [
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            template: './public/index.html'
-        }),
-        i18nPlugin
-    ]
-}
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    }),
+    i18nPlugin
+  ]
+};
 ```
 
 # Translators
+
 插件默认使用谷歌翻译（默认配置代理端口7890）。在网络不支持访问谷歌的情况下，我们推荐使用 **有道翻译** ✨，其翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
 
 ## Google Translate (default)
+
 ```javascript
 import { GoogleTranslator } from 'vue-i18n-extract-plugin/translators'
 
@@ -116,7 +127,6 @@ translator: new GoogleTranslator({
 ...
 ```
 
-
 ## 有道Translate
 
 需要申请api，[api文档](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)。
@@ -131,6 +141,7 @@ translator: new YoudaoTranslator({
 })
 ...
 ```
+
 ## 百度Translate
 
 需要申请api，[api文档](https://api.fanyi.baidu.com/product/113)。
@@ -147,6 +158,7 @@ translator: new BaiduTranslator({
 ```
 
 ## 火山引擎AI Translate
+
 支持调用 `doubao` 或 `deepseek` 进行翻译，AI大模型的翻译效果会比传统的API翻译更准确，但耗时较长。
 火山引擎大模型介绍：https://www.volcengine.com/docs/82379/1099455。
 需要开通大模型服务并申请API，[api文档](https://www.volcengine.com/docs/82379/1298454)。
@@ -163,6 +175,7 @@ translator: new VolcEngineTranslator({
 ```
 
 ## Empty Translate
+
 如果只需要扫描目标语言，不进行翻译，该翻译器会生成 JSON 文件。
 
 ```javascript
@@ -174,6 +187,7 @@ translator: new EmptyTranslator()
 ```
 
 ## Custom Translate
+
 如果你有一个自用的翻译接口，可以通过以下方式自定义翻译器——
 
 最简单的方式是使用 Translator 基类定义翻译器实例。
@@ -197,6 +211,7 @@ translator: new Translator({
 })
 ...
 ```
+
 如果需要更高阶的功能，可以使用继承，不过目前无相关场景。
 
 ```javascript
