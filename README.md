@@ -34,6 +34,8 @@ const defaultOptions = {
   extractFromText: true, // 是否从文本中提取翻译内容
   autoImportI18n: true, // 是否自动导入 i18n 模块
   autoTranslate: true, // 提取完成后是否自动翻译
+  cleanTranslate: true, // 是否清理无用的翻译内容
+  translateInterval: 1000, // 自动翻译的间隔时间
   excludedCall: [], // 排除的调用函数名称数组
   includePath: ['src'], // 包含路径的正则表达式数组
   excludedPath: [], // 排除路径的正则表达式数组
