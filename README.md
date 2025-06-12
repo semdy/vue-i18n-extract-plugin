@@ -41,7 +41,7 @@ extractI18n(options)
   });
 ```
 
-## options
+## Options
 
 ```javascript
 const defaultOptions = {
