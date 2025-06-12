@@ -58,7 +58,7 @@ const defaultOptions = {
   extraFileExtensions: [], // 需要额外支持的文件扩展名
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["en"], // 需要翻译为的语言键
-  i18nPkgImportPath: "@/src/i18n", // i18n语言包导入路径
+  i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
   customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
   customTranslatedText: (text, toLang) => text, // 翻译后的文本处理函数, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
