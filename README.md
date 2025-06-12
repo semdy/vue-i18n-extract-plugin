@@ -5,6 +5,22 @@
 
 # USAGE
 
+## Install
+
+```bash
+#  npm
+npm i vue-i18n-extract-plugin -D
+#  global
+npm i vue-i18n-extract-plugin -g
+```
+
+```bash
+#  npm
+yarn add vue-i18n-extract-plugin --dev
+#  global
+yarn global add vue-i18n-extract-plugin
+```
+
 ## CLI
 
 ```bash
