@@ -8,16 +8,16 @@
 ## Install
 
 ```bash
-#  npm
+# npm
 npm i vue-i18n-extract-plugin -D
-#  global
+# global
 npm i vue-i18n-extract-plugin -g
 ```
 
 ```bash
-#  npm
+# yarn
 yarn add vue-i18n-extract-plugin --dev
-#  global
+# global
 yarn global add vue-i18n-extract-plugin
 ```
 
