@@ -248,3 +248,7 @@ class CustomTranslator extends Translator {
 translator: new CustomTranslator()
 ...
 ```
+
+## :copyright: License
+
+[MIT](http://opensource.org/licenses/MIT)
