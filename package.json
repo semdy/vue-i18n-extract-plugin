@@ -1,6 +1,6 @@
 {
   "name": "vue-i18n-extract-plugin",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "main": "lib/index.js",
   "bin": {
     "extract-i18n": "lib/cli.js"

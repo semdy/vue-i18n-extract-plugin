@@ -59,6 +59,7 @@ const defaultOptions = {
   allowedExtensions: [".vue", ".tsx", ".ts", ".jsx", ".js"], // 允许提取的文件扩展名
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["en"], // 需要翻译为的语言键
+  i18nPkgImportName: "$$t", // i18n语言包导入名称
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
   customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
