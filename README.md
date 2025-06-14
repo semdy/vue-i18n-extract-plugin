@@ -54,7 +54,7 @@ const defaultOptions = {
   incrementalExtract: true, // 是否增量提取
   translateInterval: 1000, // 自动翻译的间隔时间
   excludedCall: [], // 排除的调用函数名称数组
-  includePath: ['src'], // 包含路径的正则表达式数组
+  includePath: ['src/'], // 包含路径的正则表达式数组
   excludedPath: [], // 排除路径的正则表达式数组
   allowedExtensions: [".vue", ".tsx", ".ts", ".jsx", ".js"], // 允许提取的文件扩展名
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
