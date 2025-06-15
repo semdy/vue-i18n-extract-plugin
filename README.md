@@ -52,6 +52,7 @@ const defaultOptions = {
   autoTranslate: true, // 提取完成后是否自动翻译
   cleanTranslate: true, // 是否清理无用的翻译内容
   incrementalExtract: true, // 是否增量提取
+  useLocalImportName: false, // 是否使用本地导入名称
   translateInterval: 1000, // 自动翻译的间隔时间
   excludedCall: [], // 排除的调用函数名称数组
   includePath: ['src/'], // 包含路径的正则表达式数组
@@ -103,9 +104,40 @@ import vue from "@vitejs/plugin-vue";
 import { vitePluginImportI18n, vitePluginI18n } from "vue-i18n-extract-plugin";
 
 export default defineConfig({
-  plugins: [vitePluginImportI18n(), vue(), vitePluginI18n()]
+  plugins: [
+    vitePluginImportI18n(), // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法. 注意顺序，必放在vue插件之前
+    vue(),
+    vitePluginI18n() // 用于运行时转换. 注意顺序，必放在vue插件之后
+  ]
 });
 ```
+
+## **重要说明**
+
+在Vue3中，vue-i18n版本大于9.0.0时，legacy须设为false,否则在开发阶段会有`Uncaught TypeError: 'set' on proxy: trap returned falsish for property '$t'`的代理错误. 推荐写法如下：
+
+```javascript
+import { createI18n } from "vue-i18n";
+import zhMessages from "@/locales/zh-cn.json";
+import enMessages from "@/locales/en.json";
+
+const i18n = createI18n({
+  legacy: false,
+  fallbackLocale: "en",
+  locale: "zh",
+  messages: {
+    en: enMessages,
+    zh: zhMessages
+  }
+});
+
+// 导出一个$t方法
+export const $t = i18n.global.t.bind(i18n.global);
+
+export default i18n;
+```
+
+另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后代码重新写入源文件（uni-app X项目可用于此模式）.
 
 ## Webpack plugin
 
