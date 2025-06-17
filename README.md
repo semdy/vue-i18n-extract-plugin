@@ -47,7 +47,7 @@ extractI18n(options)
 
 ```javascript
 const defaultOptions = {
-  translateKey: "$t", // 翻译函数的名称
+  translateKey: "$t", // 提取的函数的名称
   rewrite: true, // 是否重写翻译函数的参数为哈希值
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
   autoImportI18n: true, // 是否自动导入 i18n 模块
@@ -67,7 +67,8 @@ const defaultOptions = {
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
   customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
-  customTranslatedText: (text, toLang) => text, // 翻译后的文本处理函数，方便对翻译后的文本进行二次加工，如每个单词首字母大写, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
+  // 翻译后的文本处理函数，方便对翻译后的文本进行二次加工，如每个单词首字母大写, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
+  customTranslatedText: (text, toLang) => text,
   /* 翻译器，默认使用GoogleTranslator，也可以自定义实现Translator接口 */
   translator: new GoogleTranslator()
   /** 如开启了端口代理，请配置port，如：7890 */
