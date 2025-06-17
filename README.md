@@ -53,7 +53,7 @@ const defaultOptions = {
   autoImportI18n: true, // 是否自动导入 i18n 模块
   autoTranslate: true, // 提取完成后是否自动翻译
   cleanTranslate: true, // 是否清理无用的翻译内容
-  incrementalExtract: false, // 是否增量提取翻译内容
+  incrementalExtract: false, // 是否增量提取翻译内容（rewrite模式建议开启）
   enableExtractInPlugin: true, // 是否在插件中自动提取翻译内容
   outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
   outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
