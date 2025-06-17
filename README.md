@@ -1,6 +1,6 @@
 # vue-i18n-extract-plugin
 
-- 针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，并生成语言包到json文件中，并支持将生成的key重写入文件中.
+- 针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，生成语言包到json文件中，支持将生成的key重写入文件中（rewrite模式），并且支持自动翻译后生成翻译json文件.
 - 包含了vite和webpack的插件.
 
 # USAGE
@@ -24,7 +24,9 @@ yarn global add vue-i18n-extract-plugin
 ## CLI
 
 ```bash
-extract-i18n --includePath='["demo"]' --rewrite
+extract-i18n --includePath=demo --rewrite
+
+这会扫描demo目录下的所有`allowedExtensions`文件，并生成一个对应的JSON文件，如果开启了自动翻译，则会自动翻译并生成对应的翻译JSON文件
 ```
 
 ## Programming API
@@ -89,11 +91,12 @@ const defaultOptions = {
 import { YoudaoTranslator } from "vite-i18n-extract-plugin/translators";
 
 export default {
-  rewrite: true,
+  rewrite: false,
   translator: new YoudaoTranslator({
     appId: "youdao appId",
     appKey: "youdao appKey"
-  })
+  }),
+  ...
 };
 ```
 
@@ -108,9 +111,25 @@ export default defineConfig({
   plugins: [
     vitePluginImportI18n(), // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法. 注意顺序，必放在vue插件之前
     vue(),
-    vitePluginI18n() // 用于运行时转换. 注意顺序，必放在vue插件之后
+    vitePluginI18n(options) // 用于运行时转换. 注意顺序，必放在vue插件之后
   ]
 });
+```
+
+## Webpack plugin
+
+```javascript
+const { WebpackPluginI18n } = require("vue-i18n-extract-plugin");
+
+module.exports = {
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html"
+    }),
+    new WebpackPluginI18n(options)
+  ]
+};
 ```
 
 ## **重要说明**
@@ -138,24 +157,7 @@ export const $t = i18n.global.t.bind(i18n.global);
 export default i18n;
 ```
 
-另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后代码重新写入源文件（uni-app X项目可用于此模式）.
-
-## Webpack plugin
-
-```javascript
-const { WebpackPluginI18n } = require("vue-i18n-extract-plugin");
-const i18nPlugin = new WebpackPluginI18n();
-
-module.exports = {
-  plugins: [
-    new VueLoaderPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html"
-    }),
-    i18nPlugin
-  ]
-};
-```
+另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
 
 # Translators
 
