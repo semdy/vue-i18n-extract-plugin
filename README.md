@@ -109,9 +109,11 @@ import { vitePluginImportI18n, vitePluginI18n } from "vue-i18n-extract-plugin";
 
 export default defineConfig({
   plugins: [
-    vitePluginImportI18n(options), // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法. 注意顺序，必放在vue插件之前
+    // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法. 注意顺序，必放在vue插件之前
+    vitePluginImportI18n(options),
     vue(),
-    vitePluginI18n(options) // 用于运行时转换. 注意顺序，必放在vue插件之后
+    // 用于运行时转换. 注意顺序，必放在vue插件之后
+    vitePluginI18n(options)
   ]
 });
 ```
