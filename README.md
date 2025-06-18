@@ -58,7 +58,7 @@ const defaultOptions = {
   outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
   outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
   translateInterval: 1000, // 自动翻译的间隔时间
-  excludedCall: [], // 排除的调用函数名称数组
+  excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请查询：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L189
   includePath: ['src/'], // 包含路径的数组
   excludedPath: [], // 排除路径的数组
   allowedExtensions: [".vue", ".tsx", ".ts", ".jsx", ".js"], // 允许提取的文件扩展名
