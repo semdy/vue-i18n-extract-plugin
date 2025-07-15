@@ -1,6 +1,6 @@
 {
   "name": "vue-i18n-extract-plugin",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "main": "lib/index.js",
   "bin": {
     "extract-i18n": "lib/cli.js"
@@ -41,9 +41,7 @@
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.0",
     "magic-string": "^0.30.17",
+    "prettier": "^3.5.3",
     "tunnel": "0.0.6"
-  },
-  "devDependencies": {
-    "prettier": "^3.5.3"
   }
 }
