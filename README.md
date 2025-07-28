@@ -48,7 +48,7 @@ extractI18n(options)
 ```javascript
 const defaultOptions = {
   translateKey: "$t", // 提取的函数的名称
-  rewrite: true, // 是否将提取到的内容转换为id后重写入源文件
+  rewrite: false, // 是否将提取到的内容转换为id后重写入源文件
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
   autoImportI18n: true, // 是否自动导入 i18n 模块
   autoTranslate: true, // 提取完成后是否自动翻译
