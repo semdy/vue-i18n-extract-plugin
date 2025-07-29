@@ -1,17 +1,40 @@
 {
   "name": "vue-i18n-extract-plugin",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "bin": {
     "extract-i18n": "lib/cli.js"
   },
   "exports": {
-    ".": "./lib/index.js",
-    "./translators": "./lib/translators/index.js",
-    "./babel-plugin-i18n": "./lib/babel-plugin-i18n.js",
-    "./babel-plugin-import-i18n": "./lib/babel-plugin-import-i18n.js",
-    "./webpack-import-i18n-loader": "./lib/webpack-import-i18n-loader.js"
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./lib/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./translators": {
+      "require": "./lib/translators/index.js",
+      "import": "./lib/translators/index.js",
+      "types": "./types/translators/index.d.ts"
+    },
+    "./babel-plugin-i18n": {
+      "require": "./lib/babel-plugin-i18n.js",
+      "import": "./lib/babel-plugin-i18n.js",
+      "types": "./types/babel-plugin-i18n.d.ts"
+    },
+    "./babel-plugin-import-i18n": {
+      "require": "./lib/babel-plugin-import-i18n.js",
+      "import": "./lib/babel-plugin-import-i18n.js",
+      "types": "./types/babel-plugin-import-i18n.d.ts"
+    },
+    "./webpack-import-i18n-loader": {
+      "require": "./lib/webpack-import-i18n-loader.js",
+      "import": "./lib/webpack-import-i18n-loader.js",
+      "types": "./types/webpack-import-i18n-loader.d.ts"
+    },
+    "./client": {
+      "types": "./types/extract-i18n.config.d.ts"
+    }
   },
   "keywords": [
     "vue-i18n-extract-plugin",

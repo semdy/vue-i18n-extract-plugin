@@ -8,7 +8,7 @@ export function isEmptyObject(obj: Record<string, any>): boolean;
 export function checkAgainstRegexArray(value: string, regexArray?: (string | RegExp)[]): boolean;
 export function extractFunctionName(path: NodePath): string;
 export function relativeCWDPath(subPath: string): string;
-export function getLangJsonPath(langKey: LangKey, option: I18nOptions): string;
+export function getLangJsonPath(langKey: LangKey, option: Partial<I18nOptions>): string;
 export function readJsonWithDefault(pathStr: string, defaultValue?: Record<string, any>): Record<string, any>;
 export function resolveAliasPath(pathStr: string): string;
 export function resolveFilterPath(pathStr: string): string;

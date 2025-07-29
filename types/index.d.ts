@@ -1,8 +1,6 @@
-/// <reference path="./extract-i18n.config.d.ts" />
-
 export { default as babelPluginI18n } from "./babel-plugin-i18n";
 export { extractI18n, addI18nImportIfNeeded } from "./extract";
-export { I18nOptions as defaultOptions } from "./options";
+import { I18nOptions } from "./options";
 export {
   autoTranslate,
   translateChunks,
@@ -39,3 +37,9 @@ export {
   i18nImportTransform,
   extractScriptContent
 } from "./import-i18n-transform";
+
+declare const defaultOptions: I18nOptions;
+
+export { defaultOptions }
+
+export function defineConfig(options: Partial<I18nOptions>): I18nOptions;
