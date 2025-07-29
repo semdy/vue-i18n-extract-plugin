@@ -53,7 +53,7 @@ const defaultOptions = {
   autoImportI18n: true, // 是否自动导入 i18n 模块
   autoTranslate: true, // 提取完成后是否自动翻译
   cleanTranslate: true, // 是否清理无用的翻译内容
-  enableExtractInPlugin: true, // 是否在插件中自动提取翻译内容
+  enabled: true, // 是否启用插件
   outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
   outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
   translateInterval: 1000, // 自动翻译的间隔时间
@@ -109,10 +109,10 @@ import { vitePluginImportI18n, vitePluginI18n } from "vue-i18n-extract-plugin";
 
 export default defineConfig({
   plugins: [
-    // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法. 注意顺序，必放在vue插件之前
+    // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法.
     vitePluginImportI18n(options),
     vue(),
-    // 用于运行时转换. 注意顺序，必放在vue插件之后
+    // 用于运行时转换
     vitePluginI18n(options)
   ]
 });

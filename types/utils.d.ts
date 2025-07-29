@@ -1,0 +1,21 @@
+import { NodePath } from "@babel/traverse";
+import { I18nOptions, LangKey } from './options';
+
+export function hashKey(str: string): string;
+export function generateId(text: string, length?: number): string;
+export function parseArg(arg: string): any;
+export function isEmptyObject(obj: Record<string, any>): boolean;
+export function checkAgainstRegexArray(value: string, regexArray?: (string | RegExp)[]): boolean;
+export function extractFunctionName(path: NodePath): string;
+export function relativeCWDPath(subPath: string): string;
+export function getLangJsonPath(langKey: LangKey, option: I18nOptions): string;
+export function readJsonWithDefault(pathStr: string, defaultValue?: Record<string, any>): Record<string, any>;
+export function resolveAliasPath(pathStr: string): string;
+export function resolveFilterPath(pathStr: string): string;
+export function fixFolderPath(pathStr: string | RegExp): string;
+export function sleep(ms: number): Promise<void>;
+export function shouldExtract(str: string, langKey: LangKey): boolean;
+export function trimEmptyLine(str: string): string;
+export function padEmptyLine(str: string): string;
+export const excludeDirectives: string[];
+export const EXCLUDED_CALL: string[];
