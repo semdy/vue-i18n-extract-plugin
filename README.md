@@ -99,7 +99,7 @@ export default {
   ...
 };
 
-ts支持：
+// ts支持
 import { defineConfig } from "vite-i18n-extract-plugin";
 
 export default defineConfig({
