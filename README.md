@@ -98,6 +98,18 @@ export default {
   }),
   ...
 };
+
+ts支持：
+import { defineConfig } from "vite-i18n-extract-plugin";
+
+export default defineConfig({
+  rewrite: false,
+  translator: new YoudaoTranslator({
+    appId: "youdao appId",
+    appKey: "youdao appKey"
+  }),
+  ...
+});
 ```
 
 ## Vite plugin
