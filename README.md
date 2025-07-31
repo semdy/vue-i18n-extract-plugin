@@ -157,6 +157,8 @@ import enMessages from "@/locales/en.json";
 
 const i18n = createI18n({
   legacy: false,
+  globalInjection: true,
+  allowComposition: true,
   fallbackLocale: "en",
   locale: "zh",
   messages: {
