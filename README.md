@@ -168,6 +168,9 @@ const i18n = createI18n({
 // 导出一个$t方法
 export const $t = i18n.global.t.bind(i18n.global);
 
+// 建议在全局也挂载一个$t方法做兜底
+globalThis.$t = $t;
+
 export default i18n;
 ```
 
