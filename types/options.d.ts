@@ -19,6 +19,7 @@ export interface I18nOptions {
   translateLangKeys: LangKey[]
   i18nPkgImportPath: string
   outputPath: string
+  generateId: ((text: string) => string) | null | undefined
   customGenLangFileName: (langKey: LangKey) => LangKey
   customTranslatedText: (text: string, toLang: LangKey) => string,
 //   translator: new GoogleTranslator({
