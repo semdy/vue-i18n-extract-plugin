@@ -16,6 +16,7 @@ export {
   relativeCWDPath,
   getLangJsonPath,
   shouldExtract,
+  registerLangMatch,
   trimEmptyLine,
   padEmptyLine,
   excludeDirectives,

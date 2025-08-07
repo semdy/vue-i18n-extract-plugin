@@ -15,6 +15,7 @@ export function resolveFilterPath(pathStr: string): string;
 export function fixFolderPath(pathStr: string | RegExp): string;
 export function sleep(ms: number): Promise<void>;
 export function shouldExtract(str: string, langKey: LangKey): boolean;
+export function registerLangMatch(langKey: LangKey, regex: RegExp | ((str: string) => boolean)): void;
 export function trimEmptyLine(str: string): string;
 export function padEmptyLine(str: string): string;
 export const excludeDirectives: string[];
