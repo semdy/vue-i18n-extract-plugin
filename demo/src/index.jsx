@@ -18,6 +18,9 @@ function TestCom({ c }) {
             >
                 CustomCom 纯文本
             </CustomCom>
+            <Trans defaultMsg="Trans组件" />
+            <Trans id="axxxx" defaultMsg="Trans组件, 指定id" />
+            <Trans defaultMsg="Trans组件, 带values, {name}" values={{ name: '参数' }} />
         </div>
     )
 }
