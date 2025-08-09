@@ -24,10 +24,10 @@ yarn global add vue-i18n-extract-plugin
 ## CLI
 
 ```bash
-extract-i18n --includePath=demo --rewrite
+extract-i18n --includePath=demo/src --rewrite
 ```
 
-这会提取demo目录下的所有`allowedExtensions`文件的`fromLang`，并生成一个对应的JSON文件，如果开启了自动翻译，则会自动翻译并生成对应的翻译JSON文件.
+这会提取demo/src目录下的所有`allowedExtensions`文件的`fromLang`，并生成一个对应的JSON文件，如果开启了自动翻译，则会自动翻译并生成对应的翻译JSON文件.
 
 ## Programming API
 
