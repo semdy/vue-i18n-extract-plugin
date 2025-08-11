@@ -18,5 +18,6 @@ export function shouldExtract(str: string, langKey: LangKey): boolean;
 export function registerLangMatch(langKey: LangKey, regex: RegExp | ((str: string) => boolean)): void;
 export function trimEmptyLine(str: string): string;
 export function padEmptyLine(str: string): string;
+export function createFilterFn(option: Partial<I18nOptions>): (id: string) => boolean;
 export const excludeDirectives: string[];
 export const EXCLUDED_CALL: string[];

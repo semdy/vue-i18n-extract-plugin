@@ -19,6 +19,7 @@ export {
   registerLangMatch,
   trimEmptyLine,
   padEmptyLine,
+  createFilterFn,
   excludeDirectives,
   EXCLUDED_CALL
 } from "./utils";
