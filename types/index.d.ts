@@ -44,4 +44,4 @@ declare const defaultOptions: I18nOptions;
 
 export { defaultOptions }
 
-export function defineConfig<T = Partial<I18nOptions>>(options: T | (() => T)): T;
+export function defineConfig<T extends Partial<I18nOptions>>(options: T | (() => T)): T;
