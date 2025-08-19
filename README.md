@@ -48,7 +48,8 @@ extractI18n(options)
 ```javascript
 const defaultOptions = {
   translateKey: "$t", // 提取的函数的名称
-  JSXElement: "Trans", // 提取的函数的 JSX 元素名称 默认为 Trans, 如：<Trans id="aaa" defaultMsg="xxx" />
+  JSXElement: "Trans", // 提取的函数的 JSX 元素名称 默认为 Trans, 如：<Trans id="aaa" msg="xxx" />
+  jsx: false, // 是否启用 JSX 语法转换，开启后JSX里纯文件将转换为 <Trans id="aaa" msg="xxx" />而不是 $t("aaa")
   rewrite: false, // 是否将提取到的内容转换为id后重写入源文件
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
   autoImportI18n: true, // 是否自动导入 i18n 模块
