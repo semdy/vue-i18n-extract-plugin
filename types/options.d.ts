@@ -1,12 +1,18 @@
+import { Translator } from './translators';
+
 export type LangKey = "zh-cn" | 'zh-tw' | 'en' | 'ja' | 'ko' | 'ru' | string
 
 export interface I18nOptions {
   translateKey: string
+  JSXElement: string
+  jsx: boolean
   rewrite: boolean
   extractFromText: boolean
   autoImportI18n: boolean
   autoTranslate: boolean
   cleanTranslate: boolean
+  keepRaw: boolean
+  keepDefaultMsg: boolean
   enabled: boolean
   outputJsonFileInPlugin: boolean
   outputJsonFileDebounceTimeInPlugin: number
@@ -22,13 +28,5 @@ export interface I18nOptions {
   generateId: ((text: string) => string) | null | undefined
   customGenLangFileName: (langKey: LangKey) => LangKey
   customTranslatedText: (text: string, toLang: LangKey) => string,
-//   translator: new GoogleTranslator({
-//     // proxyOption: {
-//     //     port: 7890,
-//     //     host: '127.0.0.1',
-//     //     headers: {
-//     //         'User-Agent': 'Node'
-//     //     }
-//     // }
-//   })
+  translator: Translator
 };

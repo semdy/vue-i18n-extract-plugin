@@ -26,6 +26,7 @@ interface TranslatorOption {
      */
     onError?: (err: unknown, defaultErrorHandler: (error: unknown) => void) => void;
 }
+
 declare class Translator {
     option: Required<TranslatorOption>;
     constructor(option: TranslatorOption);

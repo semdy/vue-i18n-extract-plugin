@@ -14,7 +14,7 @@ export function i18nImportAstTransform(
 export function i18nImportTransform(
   code: string,
   path: string,
-  importName: string,
+  importNames: string[],
   importPath: string
 ): Promise<string>;
 

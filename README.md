@@ -65,11 +65,11 @@ const defaultOptions = {
   includePath: ['src/'], // 包含路径的数组
   excludedPath: [], // 排除路径的数组 refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
   allowedExtensions: [".vue", ".tsx", ".ts", ".jsx", ".js"], // 允许提取的文件扩展名
-  generateId: null, // 自定义生成 key 的函数
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["zh-tw", "en"], // 需要翻译为的语言键
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
+  generateId: null, // 自定义生成 key 的函数
   customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
   // 翻译后的文本处理函数，方便对翻译后的文本进行二次加工，如每个单词首字母大写, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
   customTranslatedText: (text, toLang) => text,
