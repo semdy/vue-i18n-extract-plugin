@@ -5,6 +5,7 @@ export function hashKey(str: string): string;
 export function generateId(text: string, length?: number): string;
 export function parseArg(arg: string): any;
 export function isEmptyObject(obj: Record<string, any>): boolean;
+export function isVueLike(filePath: string): boolean;
 export function checkAgainstRegexArray(value: string, regexArray?: (string | RegExp)[]): boolean;
 export function extractFunctionName(path: NodePath): string;
 export function relativeCWDPath(subPath: string): string;

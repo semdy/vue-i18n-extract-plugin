@@ -1,6 +1,6 @@
 import { Translator } from './translators';
 
-export type LangKey = "zh-cn" | 'zh-tw' | 'en' | 'ja' | 'ko' | 'ru' | string
+export type LangKey = "zh-cn" | 'zh-tw' | 'en' | 'ja' | 'ko' | 'ru' | string;
 
 export interface I18nOptions {
   translateKey: string

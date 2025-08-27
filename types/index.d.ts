@@ -11,6 +11,8 @@ export {
   hashKey,
   generateId,
   parseArg,
+  isEmptyObject,
+  isVueLike,
   checkAgainstRegexArray,
   extractFunctionName,
   relativeCWDPath,
