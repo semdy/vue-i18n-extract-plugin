@@ -61,10 +61,10 @@ const defaultOptions = {
   outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
   outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
   translateInterval: 1000, // 自动翻译的间隔时间
-  excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L189
+  excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L244
   includePath: ['src/'], // 包含路径的数组
   excludedPath: [], // 排除路径的数组 refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
-  allowedExtensions: [".vue", ".nvue", ".uvue", ".tsx", ".ts", ".jsx", ".js"], // 允许提取的文件扩展名
+  allowedExtensions: [".vue", ".nvue", ".uvue", ".tsx", ".ts", ".jsx", ".js", ".uts"], // 允许提取的文件扩展名
   fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
   translateLangKeys: ["zh-tw", "en"], // 需要翻译为的语言键
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
