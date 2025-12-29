@@ -1,7 +1,6 @@
 # vue-i18n-extract-plugin
 
-- 针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，生成语言包到json文件中，支持将生成的key重写入文件中（rewrite模式），并且支持自动翻译后生成翻译json文件.
-- 包含了vite和webpack的插件.
+vue-i18n-extract-plugin是一个vite/webpack的i18n语言提取插件，并支持自动翻译，通过丰富配置项支持vue-i18n、react-i18next、react-intl. 针对vue/react项目，从js/jsx/ts/tsx/vue文件中提取文本，生成语言包到json文件中，支持将生成的key重写入源文件中（rewrite模式），并且支持将自动翻译后的json文件生成到指定目录.
 
 # USAGE
 
