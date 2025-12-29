@@ -48,7 +48,9 @@ extractI18n(options)
 ```javascript
 const defaultOptions = {
   translateKey: "$t", // 提取的函数的名称
+  useTranslationIdentifier: "useTranslation", // 注入到组件的hook名称, 会注入const { $t } = useTranslation()
   JSXElement: "Trans", // 提取的函数的 JSX 元素名称 默认为 Trans, 如：<Trans id="aaa" msg="xxx" />
+  injectUseTranslation: true, // 是否自动注入 useTranslation
   jsx: false, // 是否启用 JSX 语法转换，开启后JSX里纯文件将转换为 <Trans id="aaa" msg="xxx" />而不是 $t("aaa")
   rewrite: false, // 是否将提取到的内容转换为id后重写入源文件
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
@@ -70,6 +72,7 @@ const defaultOptions = {
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
   generateId: null, // 自定义生成 key 的函数
+  shouldExtract: null, // 自定义是否提取文件的函数
   customGenLangFileName: langKey => langKey, // 自定义生成语言文件名
   // 翻译后的文本处理函数，方便对翻译后的文本进行二次加工，如每个单词首字母大写, params: text: 翻译后的文本, toLang: 翻译后的目标语言，translateLangKeys的枚举成员
   customTranslatedText: (text, toLang) => text,
