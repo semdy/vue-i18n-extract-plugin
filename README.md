@@ -165,8 +165,7 @@ module.exports = {
     [
       "vue-i18n-extract-plugin/babel-plugin-import-i18n",
       {
-        importName: "$t",
-        importPath: "@/i18n"
+        ...options
       }
     ],
     [
