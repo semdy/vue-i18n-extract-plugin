@@ -153,6 +153,30 @@ module.exports = {
 };
 ```
 
+## Babel plugin
+
+```javascript
+// babel.config.js
+module.exports = {
+  presets: ["@vue/cli-plugin-babel/preset"],
+  plugins: [
+    [
+      "vue-i18n-extract-plugin/babel-plugin-import-i18n",
+      {
+        importName: "$t",
+        importPath: "@/i18n"
+      }
+    ],
+    [
+      "vue-i18n-extract-plugin/babel-plugin-i18n",
+      {
+        ...options
+      }
+    ]
+  ]
+};
+```
+
 ## **重要说明**
 
 在Vue3中，vue-i18n版本大于9.0.0时，legacy须设为false，否则在开发阶段会有`Uncaught TypeError: 'set' on proxy: trap returned falsish for property '$t'`的代理错误. 推荐写法如下：
