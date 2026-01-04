@@ -22,7 +22,7 @@ yarn global add vue-i18n-extract-plugin
 
 ## CLI
 
-`extract-i18n`是一个命令行工具，它主要有两大功能：1. 提取i18n文本，并生成语言包. 2. 提前转换i18n文本，将提取的文本转换为对应的key. 例如：
+`extract-i18n`是一个命令行工具，它主要有两大功能：1、提取i18n文本，并生成语言包. 2、提前将i18n文本转换为对应的key并写入源文件中. 例如：
 
 ```bash
 extract-i18n --includePath=demo/src --rewrite
