@@ -16,6 +16,7 @@ export interface I18nOptions {
   keepRaw: boolean;
   keepDefaultMsg: boolean;
   enabled: boolean;
+  debug: boolean;
   outputJsonFileInPlugin: boolean;
   outputJsonFileDebounceTimeInPlugin: number;
   translateInterval: number;

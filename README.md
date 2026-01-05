@@ -61,6 +61,7 @@ const defaultOptions = {
   keepRaw: false, // 开启后只做转换不生成hash值，即："测试" -> $t("测试"), 开启rewrite时生效
   keepDefaultMsg: false, // 保留默认消息，即："测试" -> $t("hashedKey", "测试")
   enabled: true, // 是否启用插件
+  debug: true, // 是否打印日志
   outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
   outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
   translateInterval: 1000, // 自动翻译的间隔时间
