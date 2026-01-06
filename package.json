@@ -1,6 +1,6 @@
 {
   "name": "vue-i18n-extract-plugin",
-  "version": "1.0.84",
+  "version": "1.0.85",
   "main": "cjs/index.js",
   "module": "es/index.js",
   "types": "types/index.d.ts",
