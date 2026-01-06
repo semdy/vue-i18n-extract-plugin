@@ -1,35 +1,36 @@
 {
   "name": "vue-i18n-extract-plugin",
   "version": "1.0.84",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
   "types": "types/index.d.ts",
   "bin": {
-    "extract-i18n": "lib/cli.js"
+    "extract-i18n": "es/cli.js"
   },
   "exports": {
     ".": {
-      "require": "./lib/index.js",
-      "import": "./lib/index.js",
+      "require": "./cjs/index.js",
+      "import": "./es/index.js",
       "types": "./types/index.d.ts"
     },
     "./translators": {
-      "require": "./lib/translators/index.js",
-      "import": "./lib/translators/index.js",
+      "require": "./cjs/translators/index.js",
+      "import": "./es/translators/index.js",
       "types": "./types/translators/index.d.ts"
     },
     "./babel-plugin-i18n": {
-      "require": "./lib/babel-plugin-i18n.js",
-      "import": "./lib/babel-plugin-i18n.js",
+      "require": "./cjs/babel-plugin-i18n.js",
+      "import": "./es/babel-plugin-i18n.js",
       "types": "./types/babel-plugin-i18n.d.ts"
     },
     "./babel-plugin-import-i18n": {
-      "require": "./lib/babel-plugin-import-i18n.js",
-      "import": "./lib/babel-plugin-import-i18n.js",
+      "require": "./cjs/babel-plugin-import-i18n.js",
+      "import": "./es/babel-plugin-import-i18n.js",
       "types": "./types/babel-plugin-import-i18n.d.ts"
     },
     "./webpack-import-i18n-loader": {
-      "require": "./lib/webpack-import-i18n-loader.js",
-      "import": "./lib/webpack-import-i18n-loader.js",
+      "require": "./cjs/webpack-import-i18n-loader.js",
+      "import": "./es/webpack-import-i18n-loader.js",
       "types": "./types/webpack-import-i18n-loader.d.ts"
     },
     "./client": {
@@ -41,12 +42,36 @@
     "vue-i18n",
     "i18n",
     "i18n-extract",
-    "i18n-extract-plugin"
+    "i18n-extract-plugin",
+    "react-intl",
+    "react-i18next",
+    "i18n-next"
   ],
   "author": "501859275@qq.com",
   "homepage": "https://github.com/semdy/vue-i18n-extract-plugin",
   "license": "MIT",
   "description": "针对vue/react项目，从js/jsx/ts/tsx/vue文件提取语言，并生成语言包到json文件中，并支持将生成的key重写入文件中.",
+  "files": [
+    "es",
+    "cjs",
+    "types",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "build:esm": "rimraf ./es && babel src --out-dir es --copy-files --no-babelrc",
+    "build:cjs": "rimraf ./cjs && babel src --out-dir cjs --copy-files --plugins=@babel/plugin-transform-modules-commonjs --no-babelrc",
+    "build": "npm run build:esm && npm run build:cjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.27.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
+    "@babel/preset-env": "^7.28.5",
+    "rimraf": "^6.1.2"
+  },
   "dependencies": {
     "@babel/core": "^7.27.3",
     "@babel/generator": "^7.27.3",
