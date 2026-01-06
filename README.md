@@ -131,14 +131,14 @@ import { vitePluginImportI18n, vitePluginI18n } from "vue-i18n-extract-plugin";
 
 export default defineConfig({
   plugins: [
-    // 自动添加import { $t } from '@/i18n'导入语句，请在i18n文件导出一个$t的方法.
-    vitePluginImportI18n(options),
     vue(),
     // 用于运行时转换
-    vitePluginI18n(options)
+    vitePluginI18n(userConfig)
   ]
 });
 ```
+
+参数优先级：userConfig > extract.config.js > defaultOptions
 
 ## Webpack plugin
 
@@ -151,10 +151,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     }),
-    new WebpackPluginI18n(options)
+    new WebpackPluginI18n(userConfig)
   ]
 };
 ```
+
+参数优先级：同上
 
 ## Babel plugin
 
@@ -166,18 +168,20 @@ module.exports = {
     [
       "vue-i18n-extract-plugin/babel-plugin-import-i18n",
       {
-        ...options
+        ...userConfig
       }
     ],
     [
       "vue-i18n-extract-plugin/babel-plugin-i18n",
       {
-        ...options
+        ...userConfig
       }
     ]
   ]
 };
 ```
+
+说明：babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优化级：userConfig > defaultOptions
 
 ## **重要说明**
 
