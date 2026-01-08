@@ -4,9 +4,9 @@ export type LangKey = "zh-cn" | "zh-tw" | "en" | "ja" | "ko" | "ru" | string;
 
 export interface I18nOptions {
   translateKey: string;
-  useTranslationIdentifier: string;
   JSXElement: string;
-  injectUseTranslation: boolean;
+  hooksIdentifier: string;
+  injectHooks: boolean;
   jsx: boolean;
   rewrite: boolean;
   extractFromText: boolean;
@@ -17,8 +17,6 @@ export interface I18nOptions {
   keepDefaultMsg: boolean;
   enabled: boolean;
   debug: boolean;
-  outputJsonFileInPlugin: boolean;
-  outputJsonFileDebounceTimeInPlugin: number;
   translateInterval: number;
   excludedCall: string[];
   includePath: string[] | string;

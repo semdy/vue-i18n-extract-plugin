@@ -49,9 +49,9 @@ extractI18n(options)
 ```javascript
 const defaultOptions = {
   translateKey: "$t", // 提取的函数的名称
-  useTranslationIdentifier: "useTranslation", // 注入到组件的hook名称, 会注入const { $t } = useTranslation()，其中$t为translateKey的引用值
   JSXElement: "Trans", // 提取的函数的 JSX 元素名称 默认为 Trans, 如：<Trans id="aaa" msg="xxx" />
-  injectUseTranslation: true, // 是否自动注入 useTranslation
+  hooksIdentifier: "useTranslation", // 注入到组件的hook名称, 会注入const { $t } = useTranslation()，其中$t为translateKey的引用值
+  injectHooks: true, // 是否自动注入 useTranslation
   jsx: false, // 是否启用 JSX 语法转换，开启后JSX里纯文本将转换为 <Trans id="aaa" msg="xxx" />而不是 $t("aaa")
   rewrite: false, // 是否将提取到的内容转换为id后重写入源文件
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
@@ -62,8 +62,6 @@ const defaultOptions = {
   keepDefaultMsg: false, // 保留默认消息，即："测试" -> $t("hashedKey", "测试")
   enabled: true, // 是否启用插件
   debug: true, // 是否打印日志
-  outputJsonFileInPlugin: true, // 是否在插件中输出 JSON 文件
-  outputJsonFileDebounceTimeInPlugin: 2000, // 输出 JSON 文件的防抖时间
   translateInterval: 1000, // 自动翻译的间隔时间
   excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L244
   includePath: ['src/'], // 包含路径的数组
