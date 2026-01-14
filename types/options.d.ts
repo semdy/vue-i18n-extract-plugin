@@ -15,6 +15,7 @@ export interface I18nOptions {
   cleanTranslate: boolean;
   keepRaw: boolean;
   keepDefaultMsg: boolean;
+  defaultMsgPos: number;
   enabled: boolean;
   debug: boolean;
   translateInterval: number;
