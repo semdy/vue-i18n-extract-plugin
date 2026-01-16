@@ -1,14 +1,14 @@
 {
-  "name": "demo",
+  "name": "example-aot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "extract-i18n": "extract-i18n"
+    "extract-i18n": "extract-i18n --includePath=src --outputPath=src/locales/gen --jsx --injectHooks --rewrite"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "vue-i18n-extract-plugin": "^1.0.57"
+    "vue-i18n-extract-plugin": "^1.0.98"
   }
 }

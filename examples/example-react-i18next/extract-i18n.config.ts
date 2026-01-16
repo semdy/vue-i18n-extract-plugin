@@ -10,7 +10,10 @@ export default defineConfig({
     "src/utils",
     "src/App.tsx"
   ],
-  excludedPath: ["**/node_modules/**"],
+  excludedPath: [
+    "**/node_modules/**",
+    "**/src/components/LanguageSwitcher.tsx"
+  ],
   excludedCall: ["formatAppLog", "__f__"],
   translateKey: "t",
   rewrite: false,

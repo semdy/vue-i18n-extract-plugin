@@ -10,7 +10,10 @@ export default defineConfig({
     "src/utils",
     "src/App.vue"
   ],
-  excludedPath: ["**/node_modules/**"],
+  excludedPath: [
+    "**/node_modules/**",
+    "**/src/components/LanguageSwitcher.vue"
+  ],
   excludedCall: ["formatAppLog", "__f__"],
   rewrite: false,
   keepDefaultMsg: process.env.NODE_ENV === "development",
