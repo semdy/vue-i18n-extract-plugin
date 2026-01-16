@@ -43,6 +43,13 @@
     "i18n-extract",
     "i18n-extract-plugin"
   ],
+  "files": [
+    "lib",
+    "types",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "author": "501859275@qq.com",
   "homepage": "https://github.com/semdy/vue-i18n-extract-plugin",
   "license": "MIT",
