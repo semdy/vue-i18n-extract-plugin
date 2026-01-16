@@ -60,6 +60,11 @@ export function changeLanguage(lang: SupportLocale) {
   if (locale === lang) return;
   locale = lang;
   localStorage.setItem("locale", lang);
+  window.dispatchEvent(
+    new CustomEvent("languagechange", {
+      detail: locale
+    })
+  );
 }
 
 export let intl = {} as any;

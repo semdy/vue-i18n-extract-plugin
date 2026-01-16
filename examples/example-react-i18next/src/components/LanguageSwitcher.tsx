@@ -2,22 +2,21 @@ import {
   type SupportLocale,
   locale,
   changeLanguage,
-  languageList,
-  useTranslation
+  languageList
 } from "@/locales";
-import { type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 
 function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const [value, setValue] = useState(locale);
   const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const locale = event.target.value as SupportLocale;
+    setValue(locale);
     changeLanguage(locale);
-    i18n.changeLanguage(locale);
   };
 
   return (
     <select
-      value={locale}
+      value={value}
       onChange={onChange}
       style={{
         position: "absolute",

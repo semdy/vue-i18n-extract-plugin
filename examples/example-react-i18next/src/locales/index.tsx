@@ -62,6 +62,7 @@ export function changeLanguage(lang: SupportLocale) {
   if (locale === lang) return;
   locale = lang;
   localStorage.setItem("locale", lang);
+  i18n.changeLanguage(locale);
 }
 
 function formatMessage(id: string): string;
