@@ -1,0 +1,51 @@
+{
+  "name": "example-cra",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "extract-i18n && react-app-rewired start",
+    "build": "extract-i18n && react-app-rewired build",
+    "lint": "eslint .",
+    "extract-i18n": "extract-i18n"
+  },
+  "sideEffects": [
+    "*.css",
+    "*.less",
+    "*.scss"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "i18next": "^25.7.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-i18next": "^16.5.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "babel-preset-react-app": "^10.0.1",
+    "customize-cra": "^1.0.0",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vue-i18n-extract-plugin": "^1.0.98",
+    "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1"
+  }
+}
