@@ -1,6 +1,6 @@
-import { Node } from '@babel/types';
-import { I18nOptions as Options } from './options';
-import { I18nMap } from './common';
+import { Node } from "@babel/types";
+import { I18nOptions as Options } from "./options";
+import { I18nMap } from "./common";
 
 export interface WriteResult {
   hasDiff: boolean;
@@ -19,10 +19,6 @@ export function handleFinalI18nMap(
   checkDiffs?: boolean
 ): Promise<void>;
 
-export function addI18nImportIfNeeded(ast: Node, options: Partial<Options>): Node
-export function addI18nImportIfNeeded(ast: Node, options: Partial<Options>, generateCode: false): Node
-export function addI18nImportIfNeeded(ast: Node, options: Partial<Options>, generateCode: true): string
-
 export function extractI18n(options: Partial<Options>): Promise<void>;
 
-export let globalI18nMap: I18nMap; 
+export let globalI18nMap: I18nMap;

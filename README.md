@@ -161,18 +161,14 @@ module.exports = {
 
 ```javascript
 // babel.config.js
+const config = require("./extract-i18n.config");
 module.exports = {
   presets: ["@vue/cli-plugin-babel/preset"],
   plugins: [
     [
-      "vue-i18n-extract-plugin/babel-plugin-import-i18n",
-      {
-        ...userConfig
-      }
-    ],
-    [
       "vue-i18n-extract-plugin/babel-plugin-i18n",
       {
+        ...config,
         ...userConfig
       }
     ]
