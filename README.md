@@ -60,7 +60,7 @@ const defaultOptions = {
   defaultMsgPos: 1, // 默认消息参数位置，0表示第一个参数，1表示第二个参数，开启keepDefaultMsg时生效
   enabled: true, // 是否启用插件
   debug: true, // 是否打印日志
-  translateInterval: 1000, // 翻译不同语种的间隔时间
+  translateInterval: 1000, // 翻译不同语种的间隔时间, 时间过短时可能会被限流
   excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L244
   includePath: ['src/'], // 包含路径的数组
   excludedPath: ['**/node_modules/**'], // 排除路径的数组 refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
