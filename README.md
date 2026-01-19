@@ -15,7 +15,11 @@ pnpm add vue-i18n-extract-plugin --dev
 
 ## CLI
 
-`extract-i18n`是一个命令行工具，它主要有两大功能：1、提取i18n文本，翻译和生成语言包到指定目录. 2、提前将i18n文本转换为对应的key并写入源文件中. 例如：
+`extract-i18n`是一个命令行工具，它主要有两大功能：
+1、提取i18n文本，翻译和生成语言包到指定目录.
+2、提前将i18n文本转换为对应的key并写入源文件中.
+
+例如：
 
 ```bash
 extract-i18n --includePath=src --rewrite
