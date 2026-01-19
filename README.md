@@ -9,15 +9,8 @@ vue-i18n-extract-plugin是一个vite/webpack的i18n语言提取/转译插件，�
 ```bash
 # npm
 npm i vue-i18n-extract-plugin -D
-# global
-npm i vue-i18n-extract-plugin -g
-```
-
-```bash
-# yarn
 yarn add vue-i18n-extract-plugin --dev
-# global
-yarn global add vue-i18n-extract-plugin
+pnpm add vue-i18n-extract-plugin --dev
 ```
 
 ## CLI
