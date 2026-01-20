@@ -17,7 +17,7 @@
     "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
-    "extract-i18n-plugin": "^1.1.1",
+    "extract-i18n-plugin": "^1.1.2",
     "typescript": "~5.9.3",
     "vite": "^7.2.4",
     "vue-tsc": "^3.1.4"

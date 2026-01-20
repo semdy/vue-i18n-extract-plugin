@@ -9,6 +9,6 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "extract-i18n-plugin": "^1.1.1"
+    "extract-i18n-plugin": "^1.1.2"
   }
 }
