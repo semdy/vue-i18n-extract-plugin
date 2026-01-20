@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development extract-i18n && vite",
-    "build": "extract-i18n && vite build",
+    "build": "vue-tsc -b && extract-i18n && vite build",
     "preview": "vite preview",
     "extract-i18n": "extract-i18n"
   },
@@ -14,8 +14,12 @@
     "vue-i18n": "^11.2.8"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "extract-i18n-plugin": "^1.1.0",
+    "typescript": "~5.9.3",
     "vite": "^7.2.4",
-    "extract-i18n-plugin": "^1.1.0"
+    "vue-tsc": "^3.1.4"
   }
 }
