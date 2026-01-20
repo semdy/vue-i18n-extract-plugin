@@ -39,9 +39,10 @@ export { default as babelPluginI18n } from "./babel-plugin-i18n";
 export { default as babelPluginImportI18n } from "./babel-plugin-i18n-import";
 export {
   i18nImportAstTransform,
+  babelI18nImportTransform,
   i18nImportTransform,
   extractScriptContent
-} from "./import-i18n-transform";
+} from "./i18n-import-transform";
 
 declare const defaultOptions: I18nOptions;
 
