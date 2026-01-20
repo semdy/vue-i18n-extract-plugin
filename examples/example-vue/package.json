@@ -16,6 +16,6 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.1",
     "vite": "^7.2.4",
-    "vue-i18n-extract-plugin": "^1.0.98"
+    "extract-i18n-plugin": "^1.1.0"
   }
 }

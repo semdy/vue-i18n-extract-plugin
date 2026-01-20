@@ -4,7 +4,7 @@ const {
   addWebpackAlias,
   addWebpackPlugin
 } = require("customize-cra");
-const { WebpackPluginI18n } = require("vue-i18n-extract-plugin");
+const { WebpackPluginI18n } = require("extract-i18n-plugin");
 
 module.exports = override(
   addWebpackAlias({

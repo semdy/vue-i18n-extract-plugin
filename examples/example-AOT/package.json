@@ -9,6 +9,6 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "vue-i18n-extract-plugin": "^1.0.98"
+    "extract-i18n-plugin": "^1.1.0"
   }
 }

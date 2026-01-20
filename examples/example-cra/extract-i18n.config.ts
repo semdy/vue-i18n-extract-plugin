@@ -1,5 +1,5 @@
-import { defineConfig } from "vue-i18n-extract-plugin";
-import { GoogleTranslator } from "vue-i18n-extract-plugin/translators";
+import { defineConfig } from "extract-i18n-plugin";
+import { GoogleTranslator } from "extract-i18n-plugin/translators";
 
 export default defineConfig({
   includePath: [

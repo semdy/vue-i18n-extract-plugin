@@ -1,5 +1,5 @@
 {
-  "name": "vue-i18n-extract-plugin",
+  "name": "extract-i18n-plugin",
   "version": "1.0.100",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
@@ -58,7 +58,7 @@
     "package.json"
   ],
   "author": "501859275@qq.com",
-  "homepage": "https://github.com/semdy/vue-i18n-extract-plugin",
+  "homepage": "https://github.com/semdy/extract-i18n-plugin",
   "license": "MIT",
   "description": "A helpfull plugin for extracting i18n strings from your code and translate/transform them.",
   "dependencies": {

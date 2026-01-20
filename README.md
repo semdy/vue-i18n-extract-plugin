@@ -1,8 +1,6 @@
-# 该库已被重命名，后续将不维护，请使用[extract-i18n-plugin](https://github.com/semdy/extract-i18n-plugin)
+# extract-i18n-plugin
 
-# vue-i18n-extract-plugin
-
-vue-i18n-extract-plugin是一个vite/webpack的i18n语言提取/转译插件，通过丰富配置项同时支持vue-i18n、react-i18next、react-intl. 针对vue/react项目，从js/jsx/ts/tsx/vue文件中提取文本，生成语言包到json文件中，支持将生成的key重写入源文件中（rewrite模式），并且支持将自动翻译后的json文件生成到指定目录.
+extract-i18n-plugin是一个vite/webpack的i18n语言提取/转译插件，通过丰富配置项同时支持vue-i18n、react-i18next、react-intl. 针对vue/react项目，从js/jsx/ts/tsx/vue文件中提取文本，生成语言包到json文件中，支持将生成的key重写入源文件中（rewrite模式），并且支持将自动翻译后的json文件生成到指定目录.
 
 # USAGE
 
@@ -10,9 +8,9 @@ vue-i18n-extract-plugin是一个vite/webpack的i18n语言提取/转译插件，�
 
 ```bash
 # npm
-npm i vue-i18n-extract-plugin -D
-yarn add vue-i18n-extract-plugin --dev
-pnpm add vue-i18n-extract-plugin --dev
+npm install extract-i18n-plugin -D
+yarn add extract-i18n-plugin -D
+pnpm add extract-i18n-plugin -D
 ```
 
 ## CLI
@@ -32,7 +30,7 @@ extract-i18n --includePath=src --rewrite
 ## Programming API
 
 ```javascript
-const { extractI18n } = require("vue-i18n-extract-plugin");
+const { extractI18n } = require("extract-i18n-plugin");
 
 extractI18n(options)
   .then(() => {
@@ -63,7 +61,7 @@ const defaultOptions = {
   enabled: true, // 是否启用插件
   debug: true, // 是否打印日志
   translateInterval: 600, // 翻译不同语种的间隔时间, 时间过短时可能会被限流
-  excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/vue-i18n-extract-plugin/blob/main/lib/utils.js#L244
+  excludedCall: [], // 排除的调用函数名称数组，目前已内置的函数请参阅：https://github.com/semdy/extract-i18n-plugin/blob/main/lib/utils.js#L244
   includePath: ['src/'], // 包含路径的数组
   excludedPath: ['**/node_modules/**'], // 排除路径的数组 refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
   allowedExtensions: [".vue", ".nvue", ".uvue", ".tsx", ".ts", ".jsx", ".js", ".uts"], // 允许提取的文件扩展名
@@ -125,7 +123,7 @@ export default defineConfig({
 ```javascript
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { vitePluginImportI18n, vitePluginI18n } from "vue-i18n-extract-plugin";
+import { vitePluginImportI18n, vitePluginI18n } from "extract-i18n-plugin";
 
 export default defineConfig({
   plugins: [
@@ -141,7 +139,7 @@ export default defineConfig({
 ## Webpack plugin
 
 ```javascript
-const { WebpackPluginI18n } = require("vue-i18n-extract-plugin");
+const { WebpackPluginI18n } = require("extract-i18n-plugin");
 
 module.exports = {
   plugins: [
@@ -165,7 +163,7 @@ module.exports = {
   presets: ["@vue/cli-plugin-babel/preset"],
   plugins: [
     [
-      "vue-i18n-extract-plugin/babel-plugin-i18n",
+      "extract-i18n-plugin/babel-plugin-i18n",
       {
         ...config,
         ...userConfig
@@ -216,7 +214,7 @@ export default i18n;
 ## Google Translate (default)
 
 ```javascript
-import { GoogleTranslator } from 'vue-i18n-extract-plugin/translators'
+import { GoogleTranslator } from 'extract-i18n-plugin/translators'
 
 ...
 translator: new GoogleTranslator({
@@ -236,7 +234,7 @@ translator: new GoogleTranslator({
 需要申请api，[api文档](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)。
 
 ```javascript
-import { YoudaoTranslator } from 'vue-i18n-extract-plugin/translators'
+import { YoudaoTranslator } from 'extract-i18n-plugin/translators'
 
 ...
 translator: new YoudaoTranslator({
@@ -251,7 +249,7 @@ translator: new YoudaoTranslator({
 需要申请api，[api文档](https://api.fanyi.baidu.com/product/113)。
 
 ```javascript
-import { BaiduTranslator } from 'vue-i18n-extract-plugin/translators'
+import { BaiduTranslator } from 'extract-i18n-plugin/translators'
 
 ...
 translator: new BaiduTranslator({
@@ -268,7 +266,7 @@ translator: new BaiduTranslator({
 需要开通大模型服务并申请API，[api文档](https://www.volcengine.com/docs/82379/1298454)。
 
 ```javascript
-import { VolcEngineTranslator } from 'vue-i18n-extract-plugin/translators'
+import { VolcEngineTranslator } from 'extract-i18n-plugin/translators'
 
 ...
 translator: new VolcEngineTranslator({
@@ -283,7 +281,7 @@ translator: new VolcEngineTranslator({
 如果只需要扫描目标语言，不进行翻译，该翻译器会生成 JSON 文件。
 
 ```javascript
-import { EmptyTranslator } from 'vue-i18n-extract-plugin/translators'
+import { EmptyTranslator } from 'extract-i18n-plugin/translators'
 
 ...
 translator: new EmptyTranslator()
@@ -297,7 +295,7 @@ translator: new EmptyTranslator()
 最简单的方式是使用 Translator 基类定义翻译器实例。
 
 ```javascript
-import { Translator } from 'vue-i18n-extract-plugin/translators'
+import { Translator } from 'extract-i18n-plugin/translators'
 import axios from 'axios'
 
 ...
@@ -319,7 +317,7 @@ translator: new Translator({
 如果需要更高阶的功能，可以使用继承，不过目前无相关场景。
 
 ```javascript
-import { Translator } from 'vue-i18n-extract-plugin/translators'
+import { Translator } from 'extract-i18n-plugin/translators'
 
 class CustomTranslator extends Translator {
     constructor () {
