@@ -49,7 +49,7 @@ const defaultOptions = {
   translateKey: "$t", // 提取的函数的名称
   JSXElement: "Trans", // 提取的函数的 JSX 元素名称 默认为 Trans, 如：<Trans id="aaa" msg="xxx" />
   hooksIdentifier: "useTranslation", // 注入到组件的hook名称, 会注入const { $t } = useTranslation()，其中$t为translateKey的引用值
-  injectHooks: true, // 是否将useTranslation自动注入到组件中
+  injectHooks: false, // 是否将useTranslation自动注入到组件中
   jsx: false, // 是否启用 JSX 语法转换，开启后JSX里纯文本将转换为 <Trans id="aaa" msg="xxx" />而不是 $t("aaa")
   rewrite: false, // 是否将提取到的内容转换为id后重写入源文件
   extractFromText: true, // 是否允许从纯文本节点中提取翻译内容
