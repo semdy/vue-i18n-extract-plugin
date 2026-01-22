@@ -16,6 +16,7 @@ pnpm add extract-i18n-plugin -D
 ## CLI
 
 `extract-i18n`是一个命令行工具，它主要有两大功能：
+
 - 提取i18n文本，翻译和生成语言包到指定目录.
 - 提前将i18n文本转换为对应的key并写入源文件中.
 
@@ -123,7 +124,7 @@ export default defineConfig({
 ```javascript
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { vitePluginImportI18n, vitePluginI18n } from "extract-i18n-plugin";
+import { vitePluginI18n } from "extract-i18n-plugin";
 
 export default defineConfig({
   plugins: [
