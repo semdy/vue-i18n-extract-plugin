@@ -92,7 +92,7 @@ const defaultOptions = {
 
 ## Configuration file
 
-在项目根目录创建extract-i18n.config.js，用于cli参数的配置.
+在项目根目录创建extract-i18n.config.js，用于cli和vite/webpack/babel插件的参数配置.
 
 ```javascript
 import { YoudaoTranslator } from "extract-i18n-plugin/translators";
