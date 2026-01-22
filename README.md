@@ -174,7 +174,7 @@ module.exports = {
 };
 ```
 
-说明：babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优化级：userConfig > defaultOptions
+说明：babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
 
 ## **重要说明**
 
