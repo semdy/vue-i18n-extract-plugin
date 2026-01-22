@@ -94,7 +94,7 @@ const defaultOptions = {
 在项目根目录创建extract-i18n.config.js，用于cli参数的配置.
 
 ```javascript
-import { YoudaoTranslator } from "vite-i18n-extract-plugin/translators";
+import { YoudaoTranslator } from "extract-i18n-plugin/translators";
 
 export default {
   rewrite: false,
@@ -106,7 +106,7 @@ export default {
 };
 
 // ts支持
-import { defineConfig } from "vite-i18n-extract-plugin";
+import { defineConfig } from "extract-i18n-plugin";
 
 export default defineConfig({
   rewrite: false,
