@@ -106,7 +106,7 @@ export default {
   ...
 };
 
-// ts支持
+// ts支持 extract-i18n.config.ts
 import { defineConfig } from "extract-i18n-plugin";
 
 export default defineConfig({
