@@ -5,6 +5,9 @@ import { vitePluginI18n } from "extract-i18n-plugin";
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 5173
+  },
   plugins: [vue(), vitePluginI18n()],
   resolve: {
     alias: {
