@@ -1,6 +1,6 @@
 {
   "name": "extract-i18n-plugin",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "bin": {
