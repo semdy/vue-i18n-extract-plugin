@@ -16,6 +16,7 @@ export interface I18nOptions {
   keepRaw: boolean;
   keepDefaultMsg: boolean;
   defaultMsgPos: number;
+  enableCombinedSourcemap: boolean;
   enabled: boolean;
   debug: boolean;
   translateInterval: number;

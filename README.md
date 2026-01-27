@@ -59,6 +59,7 @@ const defaultOptions = {
   keepRaw: false, // 开启后只做转换不生成hash值，即："测试" -> $t("测试"), 开启rewrite时生效
   keepDefaultMsg: false, // 保留默认消息，即："测试" -> $t("hashedKey", "测试")
   defaultMsgPos: 1, // 默认消息参数位置，0表示第一个参数，1表示第二个参数，开启keepDefaultMsg时生效
+  enableCombinedSourcemap: false, // 是否开启获取组合的源映射
   enabled: true, // 是否启用插件
   debug: true, // 是否打印日志
   translateInterval: 1000, // 翻译不同语种的间隔时间, 时间过短时可能会被限流

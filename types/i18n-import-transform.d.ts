@@ -18,11 +18,3 @@ export function babelI18nImportTransform(
   ast: Node,
   options: Partial<I18nOptions>
 ): boolean;
-
-export function i18nImportTransform(
-  code: string,
-  path: string,
-  options: Partial<I18nOptions>
-): Promise<string>;
-
-export function extractScriptContent(code: string, path: string): string;
