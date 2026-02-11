@@ -29,6 +29,6 @@
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
-    "extract-i18n-plugin": "^1.1.6"
+    "extract-i18n-plugin": "^1.1.7"
   }
 }
