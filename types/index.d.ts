@@ -32,6 +32,8 @@ export {
 } from "./visitors";
 export { default as vitePluginI18n } from "./vite-plugin-i18n";
 export { default as vitePluginImportI18n } from "./vite-plugin-i18n-import";
+export { default as rollupPluginI18n } from "./rollup-plugin-i18n";
+export { default as rollupPluginImportI18n } from "./rollup-plugin-i18n-import";
 export { default as WebpackPluginI18n } from "./webpack-plugin-i18n";
 export { default as webpackI18nLoader } from "./webpack-i18n-loader";
 export { default as webpackI18nImportLoader } from "./webpack-i18n-import-loader";

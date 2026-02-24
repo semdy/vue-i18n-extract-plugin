@@ -138,6 +138,25 @@ export default defineConfig({
 
 参数优先级：userConfig > extract.config.js > defaultOptions
 
+## Rollup plugin
+
+```javascript
+import vue from "rollup-plugin-vue";
+import resolve from "@rollup/plugin-node-resolve";
+import { rollupPluginI18n } from "extract-i18n-plugin";
+
+export default {
+  plugins: [
+    resolve(),
+    vue(),
+    // 用于运行时转换
+    rollupPluginI18n(userConfig)
+  ]
+};
+```
+
+参数优先级：userConfig > extract.config.js > defaultOptions
+
 ## Webpack plugin
 
 ```javascript
