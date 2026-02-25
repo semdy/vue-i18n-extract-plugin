@@ -5,6 +5,7 @@
 [![Stars](https://img.shields.io/github/stars/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/stargazers)
 [![Forks](https://img.shields.io/github/forks/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/forks)
 [![Issues](https://img.shields.io/github/issues/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
 extract-i18n-plugin是一个vite/webpack的i18n语言提取/转译插件，通过丰富配置项同时支持vue-i18n、react-i18next、react-intl. 针对vue/react项目，从js/jsx/ts/tsx/vue文件中提取文本，生成语言包到json文件中，支持将生成的key重写入源文件中（rewrite模式），并且支持将自动翻译后的json文件生成到指定目录.
