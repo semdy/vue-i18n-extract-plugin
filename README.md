@@ -198,6 +198,9 @@ module.exports = {
 
 说明：babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
 
+## Deprecated
+仓库中的`babel-plugin-i18n-import`、`rollup-plugin-i18n-import`、`vite-plugin-i18n-import`、`webpack-i18n-import-loader`已弃用，因为主插件中带有自动生成导入i18n的逻辑。
+
 ## **重要说明**
 
 在Vue3中，vue-i18n版本大于9.0.0时，legacy须设为false，否则在开发阶段会有`Uncaught TypeError: 'set' on proxy: trap returned falsish for property '$t'`的代理错误. 推荐写法如下：
@@ -229,6 +232,9 @@ export default i18n;
 ```
 
 另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
+
+## Issues
+如果在使用过程提取出现问题或者切换语言不生效的地方建议使用{{$t("文本")}}，如：<div>文本</div> -> <div>{{ $t("文本") }}</div>，这会大大提高可靠性。因为vue编译器有静态提升的优化，大量连续的静态文本和模板片段会被提升至一个变量里，该插件会将它当成一个字符串处理。
 
 # Translators
 
