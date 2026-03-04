@@ -112,15 +112,18 @@ export function useTranslation() {
 }
 
 export function Trans(props: {
-  id: string;
-  msg?: string;
-  defaultMessage?: string;
+  id?: string;
+  msg: string;
+  tagName?: React.ElementType<any>;
   values?: Record<string, any>;
+  children?: (nodes: React.ReactNode[]) => React.ReactNode | null;
 }) {
-  if (props.msg) {
-    return <FormattedMessage defaultMessage={props.msg} {...props} />;
-  }
-  return <FormattedMessage {...props} />;
+  const { msg, children, ...rest } = props;
+  return (
+    <FormattedMessage defaultMessage={msg} {...rest}>
+      {children}
+    </FormattedMessage>
+  );
 }
 
 function IntlGlobalProvider(props: any) {

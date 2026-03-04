@@ -4,6 +4,7 @@ import "./App.css";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Counter from "@/components/Counter";
 import TextView from "@/components/TextView";
+import { Trans } from "./locales";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Counter />
       </div>
       <TextView />
+      <Trans tagName="h2" msg="欢迎使用React" />
     </>
   );
 }
