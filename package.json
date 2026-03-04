@@ -61,6 +61,14 @@
   "homepage": "https://github.com/semdy/extract-i18n-plugin",
   "license": "MIT",
   "description": "A helpfull plugin for extracting i18n strings from your code and translate/transform them.",
+  "peerDependencies": {
+    "svelte": "^4 || ^5"
+  },
+  "peerDependenciesMeta": {
+    "svelte": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@babel/core": "^7.27.3",
     "@babel/generator": "^7.27.3",
