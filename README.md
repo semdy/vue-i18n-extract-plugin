@@ -8,7 +8,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/examples)获取更多信息.
+extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息.
 
 # USAGE
 
