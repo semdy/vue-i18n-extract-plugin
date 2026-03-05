@@ -1,5 +1,5 @@
 import { get, derived } from "svelte/store";
-import { init, addMessages, format } from "svelte-i18n";
+import { locale, init, addMessages, format } from "svelte-i18n";
 
 import en_gen from "./gen/en.json";
 import ja_gen from "./gen/ja.json";
@@ -8,32 +8,30 @@ import zhHans_gen from "./gen/zh-cn.json";
 import zhHant_gen from "./gen/zh-tw.json";
 
 const messages = {
-  zh_CN: zhHans_gen,
-  zh_TW: zhHant_gen,
-  en_US: en_gen,
-  ja_JP: ja_gen,
-  ko_KR: ko_gen
+  "zh-CN": zhHans_gen,
+  "zh-TW": zhHant_gen,
+  "en-US": en_gen,
+  "ja-JP": ja_gen,
+  "ko-KR": ko_gen
 } as const;
 
 export type SupportLocale = keyof typeof messages;
-
-export let locale = getClientLocale();
 
 export const languageList: {
   value: SupportLocale;
   label: string;
 }[] = [
   {
-    value: "zh_CN",
+    value: "zh-CN",
     label: "简体中文"
   },
   {
-    value: "zh_TW",
+    value: "zh-TW",
     label: "繁体中文"
   },
-  { value: "en_US", label: "English" },
-  { value: "ja_JP", label: "日本語" },
-  { value: "ko_KR", label: "한국인" }
+  { value: "en-US", label: "English" },
+  { value: "ja-JP", label: "日本語" },
+  { value: "ko-KR", label: "한국인" }
 ];
 
 export function getClientLocale(): SupportLocale {
@@ -43,22 +41,22 @@ export function getClientLocale(): SupportLocale {
   }
   const clientLocale = navigator.language;
   const clientLocaleMap: Record<string, SupportLocale> = {
-    "zh-CN": "zh_CN",
-    zh: "zh_CN",
-    "zh-TW": "zh_TW",
-    "en-US": "en_US",
-    "ja-JP": "ja_JP",
-    "ko-KR": "ko_KR",
-    ja: "ja_JP",
-    ko: "ko_KR",
-    kr: "ko_KR"
+    "zh-CN": "zh-CN",
+    zh: "zh-CN",
+    "zh-TW": "zh-TW",
+    "en-US": "en-US",
+    "ja-JP": "ja-JP",
+    "ko-KR": "ko-KR",
+    ja: "ja-JP",
+    ko: "ko-KR",
+    kr: "ko-KR"
   };
-  return clientLocaleMap[clientLocale] || "en_US";
+  return clientLocaleMap[clientLocale] || "en-US";
 }
 
 export function changeLanguage(lang: SupportLocale) {
-  if (locale === lang) return;
-  locale = lang;
+  if (get(locale) === lang) return;
+  locale.set(lang);
   localStorage.setItem("locale", lang);
 }
 
@@ -94,14 +92,15 @@ export const t = derived(format, $format => {
   };
 });
 
-addMessages("en", en_gen);
-addMessages("de", zhHant_gen);
+export { locale };
+
+addMessages("en-US", en_gen);
 addMessages("zh-CN", zhHans_gen);
 addMessages("zh-TW", zhHant_gen);
-addMessages("ja", ja_gen);
-addMessages("ko", ko_gen);
+addMessages("ja-JP", ja_gen);
+addMessages("ko-KR", ko_gen);
 
 init({
-  fallbackLocale: "en",
-  initialLocale: locale
+  fallbackLocale: "en-US",
+  initialLocale: getClientLocale()
 });

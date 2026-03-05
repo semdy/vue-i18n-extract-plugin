@@ -3,9 +3,11 @@
   import viteLogo from '/vite.svg'
   import Counter from './components/Counter.svelte'
   import TextView from './components/TextView.svelte';
+  import LanguageSwitcher from './components/LanguageSwitcher.svelte';
 </script>
 
 <main>
+  <LanguageSwitcher />
   <div>
     <a href="https://vite.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
@@ -22,13 +24,6 @@
 
   <TextView />
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
 
 <style>
