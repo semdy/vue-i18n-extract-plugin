@@ -10,6 +10,7 @@
   <div>{{ "插值表达式" }}</div>
   <div>{{ `插值表达式1` }}</div>
   <div>{{ `插值表达${$t("插值表达内容")}式2` }}</div>
+  <div>{{ `插值表达${test}式2` }}</div>
   <el-form-item>
     <template>
       <el-button @click="greet" label="按钮label">{{ $t("按钮") }}</el-button>
@@ -26,14 +27,14 @@ export default {
     return {
       c: true,
       test: "test测试",
-      message: "信息来自Test组件",
+      message: "信息来自Test组件"
     };
   },
   methods: {
     greet() {
       console.log("Hello from Test!");
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped></style>
