@@ -8,7 +8,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin是一个vite/webpack的i18n语言提取/转译插件，通过丰富配置项同时支持vue-i18n、react-i18next、react-intl. 针对vue/react项目，从js/jsx/ts/tsx/vue文件中提取文本，生成语言包到json文件中，支持将生成的key重写入源文件中（rewrite模式），并且支持将自动翻译后的json文件生成到指定目录.
+extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/examples)获取更多信息.
 
 # USAGE
 
@@ -23,10 +23,7 @@ pnpm add extract-i18n-plugin -D
 
 ## CLI
 
-`extract-i18n`是一个命令行工具，它主要有两大功能：
-
-- 提取i18n文本，翻译和生成语言包到指定目录.
-- 提前将i18n文本转换为对应的key并写入源文件中.
+`extract-i18n`是一个命令行工具，主要功能：提取、编译、重写、翻译.
 
 例如：
 
@@ -34,7 +31,7 @@ pnpm add extract-i18n-plugin -D
 extract-i18n --includePath=src --rewrite
 ```
 
-这会提取src目录下的所有`allowedExtensions`文件的`fromLang`，并生成一个对应的JSON文件，如果开启了自动翻译，则会自动翻译并生成对应的翻译JSON文件.
+这会提取src目录下的所有`allowedExtensions`文件的`fromLang`，生成JSON语言包自动翻译并生成对应的翻译JSON文件.
 
 ## Programming API
 
@@ -232,17 +229,20 @@ const i18n = createI18n({
 // 导出一个$t方法
 export const $t = i18n.global.t.bind(i18n.global);
 
-// 建议在全局也挂载一个$t方法做兜底
-globalThis.$t = $t;
-
 export default i18n;
 ```
 
 另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
 
-## Issues
+## Issues(已知问题)
 
-如果在使用过程中提取出现问题或切换语言不生效的地方建议使用`$t`代替纯文本，如：&lt;div&gt;文本&lt;/div&gt; 👉 &lt;div&gt;{{ $t("文本") }}&lt;/div&gt;（可使用extract-i18n --rewrite --keepRaw自动转换），这会大大提高可靠性。因为vue编译器有静态提升的优化，大量连续的静态文本和模板片段会被提升至一个变量里，该插件会将它当成一个字符串处理。
+- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用`$t("文本")`的方式。
+
+- vue编译器同样有静态提升的优化，绝大部分情况下纯文本提取没问题，有问题的地方建议也使用`$t("文本")`的方式。
+
+- 基于uni-app的小程序项目的建议：开发时直接写纯文本，然后使用`extract-i18n --rewrite --keepRaw`转换，会将`"文本"`转换成`$t("文本")`并写入源码，不然该插件将无法正常工作，因为根据uni-app编译器策略，静态文本会保留在wxml文件中，只有动态内容才会编译到js文件中，这样才能被正常提取和转换。
+
+- uni-app X项目底层编译器是kotlin, 需要提前将源码进行转换。建议使用`extract-i18n --rewrite --keepDefaultMsg`将`"文本"`转换成`$t("id","文本")`，这样既保证了i18n的功能也不影响对源码的阅读。
 
 # Translators
 
