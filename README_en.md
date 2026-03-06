@@ -255,7 +255,7 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 - For projects entirely in English, you should explicitly call `$t("text")` in the source code. Because the plugin cannot distinguish between the text to be translated and strings in the code.
 
-- If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` and ｀Trans｀ component will be extracted, which can improve performance to some extent.
+- If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` and `Trans` component will be extracted, which can improve performance to some extent.
 
 - Text containing dynamic placeholders must explicitly call `$t()`, for example: `$t("{name}的余额为{balance}", {name: '张三', balance: 100})`.
 
