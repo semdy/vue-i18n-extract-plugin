@@ -251,6 +251,8 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 - Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript.
 
+- For projects entirely in English, you should explicitly call `$t("text")` in the source code. Because the plugin cannot distinguish between the text to be translated and strings in the code.
+
 # Translators
 
 The plugin uses Google Translate by default (proxy port 7890 by default configuration). When network access to Google is not available, we recommend **Youdao Translator** ✨, which provides excellent translation quality. The plugin currently includes Google, Youdao, and Baidu translators. For custom translators, refer to the examples below.
