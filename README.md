@@ -254,7 +254,7 @@ export default i18n;
 
 - `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`中提取文本，能一定程序上提高性能。
 
-- 有动态插件的文本需要显式调用`$t()`，如：`$t("{name}的余额为{balance}", {name: '张三', balance: 100})`
+- 有动态插值的文本需要显式调用`$t()`，如：`$t("{name}的余额为{balance}", {name: '张三', balance: 100})`
 
 总结：
 
