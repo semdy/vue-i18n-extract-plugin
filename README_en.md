@@ -257,6 +257,11 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 - If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` will be extracted, which can improve performance to some extent.
 
+- Text containing dynamic placeholders must explicitly call `$t()`, for example: `$t("{name}的余额为{balance}", {name: '张三', balance: 100})`.
+
+Inclusion:
+Writing plain text directly is more convenient, but using `$t()` provides better stability and reliability. Of course, both approaches can also be used together.
+
 # Translators
 
 The plugin uses Google Translate by default (proxy port 7890 by default configuration). When network access to Google is not available, we recommend **Youdao Translator** ✨, which provides excellent translation quality. The plugin currently includes Google, Youdao, and Baidu translators. For custom translators, refer to the examples below.
