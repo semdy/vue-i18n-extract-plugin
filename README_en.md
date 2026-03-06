@@ -239,7 +239,7 @@ export default i18n;
 
 Additionally: If you don't want to use vite/webpack plugins, you can manually call `extract-i18n --rewrite`, which will rewrite the converted code into source files (useful for uni-app X projects).
 
-## Known Issues
+## Known Issues & Guidelines
 
 - Due to svelte and solid-js compilers' static hoisting optimization strategies, pure text extraction is not supported. Use explicit `$t("text")` calls in source code instead.
 
@@ -252,6 +252,8 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 - Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript.
 
 - For projects entirely in English, you should explicitly call `$t("text")` in the source code. Because the plugin cannot distinguish between the text to be translated and strings in the code.
+
+- If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` and the `<Trans />` component will be extracted, which can improve performance to some extent.
 
 # Translators
 

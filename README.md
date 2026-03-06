@@ -236,7 +236,7 @@ export default i18n;
 
 另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
 
-## Known issues(已知问题)
+## Known issues & Guidelines
 
 - 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显示调用`$t("文本")`的方式。
 
@@ -249,6 +249,8 @@ export default i18n;
 - svelte4 typescript项目静态提取不受支持，因为svelte 4.0编译器的parser不支持typescript。
 
 - 对于纯英文项目，在源码中应该使用显式调用`$t("文本")`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
+
+- `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`和`<Trans />`组件中提取文本，能一定程序上提高性能。
 
 # Translators
 
