@@ -81,7 +81,7 @@ const defaultOptions = {
   i18nPkgImportPath: "@/i18n", // i18n package import path
   outputPath: "src/i18n", // Output path for extracted language packages
   generateId: null, // Custom function to generate keys
-  shouldExtract: null, // Custom function to determine whether to extract a file
+  shouldExtract: null, // Custom function to determine whether to extract a text node
   customGenLangFileName: langKey => langKey, // Custom function to generate language file names
   // Post-processing function for translated text for secondary operations like capitalizing first letters of words
   // params: text: translated text, toLang: target language after translation, an enum member of translateLangKeys
