@@ -246,7 +246,7 @@ export default i18n;
 
 - uni-app X项目底层编译器是kotlin, 需要提前将源码进行转换。建议使用`extract-i18n --rewrite --keepDefaultMsg`将`"文本"`转换成`$t("id","文本")`，这样既保证了i18n的功能也不影响对源码的阅读。
 
-- svelte4 typescript项目静态提取不受支持，因为4.0的编译器的parser不支持typescript。
+- svelte4 typescript项目静态提取不受支持，因为svelte 4.0编译器的parser不支持typescript。
 
 # Translators
 
