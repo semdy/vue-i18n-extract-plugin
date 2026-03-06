@@ -251,6 +251,8 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 - Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript.
 
+- Svelte projects are recommended to install the `prettier-plugin-svelte` plugin, because the `rewrite` mode will call `prettier` to format `.svelte` files, and formatting `.svelte` files depends on this plugin.
+
 - For projects entirely in English, you should explicitly call `$t("text")` in the source code. Because the plugin cannot distinguish between the text to be translated and strings in the code.
 
 - If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` and the `<Trans />` component will be extracted, which can improve performance to some extent.
