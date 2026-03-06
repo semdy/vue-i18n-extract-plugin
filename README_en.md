@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Vue (including uni-app), Svelte, and Solid.js. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
+extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Vue (including uni-app), Svelte5, and Solid.js. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
 
 # USAGE
 
@@ -248,6 +248,8 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 - Recommendations for uni-app mini-program projects: Write plain text during development, then use `extract-i18n --rewrite --keepRaw` to convert, transforming `"text"` to `$t("text")` and writing to source code. The plugin won't work normally otherwise because according to uni-app compiler strategy, static text is kept in wxml files while only dynamic content is compiled to js files, allowing proper extraction and transformation.
 
 - For uni-app X projects with Kotlin-based underlying compiler, source code must be pre-converted. Recommended to use `extract-i18n --rewrite --keepDefaultMsg` to convert `"text"` to `$t("id","text")`, ensuring i18n functionality while maintaining source code readability.
+
+- Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript.
 
 # Translators
 

@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
+extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte5、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
 
 # USAGE
 
@@ -245,6 +245,8 @@ export default i18n;
 - 基于uni-app的小程序项目的建议：开发时直接写纯文本，然后使用`extract-i18n --rewrite --keepRaw`转换，会将`"文本"`转换成`$t("文本")`并写入源码，不然该插件将无法正常工作，因为根据uni-app编译器策略，静态文本会保留在wxml文件中，只有动态内容才会编译到js文件中，这样才能被正常提取和转换。
 
 - uni-app X项目底层编译器是kotlin, 需要提前将源码进行转换。建议使用`extract-i18n --rewrite --keepDefaultMsg`将`"文本"`转换成`$t("id","文本")`，这样既保证了i18n的功能也不影响对源码的阅读。
+
+- svelte4 typescript项目静态提取不受支持，因为4.0的编译器的parser不支持typescript。
 
 # Translators
 
