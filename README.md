@@ -248,7 +248,7 @@ export default i18n;
 
 - svelte4 typescript项目静态提取不受支持，因为svelte 4.0编译器的parser不支持typescript。
 
-- svelte项目建议安装`prettier-plugin-svelte`插件，因为`rewrite`模式会调用`prettier`格式化`.svelte`文件，`svelte`文件格式化依赖这个插件.
+- svelte项目建议添加`prettier-plugin-svelte`依赖，因为`rewrite`模式会调用`prettier`格式化`.svelte`文件，`svelte`文件格式化依赖这个插件.
 
 - 对于纯英文项目，在源码中应该使用显式调用`$t("文本")`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
 
