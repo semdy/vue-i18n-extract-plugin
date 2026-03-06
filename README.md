@@ -199,7 +199,7 @@ module.exports = {
 };
 ```
 
-说明：babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
+babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
 
 ## Deprecated
 
@@ -234,11 +234,11 @@ export default i18n;
 
 另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
 
-## Issues(已知问题)
+## Known issues(已知问题)
 
-- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用`$t("文本")`的方式。
+- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显示调用`$t("文本")`的方式。
 
-- vue编译器同样有静态提升的优化，绝大部分情况下纯文本提取没问题，有问题的地方建议也使用`$t("文本")`的方式。
+- vue编译器同样有静态提升以及静态节点标记(patchFlag)的优化，该插件会将它重新标记为动态节点，否则切换语言后，节点不会更新。绝大部分情况下纯文本提取没问题，有问题的地方建议使用显式调用`$t("文本")`的方式。
 
 - 基于uni-app的小程序项目的建议：开发时直接写纯文本，然后使用`extract-i18n --rewrite --keepRaw`转换，会将`"文本"`转换成`$t("文本")`并写入源码，不然该插件将无法正常工作，因为根据uni-app编译器策略，静态文本会保留在wxml文件中，只有动态内容才会编译到js文件中，这样才能被正常提取和转换。
 
