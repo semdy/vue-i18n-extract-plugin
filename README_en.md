@@ -76,7 +76,7 @@ const defaultOptions = {
   includePath: ['src/'], // Array of paths to include
   excludedPath: ['**/node_modules/**'], // Array of paths to exclude, refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
   allowedExtensions: [".vue", ".nvue", ".uvue", ".svelte", ".tsx", ".ts", ".jsx", ".js", ".uts"], // Allowed file extensions for extraction
-  fromLang: 'zh-cn', // Source language, currently supported extraction languages: zh-cn(zh-tw), en, ja, ko, ru, use shouldExtract determine which languages to extract
+  fromLang: 'zh-cn', // Source language, currently supported extraction languages: zh-cn(zh-tw), en, ja, ko, ru, use shouldExtract determine if should to extract for other languages
   translateLangKeys: ["zh-tw", "en"], // Target language keys for translation
   i18nPkgImportPath: "@/i18n", // i18n package import path
   outputPath: "src/i18n", // Output path for extracted language packages
