@@ -74,7 +74,7 @@ const defaultOptions = {
   includePath: ['src/'], // 包含路径的数组
   excludedPath: ['**/node_modules/**'], // 排除路径的数组 refer to https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#how-to-exclude-directory-from-reading
   allowedExtensions: [".vue", ".nvue", ".uvue", ".svelte", ".tsx", ".ts", ".jsx", ".js", ".uts"], // 允许提取的文件扩展名
-  fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru
+  fromLang: 'zh-cn', // 源语言, 目前支持提取的语言有：zh-cn(zh-tw), en, ja, ko, ru，其它语言请使用shouldExtract判断是否要被提取
   translateLangKeys: ["zh-tw", "en"], // 定义要翻译成哪些语言
   i18nPkgImportPath: "@/i18n", // i18n语言包导入路径
   outputPath: "src/i18n", // 提取的语言包输出文件路径
