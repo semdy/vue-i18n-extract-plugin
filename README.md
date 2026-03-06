@@ -257,6 +257,7 @@ export default i18n;
 - 有动态插件的文本需要显式调用`$t()`，如：`$t("{name}的余额为{balance}", {name: '张三', balance: 100})`
 
 总结：
+
 纯文本编写有很好的便利性，但`$t()`有更好的稳定性和可靠性，当然也可以混用。
 
 # Translators

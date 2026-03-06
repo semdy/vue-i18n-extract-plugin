@@ -260,6 +260,7 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 - Text containing dynamic placeholders must explicitly call `$t()`, for example: `$t("{name}的余额为{balance}", {name: '张三', balance: 100})`.
 
 Inclusion:
+
 Writing plain text directly is more convenient, but using `$t()` provides better stability and reliability. Of course, both approaches can also be used together.
 
 # Translators
