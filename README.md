@@ -19,7 +19,9 @@ extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身�
 ```bash
 # npm
 npm install extract-i18n-plugin -D
+# yarn
 yarn add extract-i18n-plugin -D
+# pnpm
 pnpm add extract-i18n-plugin -D
 ```
 
