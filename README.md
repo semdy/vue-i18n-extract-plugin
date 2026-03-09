@@ -114,7 +114,8 @@ export default {
   ...
 };
 
-// ts支持 extract-i18n.config.ts
+// ts支持
+// extract-i18n.config.ts
 import { defineConfig } from "extract-i18n-plugin";
 
 export default defineConfig({
@@ -143,7 +144,7 @@ export default defineConfig({
 });
 ```
 
-参数优先级：userConfig > extract.config.js > defaultOptions
+参数优先级：userConfig > extract-i18n.config.js > defaultOptions
 
 ## Rollup plugin
 
@@ -162,7 +163,7 @@ export default {
 };
 ```
 
-参数优先级：userConfig > extract.config.js > defaultOptions
+参数优先级：同上
 
 ## Webpack plugin
 
@@ -201,7 +202,7 @@ module.exports = {
 };
 ```
 
-babel插件不会自动带入extract.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
+babel插件不会自动带入extract-i18n.config.js中的配置，但会带上defaultOptions，优先级：userConfig > defaultOptions
 
 ## Deprecated
 
@@ -234,11 +235,11 @@ export const $t = i18n.global.t.bind(i18n.global);
 export default i18n;
 ```
 
-另外：如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
+如果不想使用vite/webpack插件，可以手动调用`extract-i18n --rewrite`，这会将转换后的代码重新写入源文件（uni-app X项目可用于此模式）.
 
 ## Known issues & Guidelines
 
-- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显示调用`$t("文本")`的方式。
+- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
 
 - vue编译器同样有静态提升以及静态节点标记(patchFlag)的优化，该插件会将它重新标记为动态节点，否则切换语言后，节点不会更新。绝大部分情况下纯文本提取没问题，有问题的地方建议使用显式调用`$t("文本")`的方式。
 
@@ -250,7 +251,7 @@ export default i18n;
 
 - svelte项目建议添加`prettier-plugin-svelte`依赖，因为`rewrite`模式会调用`prettier`格式化`.svelte`文件，`svelte`文件格式化依赖这个插件.
 
-- 对于纯英文项目，在源码中应该使用显式调用`$t("文本")`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
+- 对于纯英文项目，建议在源码中使用显式调用`$t("文本")` + `extractFromText:false`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
 
 - `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`中提取文本，能一定程序上提高性能。
 
