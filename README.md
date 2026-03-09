@@ -253,7 +253,7 @@ export default i18n;
 
 - 对于纯英文项目，建议在源码中使用显式调用`$t("文本")` + `extractFromText:false`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
 
-- `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`中提取文本，能一定程序上提高性能。
+- `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`和`Trans`组件中提取文本，能一定程序上提高性能。
 
 - 有动态插值的文本需要显式调用`$t()`，如：`$t("{name}的余额为{balance}", {name: '张三', balance: 100})`
 
