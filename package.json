@@ -1,6 +1,6 @@
 {
   "name": "extract-i18n-plugin",
-  "version": "1.1.14",
+  "version": "1.1.15",
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "bin": {
@@ -66,10 +66,10 @@
     "svelte": "^4 || ^5"
   },
   "peerDependenciesMeta": {
-    "svelte": {
+    "prettier-plugin-svelte": {
       "optional": true
     },
-    "prettier-plugin-svelte": {
+    "svelte": {
       "optional": true
     }
   },
