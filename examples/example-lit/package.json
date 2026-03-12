@@ -1,22 +1,22 @@
 {
-  "name": "example-qwik",
+  "name": "example-lit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "NODE_ENV=development extract-i18n && vite",
-    "build": "tsc -b && extract-i18n && vite build",
-    "preview": "serve dist",
+    "build": "tsc && extract-i18n && vite build",
+    "preview": "vite preview",
     "extract-i18n": "extract-i18n"
   },
+  "dependencies": {
+    "i18next": "^25.8.18",
+    "lit": "^3.3.1",
+    "lit-i18n": "^4.1.0"
+  },
   "devDependencies": {
-    "@types/node": "^24.10.1",
     "extract-i18n-plugin": "^1.1.15",
-    "serve": "^14.2.5",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
-  },
-  "dependencies": {
-    "@builder.io/qwik": "^1.17.2"
   }
 }

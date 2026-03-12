@@ -180,7 +180,7 @@ export const Trans = component$<
     return <>{content}</>;
   }
 
-  // For Qwik, handle string components (HTML tags)
+  // handle string components (HTML tags)
   if (typeof props.component === "string") {
     const Tag = props.component as any;
     return <Tag>{content}</Tag>;

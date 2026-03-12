@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、vue(包括uni-app)、svelte5、solid-js的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
+extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、Preact、Vue(包括uni-app)、Svelte5、Solid、Qwik、Lit的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
 
 # USAGE
 
@@ -242,6 +242,8 @@ export default i18n;
 ## Known issues & Guidelines
 
 - 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
+
+- Lit由于是静态模板，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
 
 - vue编译器同样有静态提升以及静态节点标记(patchFlag)的优化，该插件会将它重新标记为动态节点，否则切换语言后，节点不会更新。绝大部分情况下纯文本提取没问题，有问题的地方建议使用显式调用`$t("文本")`的方式。
 
