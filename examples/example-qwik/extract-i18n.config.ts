@@ -2,16 +2,11 @@ import { defineConfig } from "extract-i18n-plugin";
 import { GoogleTranslator } from "extract-i18n-plugin/translators";
 
 export default defineConfig({
-  includePath: [
-    "src/components",
-    "src/helpers",
-    "src/views",
-    "src/pages",
-    "src/utils",
-    "src/app.tsx"
-  ],
+  includePath: ["src"],
   excludedPath: [
     "**/node_modules/**",
+    "**/src/locales/**",
+    "**/src/assets/**",
     "**/src/components/LanguageSwitcher.tsx**"
   ],
   excludedCall: ["formatAppLog", "__f__"],

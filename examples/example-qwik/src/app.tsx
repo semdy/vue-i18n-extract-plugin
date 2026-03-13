@@ -4,6 +4,7 @@ import { I18nProvider } from "./locales";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import Counter from "./components/Counter";
 import TextView from "./components/TextView";
+import TransTest from "./components/TransTest";
 import qwikLogo from "./assets/qwik.svg";
 import viteLogo from "/vite.svg";
 import "./app.css";
@@ -25,6 +26,7 @@ export const App = component$(() => {
         <Counter />
       </div>
       <TextView />
+      <TransTest />
       <p class="read-the-docs">
         Click on the Vite and Qwik logos to learn more
       </p>

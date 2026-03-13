@@ -154,38 +154,34 @@ export function useI18n() {
   return context;
 }
 
-type BaseTransProps = {
+type TransProps = {
   component?: Component<any> | string;
   id?: string;
+  msg?: string;
   defaultMessage?: string;
   values?: Record<string, any>;
 };
 
-export const Trans = component$<
-  | (BaseTransProps & { msg: string; children?: never })
-  | (BaseTransProps & { children: string; msg?: never })
->(props => {
+export const Trans = component$<TransProps>(props => {
   const { t } = useI18n();
-  const msgValue =
-    ("msg" in props && props.msg) ||
-    ("children" in props && props.children) ||
-    props.defaultMessage ||
-    "";
+  const msgValue = props.msg || props.defaultMessage || "";
   const id = props.id || msgValue;
   const content = props.values
     ? t(id, msgValue, props.values)
     : t(id, msgValue);
 
+  const slot = content || <Slot />;
+
   if (!props.component) {
-    return <>{content}</>;
+    return <>{slot}</>;
   }
 
   // handle string components (HTML tags)
   if (typeof props.component === "string") {
     const Tag = props.component as any;
-    return <Tag>{content}</Tag>;
+    return <Tag>{slot}</Tag>;
   }
 
   // For component functions, return directly
-  return <>{content}</>;
+  return <>{slot}</>;
 });
