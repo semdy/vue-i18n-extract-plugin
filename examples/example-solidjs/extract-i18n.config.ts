@@ -47,5 +47,5 @@ export default defineConfig({
         "User-Agent": "Node"
       }
     }
-  })
+  }) as any
 });
