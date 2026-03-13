@@ -1,10 +1,9 @@
 import { component$ } from "@builder.io/qwik";
 
-import { I18nProvider } from "./locales";
+import { I18nProvider, Trans } from "./locales";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import Counter from "./components/Counter";
 import TextView from "./components/TextView";
-import TransTest from "./components/TransTest";
 import qwikLogo from "./assets/qwik.svg";
 import viteLogo from "/vite.svg";
 import "./app.css";
@@ -26,7 +25,7 @@ export const App = component$(() => {
         <Counter />
       </div>
       <TextView />
-      <TransTest />
+      <Trans component="h2" msg="欢迎使用Solid" />
       <p class="read-the-docs">
         Click on the Vite and Qwik logos to learn more
       </p>
