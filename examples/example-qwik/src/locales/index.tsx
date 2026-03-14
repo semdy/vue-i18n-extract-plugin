@@ -158,13 +158,12 @@ type TransProps = {
   component?: Component<any> | string;
   id?: string;
   msg?: string;
-  defaultMessage?: string;
   values?: Record<string, any>;
 };
 
 export const Trans = component$<TransProps>(props => {
   const { t } = useI18n();
-  const msgValue = props.msg || props.defaultMessage || "";
+  const msgValue = props.msg || "";
   const id = props.id || msgValue;
   const content = props.values
     ? t(id, msgValue, props.values)
