@@ -12,7 +12,7 @@ const count = ref(0);
 <template>
   <div>
     <button type="button" @click="count++">
-      {{ $t("计数{count}", { count }) }}
+      {{ $t("计数器{count}", { count }) }}
     </button>
     <p>计数测试</p>
   </div>

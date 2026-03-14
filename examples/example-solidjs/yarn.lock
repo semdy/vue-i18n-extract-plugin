@@ -873,10 +873,10 @@ exsolve@^1.0.7, exsolve@^1.0.8:
   resolved "https://registry.npmjs.org/exsolve/-/exsolve-1.0.8.tgz#7f5e34da61cd1116deda5136e62292c096f50613"
   integrity sha512-LmDxfWXwcTArk8fUEnOfSZpHOJ6zOMUJKOtFLFqJLoKJetuQG874Uc7/Kki7zFLzYybmZhp1M7+98pfMqeX8yA==
 
-extract-i18n-plugin@^1.1.19:
-  version "1.1.19"
-  resolved "https://registry.npmjs.org/extract-i18n-plugin/-/extract-i18n-plugin-1.1.19.tgz#76efb9436e4d670d25284b0c2f59c1f53cedd22b"
-  integrity sha512-VCcYyYxsdVZYmg1x6HVHIMnQw19Tcgq9854HY9I3ECxra0BnwG40Lqdy7K/uNp5cGPvxZt9ujaUibxq8c7xLrw==
+extract-i18n-plugin@^1.1.21:
+  version "1.1.21"
+  resolved "https://registry.npmjs.org/extract-i18n-plugin/-/extract-i18n-plugin-1.1.21.tgz#7d12720247f25f4b33b71edcf5f587ed9f1813b6"
+  integrity sha512-ChKyTpQ6zWTNMTTWuHQL9RRjdIsWybj52Tw1cBpSwiMZppFXlKUtcpjIssHXzOX+mhn7I+cSleYsLoXEW01Mgw==
   dependencies:
     "@babel/core" "^7.27.3"
     "@babel/generator" "^7.27.3"

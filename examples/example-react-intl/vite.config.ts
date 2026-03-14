@@ -6,7 +6,8 @@ import { vitePluginI18n } from "extract-i18n-plugin";
 // https://vite.dev/config/
 export default defineConfig({
   server: {
-    port: 5174
+    port: 5176,
+    open: true
   },
   plugins: [react(), vitePluginI18n()],
   resolve: {

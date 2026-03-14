@@ -1,17 +1,24 @@
 const $t = (msg: string, values?: Record<string, string>): string => {
-    return msg.replace(/\{([^}]+)\}/g, (match, key) => {
-        return values?.[key] || ''
-    })
-}
+  return msg.replace(/\{([^}]+)\}/g, (match, key) => {
+    return values?.[key] || "";
+  });
+};
 
 function TestMethod(): string {
-    const a = "ts a变量名"
-    const b = $t("ts b变量名, {name}", { name: 'ts 变量b名称' })
-    const c = $t("ts c变量名")
-    const d = `ts模板内容${$t("ts 模板字符串")}结束`
-    const e = `ts纯模板字符串` 
+  const a = "ts a变量名";
+  const b = $t("ts b变量名, {name}", { name: "ts 变量b名称" });
+  const c = $t("ts c变量名");
+  const d = `ts模板内容${$t("ts 模板字符串")}结束`;
+  const e = `ts纯模板字符串`;
 
-    return a + b + c + d + e;
+  // 以下console被排除了，不会被提取和转换
+  console.log("console输出内容");
+  (console as any).log("console输出内容2");
+  console!.log("console输出内容3");
+  (console satisfies Window).log("console输出内容4");
+  console.log<string>("console输出内容5");
+
+  return a + b + c + d + e;
 }
 
 export default TestMethod;
