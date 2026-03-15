@@ -210,6 +210,77 @@ babel插件不会自动带入extract-i18n.config.js中的配置，但会带上de
 
 仓库中的`babel-plugin-i18n-import`、`rollup-plugin-i18n-import`、`vite-plugin-i18n-import`、`webpack-i18n-import-loader`已弃用，因为主插件中带有自动生成导入i18n的逻辑。
 
+## How It Works(工作原理)
+
+插件会先将源码解析为 抽象语法树（AST），然后遍历其中的节点，提取可国际化的文本内容。主要处理的节点类型包括：
+
+- `CallExpression`
+
+- `StringLiteral`
+
+- `TemplateElement`
+
+- `JSXText`
+
+- `JSXElement`
+
+- `JSXExpressionContainer`
+
+当启用 `rewrite` 选项时，插件会对源码进行重写，将原始文本替换为对应的国际化函数调用，并自动生成对应的 `key` 和 `value`，同时写入语言包文件。
+
+例如：
+
+```html
+<p>你好</p>
+```
+
+会被转换为：
+
+```html
+<p>{$t("xxx_hash_key")}</p>
+```
+
+同时生成语言包：
+
+```json
+{
+  "xxx_hash_key": "你好"
+}
+```
+
+---
+
+### Vue 编译优化处理
+
+Vue 编译器在编译阶段会进行大量优化，例如：
+
+- 静态提升（Static Hoisting）
+
+- 缓存优化（`_cache`）
+
+- 静态节点标记（`PatchFlag`）
+
+- 动态属性依赖提升（hoisted `dynamicProps`）
+
+当插件将文本替换为 i18n 调用后，原本的 静态节点可能会变为动态节点。
+为了保证运行时行为正确，插件需要执行以下处理：
+
+- 静态节点重新标记为动态节点
+
+- 移除 `_cache` 缓存优化
+
+- 更新或追加 `dynamicProps` 依赖
+
+因此，在 Vue 项目中，这部分转换逻辑会相对复杂。
+
+---
+
+### Qwik 编译优化处理
+
+Qwik 编译器同样会在编译阶段对模板进行 静态节点标记。
+
+当插件对文本节点进行 i18n 转换后，这些原本被标记为静态的节点也需要重新标记为 动态节点，以确保运行时能够正确更新内容。
+
 ## **重要说明**
 
 在Vue3中，vue-i18n版本大于9.0.0时，legacy须设为false，否则在开发阶段会有`Uncaught TypeError: 'set' on proxy: trap returned falsish for property '$t'`的代理错误. 推荐写法如下：

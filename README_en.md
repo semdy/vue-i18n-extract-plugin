@@ -210,6 +210,79 @@ Babel plugin does not automatically include configuration from extract.config.js
 
 The `babel-plugin-i18n-import`, `rollup-plugin-i18n-import`, `vite-plugin-i18n-import`, and `webpack-i18n-import-loader` in the repository are deprecated because the main plugin includes automatic i18n import generation logic.
 
+## How It Works
+
+The plugin parses the source code into an Abstract Syntax Tree (AST) and traverses nodes to extract translatable text.
+The main node types processed include:
+
+- `CallExpression`
+
+- `StringLiteral`
+
+- `TemplateElement`
+
+- `JSXText`
+
+- `JSXElement`
+
+- `JSXExpressionContainer`
+
+When the `rewrite` option is enabled, the plugin rewrites the source code by replacing raw text with i18n function calls. At the same time, it automatically generates the corresponding `key` and `value` entries and writes them into the locale files.
+
+Example:
+
+```html
+<p>hello</p>
+```
+
+will be transformed into:
+
+```html
+<p>{$t("xxx_hash_key")}</p>
+```
+
+and the locale file will contain:
+
+```json
+{
+  "xxx_hash_key": "hello"
+}
+```
+
+---
+
+### Handling Vue Compiler Optimizations
+
+The Vue compiler performs various compile-time optimizations, such as:
+
+- Static Hoisting
+
+- Cache optimization (`_cache`)
+
+- Static node flags (`PatchFlag`)
+
+- Hoisted dynamic property dependencies (`dynamicProps`)
+
+After the plugin transforms text into i18n function calls, previously static nodes may become dynamic.
+
+To ensure correct runtime behavior, the plugin needs to:
+
+- Re-mark static nodes as dynamic nodes
+
+- Remove `_cache` optimizations
+
+- Update or append `dynamicProps` dependencies
+
+Because of these compiler optimizations, the transformation logic for Vue is relatively complex.
+
+---
+
+### Handling Qwik Compiler Optimizations
+
+The Qwik compiler also performs static analysis and marks static nodes during compilation.
+
+When text nodes are transformed into i18n calls, these nodes must be re-marked as dynamic nodes to ensure the content updates correctly at runtime.
+
 ## **Important Note**
 
 In Vue 3, when vue-i18n version is greater than 9.0.0, legacy must be set to false, otherwise you may encounter a `Uncaught TypeError: 'set' on proxy: trap returned falsish for property '$t'` proxy error during development. Recommended usage:
