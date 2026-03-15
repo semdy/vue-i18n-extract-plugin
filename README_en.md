@@ -261,6 +261,8 @@ and the locale file will contain:
 
 if `autoTranslate` option is enabled, the plugin will automatically translate the text into other languages and generate language packages. The specific languages to be translated are determined by `translateLangKeys`.
 
+if `autoImportI18n` option is enabled, the plugin will automatically insert import statements into the current file if there are i18n content extracted. Such as `import { $t } from "@/i18n";`.
+
 ---
 
 ### Handling Vue Compiler Optimizations
