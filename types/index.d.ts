@@ -14,6 +14,7 @@ export {
   isVueLike,
   checkAgainstRegexArray,
   extractFunctionName,
+  extractFunctionLastName,
   relativeCWDPath,
   getLangJsonPath,
   shouldExtract,

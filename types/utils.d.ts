@@ -12,6 +12,7 @@ export function checkAgainstRegexArray(
   regexArray?: (string | RegExp)[]
 ): boolean;
 export function extractFunctionName(path: NodePath): string;
+export function extractFunctionLastName(path: NodePath): string;
 export function relativeCWDPath(subPath: string): string;
 export function getLangJsonPath(
   langKey: LangKey,
