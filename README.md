@@ -260,7 +260,7 @@ babel插件不会自动带入extract-i18n.config.js中的配置，但会带上de
 
 如果开启了`autoTranslate`则会自动翻译成其它语言并生成语言包，具体翻译成哪些语言由`translateLangKeys`决定。
 
-如果开启了`autoImportI18n`，当前文件有国际化内容被提取，则会自动在该文件插入导入语句，如：`import { $t } from "@/i18n";`。
+如果开启了`autoImportI18n`，当前文件有国际化内容被提取，则会自动在该文件插入导入语句，如：`import { $t } from "@/i18n"`。
 
 ---
 
