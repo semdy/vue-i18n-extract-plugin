@@ -1,10 +1,10 @@
-import reactLogo from "./assets/react.svg";
+import preactLogo from "./assets/preact.svg";
 import viteLogo from "/vite.svg";
-import "./App.css";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Counter from "@/components/Counter";
 import TextView from "@/components/TextView";
 import { Trans } from "@/locales";
+import "./App.css";
 
 function App() {
   return (
@@ -12,18 +12,18 @@ function App() {
       <LanguageSwitcher />
       <div>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo} class="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={preactLogo} class="logo preact" alt="PReact logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      <h1>Vite + PReact</h1>
+      <div class="card">
         <Counter />
       </div>
       <TextView />
-      <Trans msg="欢迎使用React" />
+      <Trans msg="欢迎使用PReact" />
     </>
   );
 }

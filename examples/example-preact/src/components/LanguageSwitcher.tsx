@@ -1,0 +1,38 @@
+import {
+  type SupportLocale,
+  locale,
+  changeLanguage,
+  languageList
+} from "@/locales";
+import { useState } from "preact/hooks";
+
+function LanguageSwitcher() {
+  const [value, setValue] = useState(locale);
+  const onChange = (event: Event) => {
+    const locale = (event.target as HTMLSelectElement).value as SupportLocale;
+    setValue(locale);
+    changeLanguage(locale);
+  };
+
+  return (
+    <select
+      value={value}
+      onChange={onChange}
+      style={{
+        position: "absolute",
+        right: 30,
+        top: 30,
+        padding: 6,
+        fontSize: 15
+      }}
+    >
+      {languageList.map(option => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+export default LanguageSwitcher;
