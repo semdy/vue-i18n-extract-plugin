@@ -232,21 +232,33 @@ babel插件不会自动带入extract-i18n.config.js中的配置，但会带上de
 
 ```html
 <p>你好</p>
+<p>{$t("测试")}</p>
 ```
 
 会被转换为：
 
 ```html
-<p>{$t("xxx_hash_key")}</p>
+<p>{$t("03tpnc")}</p>
+<p>{$t("03nbln")}</p>
+```
+
+如果开启了`keepDefaultMsg`则会生成：
+
+```html
+<p>{$t("03tpnc", "你好")}</p>
+<p>{$t("03nbln", "测试")}</p>
 ```
 
 同时生成语言包：
 
 ```json
 {
-  "xxx_hash_key": "你好"
+  "03tpnc": "你好",
+  "03nbln": "测试"
 }
 ```
+
+如果开启了`autoTranslate`则会自动翻译成其它语言并生成语言包，具体翻译成哪些语言由`translateLangKeys`决定。
 
 ---
 

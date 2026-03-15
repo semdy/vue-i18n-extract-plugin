@@ -233,21 +233,33 @@ Example:
 
 ```html
 <p>hello</p>
+<p>{$t("test")}</p>
 ```
 
 will be transformed into:
 
 ```html
-<p>{$t("xxx_hash_key")}</p>
+<p>{$t("2y0dev")}</p>
+<p>{$t("yj45df")}</p>
+```
+
+if `keepDefaultMsg` option is enabled, the transformed code will be:：
+
+```html
+<p>{$t("2y0dev", "hello")}</p>
+<p>{$t("yj45df", "test")}</p>
 ```
 
 and the locale file will contain:
 
 ```json
 {
-  "xxx_hash_key": "hello"
+  "2y0dev": "hello",
+  "yj45df": "test"
 }
 ```
+
+if `autoTranslate` option is enabled, the plugin will automatically translate the text into other languages and generate language packages. The specific languages to be translated are determined by `translateLangKeys`.
 
 ---
 
