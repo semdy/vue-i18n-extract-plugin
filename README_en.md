@@ -263,8 +263,6 @@ if `autoTranslate` option is enabled, the plugin will automatically translate th
 
 if `autoImportI18n` option is enabled, the plugin will automatically insert import statements into the current file if there are i18n content extracted. Such as `import { $t } from "@/i18n"`.
 
-如果开启了`injectHooks`则会在jsx/tsx组件中自动注入hooks以适应语言动态切换，如：`const { t } = useTranslation()`.
-
 if `injectHooks` option is enabled, the plugin will automatically inject hooks into the jsx/tsx component if there are i18n content extracted. Such as `const { t } = useTranslation()`.
 
 ---
