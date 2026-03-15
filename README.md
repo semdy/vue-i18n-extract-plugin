@@ -262,6 +262,8 @@ babel插件不会自动带入extract-i18n.config.js中的配置，但会带上de
 
 如果开启了`autoImportI18n`，当前文件有国际化内容被提取，则会自动在该文件插入导入语句，如：`import { $t } from "@/i18n"`。
 
+如果开启了`injectHooks`则会在jsx/tsx组件中自动注入hooks以适应语言动态切换，如：`const { t } = useTranslation()`.
+
 ---
 
 ### Vue 编译优化处理
