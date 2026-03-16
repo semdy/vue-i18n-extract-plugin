@@ -1,0 +1,75 @@
+<script>
+  const browserMsg = "浏览器脚本中的文本";
+  console.log(browserMsg);
+</script>
+
+$ const type = "user";
+$ const title = "页面标题";
+$ const desc = `描述 ${type}`;
+$ const label = "按钮文本";
+
+$ const props = {
+  title: "卡片标题",
+  desc: "卡片描述",
+};
+
+$ const arr = ["你好", "世界"];
+
+<div class="container">
+  <!-- 文本节点 -->
+  <h1>欢迎使用系统</h1>
+
+  <!-- HTML 静态属性 -->
+  <input placeholder="请输入用户名">
+
+  <!-- BinaryExpression -->
+  <div>${"你好 " + name}</div>
+
+  <!-- TemplateLiteral -->
+  <div>${`欢迎 ${name}`}</div>
+
+  <!-- ConditionalExpression -->
+  <div>${isVip ? "VIP用户" : "普通用户"}</div>
+
+  <!-- LogicalExpression -->
+  <div>${error && "发生错误"}</div>
+
+  <!-- ArrayExpression -->
+  <div>${["苹果", "香蕉"].join(",")}</div>
+
+  <!-- ObjectExpression -->
+  <div data-info={
+    label: "商品标题",
+    desc: "商品描述",
+  }/>
+
+  <!-- 已存在 $t 调用 -->
+  <div>${$t("你好")}</div>
+
+  <!-- $t + template -->
+  <div>${$t(`欢迎 ${name}`)}</div>
+
+  <!-- mixed text -->
+  <div>你好 ${name}</div>
+
+  <!-- 多表达式 template -->
+  <div>${`Hello ${name}, 欢迎`}</div>
+
+  <!-- 自定义组件 静态属性 -->
+  <MyButton label="点击提交" title="按钮标题"/>
+
+  <!-- slot / tag body -->
+  <MyDialog>
+    标题文本
+    <div>对话框内容</div>
+  </MyDialog>
+
+  <!-- 条件标签 -->
+  <if(isLogin)>欢迎回来</if>
+  <else>请先登录</else>
+
+  <!-- 循环标签 -->
+  <for|item| of=arr>
+    <div>商品名称</div>
+  </for>
+</div>

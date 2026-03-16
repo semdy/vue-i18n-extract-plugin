@@ -62,6 +62,9 @@ importers:
       fs-extra:
         specifier: ^11.3.0
         version: 11.3.3
+      htmljs-parser:
+        specifier: ^5.10.2
+        version: 5.10.2
       magic-string:
         specifier: ^0.30.17
         version: 0.30.21
@@ -616,6 +619,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  htmljs-parser@5.10.2:
+    resolution: {integrity: sha512-Db/pHZehPxGD8Cy0NvACoMfnVQqfgEiK7z+7cuEDOeJdnzuomyaw3I31A+1uoZmS6IjvTD5iuFA+XL2LE+SieA==}
 
   http-errors@2.0.1:
     resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}
@@ -1367,6 +1373,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  htmljs-parser@5.10.2: {}
 
   http-errors@2.0.1:
     dependencies:

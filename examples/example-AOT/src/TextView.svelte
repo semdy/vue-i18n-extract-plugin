@@ -15,6 +15,14 @@
 <div>{`${foo}测试4`}</div>
 <div>{`${condition ? '测试5' : '取消'}`}</div>
 <div>{condition ? '测试6' : '取消'}</div>
+<div>{error && "发生错误"}</div>
+<div>{["苹果", "香蕉"].join(",")}</div>
+<div>{!"苹果"}</div>
+<div>{+"苹果"}</div>
+<div>{-"苹果"}</div>
+<div>{typeof "苹果"}</div>
+<div>{("苹果", "香蕉")}</div>
+<div>{(foo(), "苹果")}</div>
 
 <CustomComponent
  a="正常属性"
@@ -27,4 +35,10 @@
  h={$t("属性7")}
 />
 
+<MyDialog>
+  标题文本
+  <div>对话框内容</div>
+</MyDialog>
+
 <div title="标题"></div>
+<input placeholder="请输入用户名" />

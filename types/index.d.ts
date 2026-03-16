@@ -11,7 +11,6 @@ export {
   generateId,
   parseArg,
   isEmptyObject,
-  isVueLike,
   checkAgainstRegexArray,
   extractFunctionName,
   extractFunctionLastName,

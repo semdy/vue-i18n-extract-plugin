@@ -7,6 +7,7 @@ export function parseArg(arg: string): any;
 export function isEmptyObject(obj: Record<string, any>): boolean;
 export function isVueLike(filePath: string): boolean;
 export function isSvelte(filePath: string): boolean;
+export function isMarko(filePath: string): boolean;
 export function checkAgainstRegexArray(
   value: string,
   regexArray?: (string | RegExp)[]
