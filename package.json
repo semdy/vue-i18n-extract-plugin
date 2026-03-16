@@ -8,34 +8,34 @@
   },
   "exports": {
     ".": {
+      "types": "./types/index.d.ts",
       "require": "./lib/index.js",
-      "import": "./lib/index.js",
-      "types": "./types/index.d.ts"
+      "import": "./lib/index.js"
     },
     "./translators": {
+      "types": "./types/translators/index.d.ts",
       "require": "./lib/translators/index.js",
-      "import": "./lib/translators/index.js",
-      "types": "./types/translators/index.d.ts"
+      "import": "./lib/translators/index.js"
     },
     "./babel-plugin-i18n": {
+      "types": "./types/babel-plugin-i18n.d.ts",
       "require": "./lib/babel-plugin-i18n.js",
-      "import": "./lib/babel-plugin-i18n.js",
-      "types": "./types/babel-plugin-i18n.d.ts"
+      "import": "./lib/babel-plugin-i18n.js"
     },
     "./babel-plugin-i18n-import": {
+      "types": "./types/babel-plugin-i18n-import.d.ts",
       "require": "./lib/babel-plugin-i18n-import.js",
-      "import": "./lib/babel-plugin-i18n-import.js",
-      "types": "./types/babel-plugin-i18n-import.d.ts"
+      "import": "./lib/babel-plugin-i18n-import.js"
     },
     "./webpack-i18n-loader": {
+      "types": "./types/webpack-i18n-loader.d.ts",
       "require": "./lib/webpack-i18n-loader.js",
-      "import": "./lib/webpack-i18n-loader.js",
-      "types": "./types/webpack-i18n-loader.d.ts"
+      "import": "./lib/webpack-i18n-loader.js"
     },
     "./webpack-i18n-import-loader": {
+      "types": "./types/webpack-i18n-import-loader.d.ts",
       "require": "./lib/webpack-i18n-import-loader.js",
-      "import": "./lib/webpack-i18n-import-loader.js",
-      "types": "./types/webpack-i18n-import-loader.d.ts"
+      "import": "./lib/webpack-i18n-import-loader.js"
     },
     "./client": {
       "types": "./types/extract-i18n.config.d.ts"
