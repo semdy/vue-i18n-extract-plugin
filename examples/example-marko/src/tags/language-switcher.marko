@@ -1,0 +1,28 @@
+import {
+  locale,
+  changeLanguage,
+  languageList,
+  type SupportLocale,
+} from "@/locales";
+
+export interface Input {
+  options?: {
+    label: string;
+    value: string;
+  }[];
+  onChange?: (value: SupportLocale) => void;
+}
+
+<select
+  value=locale
+  onChange(event) {
+    const value = (event.target as HTMLSelectElement).value as SupportLocale;
+    changeLanguage(value);
+    input.onChange?.(value);
+  }
+  style="position:absolute;right:30px;top:30px;padding:6px;font-size:15px;"
+>
+  <for|opt| of=input.options?.length ? input.options : languageList>
+    <option value=opt.value>${opt.label}</option>
+  </for>
+</select>

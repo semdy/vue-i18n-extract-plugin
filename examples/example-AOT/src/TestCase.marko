@@ -15,6 +15,26 @@ $ const props = {
 
 $ const arr = ["你好", "世界"];
 
+<let/todos=[
+  {
+    id: 0,
+    text: "学习Marko",
+  },
+  {
+    id: 1,
+    text: "制作一个站点",
+  },
+]>
+
+<let/todo1={
+  id: 0,
+  text: "学习Marko",
+}>
+
+<let/todo2=["学习Marko"]>
+
+<let/todo3="学习Marko">
+
 <div class="container">
   <!-- 文本节点 -->
   <h1>欢迎使用系统</h1>
@@ -45,6 +65,8 @@ $ const arr = ["你好", "世界"];
 
   <!-- 已存在 $t 调用 -->
   <div>${$t("你好")}</div>
+  <div attr=`${$t("你好1")}`>你好2</div>
+  <div attr=$t("你好3")>你好4</div>
 
   <!-- $t + template -->
   <div>${$t(`欢迎 ${name}`)}</div>

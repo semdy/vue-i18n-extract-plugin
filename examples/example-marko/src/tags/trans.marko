@@ -1,0 +1,19 @@
+import { $t, locale, emitter } from "@/locales";
+
+export interface Input {
+  id?: string;
+  values?: Record<string, any>;
+  msg: string;
+  as?: string;
+}
+
+<let/currentLocale=locale>
+<const/Tag=input.as || "span">
+
+<script>
+  emitter.on("localeChange", ({ lang }) => {
+    currentLocale = lang;
+  });
+</script>
+
+<${Tag}>${$t(currentLocale, input.id, input.values, input.msg)}</>
