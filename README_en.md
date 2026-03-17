@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Preact, Vue (including uni-app), Svelte5, Solid, Qwik and Lit. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
+extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Preact, Vue (including uni-app), Svelte5, Solid, Qwik, Lit and Marko frameworks. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
 
 # USAGE
 
