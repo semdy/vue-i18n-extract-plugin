@@ -913,10 +913,10 @@ exsolve@^1.0.7, exsolve@^1.0.8:
   resolved "https://registry.npmjs.org/exsolve/-/exsolve-1.0.8.tgz#7f5e34da61cd1116deda5136e62292c096f50613"
   integrity sha512-LmDxfWXwcTArk8fUEnOfSZpHOJ6zOMUJKOtFLFqJLoKJetuQG874Uc7/Kki7zFLzYybmZhp1M7+98pfMqeX8yA==
 
-extract-i18n-plugin@^1.1.22:
-  version "1.1.22"
-  resolved "https://registry.npmjs.org/extract-i18n-plugin/-/extract-i18n-plugin-1.1.22.tgz#323e5550bbe6ea2be9d02db0eb284d6aad077d6b"
-  integrity sha512-TilJFP6h2IqwyD6l5fyB9VS6KN59/FcWQd6ndCnvwP10JZeIMy21yqNjtfevrBy9WEjod0U7YLoNBPmcr2k1eg==
+extract-i18n-plugin@^1.1.23:
+  version "1.1.23"
+  resolved "https://registry.npmjs.org/extract-i18n-plugin/-/extract-i18n-plugin-1.1.23.tgz#5e0c5aee94c0926ad50065f8cc7979578bffcbae"
+  integrity sha512-qc/bgn3o7oOIAOP/27ZoX03Ma6OojwggAHrjVg8RwR6byN+5SEVLIwUG210cU6XCqf35RB49L68lFEOV/Qbjkg==
   dependencies:
     "@babel/core" "^7.27.3"
     "@babel/generator" "^7.27.3"
@@ -936,6 +936,7 @@ extract-i18n-plugin@^1.1.22:
     esbuild-register "^3.6.0"
     fast-glob "^3.3.3"
     fs-extra "^11.3.0"
+    htmljs-parser "^5.10.2"
     magic-string "^0.30.17"
     prettier "^3.5.3"
     tunnel "0.0.6"
@@ -1081,6 +1082,11 @@ hasown@^2.0.2:
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
   dependencies:
     function-bind "^1.1.2"
+
+htmljs-parser@^5.10.2:
+  version "5.10.2"
+  resolved "https://registry.npmjs.org/htmljs-parser/-/htmljs-parser-5.10.2.tgz#dad18f8598b3755ff878f4e732f52a81dfdabd47"
+  integrity sha512-Db/pHZehPxGD8Cy0NvACoMfnVQqfgEiK7z+7cuEDOeJdnzuomyaw3I31A+1uoZmS6IjvTD5iuFA+XL2LE+SieA==
 
 http-errors@^2.0.0:
   version "2.0.1"
