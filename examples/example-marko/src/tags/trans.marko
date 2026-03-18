@@ -1,4 +1,5 @@
 import { $t, locale, emitter } from "@/locales";
+import { generateId } from "@/utils";
 
 export interface Input {
   id?: string;
@@ -9,6 +10,7 @@ export interface Input {
 
 <let/currentLocale=locale>
 <const/Tag=input.as || "span">
+<const/id=input.id || generateId(input.msg)>
 
 <script>
   emitter.on("localeChange", ({ lang }) => {
@@ -16,4 +18,4 @@ export interface Input {
   });
 </script>
 
-<${Tag}>${$t(currentLocale, input.id, input.values, input.msg)}</>
+<${Tag}>${$t(currentLocale, id, input.values, input.msg)}</>
