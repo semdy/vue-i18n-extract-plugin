@@ -15,7 +15,7 @@
     "lit-i18n": "^4.1.0"
   },
   "devDependencies": {
-    "extract-i18n-plugin": "^1.1.24",
+    "extract-i18n-plugin": "^1.1.25",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   }

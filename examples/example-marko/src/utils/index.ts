@@ -1,4 +1,6 @@
-export function generateId(text: string, length = 6): string {
+export function generateId(text?: string, length = 6): string {
+  if (!text) return "";
+
   let hash = 5381;
 
   for (let i = 0; i < text.length; i++) {

@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "extract-i18n-plugin": "^1.1.24",
+    "extract-i18n-plugin": "^1.1.25",
     "serve": "^14.2.5",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
