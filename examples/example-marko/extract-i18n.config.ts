@@ -6,7 +6,7 @@ export default defineConfig({
   excludedPath: ["**/node_modules/**", "**/src/locales", "**/src/**/*.d.marko"],
   excludedCall: ["formatAppLog", "__f__"],
   translateKey: "t",
-  rewrite: false,
+  rewrite: true,
   jsx: false,
   injectHooks: false,
   JSXElement: "trans",
