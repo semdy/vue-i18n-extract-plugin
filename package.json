@@ -62,11 +62,15 @@
   "license": "MIT",
   "description": "A helpfull plugin for extracting i18n strings from your code and translate/transform them.",
   "peerDependencies": {
+    "@angular/compiler": "^21",
     "prettier-plugin-marko": "^4",
     "prettier-plugin-svelte": "^3",
     "svelte": "^4 || ^5"
   },
   "peerDependenciesMeta": {
+    "@angular/compiler": {
+      "optional": true
+    },
     "prettier-plugin-svelte": {
       "optional": true
     },
@@ -102,6 +106,7 @@
     "tunnel": "0.0.6"
   },
   "devDependencies": {
+    "@angular/compiler": "^21.2.5",
     "prettier-plugin-marko": "^4.0.8",
     "prettier-plugin-svelte": "^3.5.1",
     "svelte": "^5.53.7"
