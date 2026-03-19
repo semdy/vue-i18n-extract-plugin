@@ -9,6 +9,7 @@ export interface I18nOptions {
   injectHooks: boolean;
   jsx: boolean;
   rewrite: boolean;
+  pipeStyle: boolean;
   extractFromText: boolean;
   autoImportI18n: boolean;
   autoTranslate: boolean;
