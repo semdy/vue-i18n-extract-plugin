@@ -3,8 +3,6 @@ import { NodePath } from "@babel/traverse";
 import { I18nOptions } from "./options";
 import { I18nMap } from "./common";
 
-export declare function shouldTransform(path: NodePath): boolean;
-
 export declare function isTFunction(
   node: Node,
   option: Partial<I18nOptions>

@@ -24,12 +24,7 @@ export {
   excludeDirectives,
   EXCLUDED_CALL
 } from "./utils";
-export {
-  shouldTransform,
-  isTFunction,
-  createI18nVisitor,
-  createI18nPlugin
-} from "./visitors";
+export { isTFunction, createI18nVisitor, createI18nPlugin } from "./visitors";
 export { default as vitePluginI18n } from "./vite-plugin-i18n";
 export { default as vitePluginImportI18n } from "./vite-plugin-i18n-import";
 export { default as rollupPluginI18n } from "./rollup-plugin-i18n";
