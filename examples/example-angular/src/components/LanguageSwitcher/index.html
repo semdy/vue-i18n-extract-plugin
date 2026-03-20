@@ -1,0 +1,11 @@
+<select
+  [value]="i18nService.currentLocale()"
+  (change)="onChange($event)"
+  style="position: absolute; right: 30px; top: 30px; padding: 6px; font-size: 15px"
+>
+  @for (option of normalizedOptions(); track option.value) {
+    <option [value]="option.value" [selected]="option.value === i18nService.currentLocale()">
+      {{ option.label }}
+    </option>
+  }
+</select>

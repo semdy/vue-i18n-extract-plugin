@@ -1,0 +1,26 @@
+<div>纯文本测试</div>
+<div>{{'纯文本测试2'}}</div>
+<button (click)="increment()">
+  {{ '计数器{count}' | $t: { count: count() } }}
+</button>
+<div>{{ isVip ? 'VIP' : '普通用户' | $t }}</div>
+<div>{{ isVip ? 'VIP' : '普通用户: {name}' | $t:{name: '测试'} }}</div>
+<div>{{ isVip ? 'VIP' : '普通用户2' | t }}</div>
+<div attr="属性文本"></div>
+<div attr="{{'插值文本'}}">文本</div>
+<div>{{ cond ? "真" : "假" }}</div>
+<h1>Hello, {{ title() }}</h1>
+<div>{{ $t('文本测试') }}</div>
+
+<div class="pill-group">
+  @for ( item of [ { title: '发现文档', link: 'https://angular.dev' }, { title:
+  '学习手册', link: 'https://angular.dev/tutorials' }, { title: 'AI提示词工程',
+  link: 'https://angular.dev/ai/develop-with-ai', }, { title: 'CLI文档', link:
+  'https://angular.dev/tools/cli' }, { title: 'Angular语言服务', link:
+  'https://angular.dev/tools/language-service', }, { title: 'Angular开发者工具',
+  link: 'https://angular.dev/tools/devtools' }, ]; track item.title ) {
+  <a class="pill" [href]="item.link" target="_blank" rel="noopener">
+    <span>{{ item.title }}</span>
+  </a>
+  }
+</div>
