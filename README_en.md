@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Preact, Vue (including uni-app), Svelte5, Solid, Qwik, Lit and Marko frameworks. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
+extract-i18n-plugin is an all-in-one vite/rollup/webpack/babel/cli plugin that combines extract, compile, rewrite, and translate capabilities. It supports projects based on React, Preact, Vue (including uni-app), Svelte5, Solid, Qwik, Lit, Angular and Marko frameworks. View [examples](https://github.com/semdy/extract-i18n-plugin/tree/main/examples) for more information. With this plugin, multilingual work becomes effortless and pain-free, providing a one-stop solution.
 
 # USAGE
 
@@ -336,6 +336,8 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 - Lit: Due to its static template design, pure text extraction is not supported. Translatable text must be explicitly wrapped with $t("text").
 
 - Vue compiler also has static hoisting and static node marking (patchFlag) optimizations. This plugin will remark them as dynamic nodes, otherwise when switching languages, nodes won't update. In most cases pure text extraction works fine, but if there are issues, use explicit `$t("text")` calls.
+
+- Angular’s underlying compilation toolchain is not based on Babel. Therefore, only the `rewrite` mode can be enabled to support AOT compilation. For example, <div>xxxx</div> will be transformed into a pipe-based expression: <div>{{ 'id' | t }}</div>.
 
 - Recommendations for uni-app mini-program projects: Write plain text during development, then use `extract-i18n --rewrite --keepRaw` to convert, transforming `"text"` to `$t("text")` and writing to source code. The plugin won't work normally otherwise because according to uni-app compiler strategy, static text is kept in wxml files while only dynamic content is compiled to js files, allowing proper extraction and transformation.
 

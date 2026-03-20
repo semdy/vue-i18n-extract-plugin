@@ -10,7 +10,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/graphs/contributors)
 [![License](https://img.shields.io/github/license/semdy/extract-i18n-plugin.svg?style=flat-square)](https://github.com/semdy/extract-i18n-plugin/blob/main/LICENSE)
 
-extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、Preact、Vue(包括uni-app)、Svelte5、Solid、Qwik、Lit、Marko框架的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
+extract-i18n-plugin是一个集extract、compile、rewrite、translate于一身的vite/rollup/webpack/babel/cli插件，支持基于React、Preact、Vue(包括uni-app)、Svelte5、Solid、Qwik、Lit、Angular、Marko框架的项目。查看[示例](https://github.com/semdy/extract-i18n-plugin/tree/main/examples)获取更多信息. 有了该插件的加持，多语言工作将变得不再繁琐和痛苦，它将为你一站式搞定。
 
 # USAGE
 
@@ -334,6 +334,8 @@ export default i18n;
 - Lit由于是静态模板，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
 
 - vue编译器同样有静态提升以及静态节点标记(patchFlag)的优化，该插件会将它重新标记为动态节点，否则切换语言后，节点不会更新。绝大部分情况下纯文本提取没问题，有问题的地方建议使用显式调用`$t("文本")`的方式。
+
+- Angular底层编译工具链不基于babel，因此只能开启`rewrite`模式进行AOT编译，`<div>文本</div>`会被编译成`pipe`风格`<div>{{ 'id' | t }}</div>`.
 
 - 基于uni-app的小程序项目的建议：开发时直接写纯文本，然后使用`extract-i18n --rewrite --keepRaw`转换，会将`"文本"`转换成`$t("文本")`并写入源码，不然该插件将无法正常工作，因为根据uni-app编译器策略，静态文本会保留在wxml文件中，只有动态内容才会编译到js文件中，这样才能被正常提取和转换。
 
