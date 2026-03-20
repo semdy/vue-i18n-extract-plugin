@@ -32,7 +32,7 @@ pnpm add extract-i18n-plugin -D
 Example:
 
 ```bash
-extract-i18n --includePath=src --rewrite
+extract-i18n --includePath src --rewrite
 ```
 
 This will extract all `fromLang` content from files with `allowedExtensions` in the src directory, automatically generate and translate JSON language packs, and create corresponding translation JSON files.

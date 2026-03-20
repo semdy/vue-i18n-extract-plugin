@@ -32,7 +32,7 @@ pnpm add extract-i18n-plugin -D
 例如：
 
 ```bash
-extract-i18n --includePath=src --rewrite
+extract-i18n --includePath src --rewrite
 ```
 
 这会提取src目录下的所有`allowedExtensions`文件的`fromLang`，生成JSON语言包自动翻译并生成对应的翻译JSON文件.
