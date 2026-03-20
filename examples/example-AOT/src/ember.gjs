@@ -24,6 +24,7 @@ export default class extends Component {
       <div>{{t "计数器{n}" n=this.count}}</div>
       <div>{{isVip ? "VIP用户" : "普通用户"}}</div>
       <input placeholder="请输入用户名">
+      <button @title="标题">提交</button>
       <MyComp @dataInfo={{hash label="商品标题" desc="商品描述"}} />
     </div>
   </template>
