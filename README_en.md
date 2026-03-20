@@ -61,7 +61,7 @@ const defaultOptions = {
   injectHooks: false, // Whether to automatically inject useTranslation into components
   jsx: false, // Enable JSX syntax transformation, pure text in JSX will be converted to <Trans id="aaa" msg="xxx" /> instead of $t("aaa")
   rewrite: false, // Whether to convert extracted content to ID and rewrite into source files
-  pipeStyle: true, // Transform node text to Angular's pipe style，such as <div>xxx</div> -> <div>{{ 'id' | $t }}</div>，only for Angular html template
+  pipeStyle: false, // Transform node text to Angular's pipe style，such as <div>xxx</div> -> <div>{{ 'id' | $t }}</div>，only for Angular html template
   extractFromText: true, // Whether to allow extracting translation content from plain text nodes
   autoImportI18n: true, // Whether to automatically import i18n module
   autoTranslate: true, // Whether to automatically translate after extraction
