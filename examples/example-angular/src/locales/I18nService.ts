@@ -52,44 +52,75 @@ export const languageList: {
   { value: 'ko', label: '한국인' },
 ];
 
+export let locale = getClientLocale();
+
+function formatMessage(locale: SupportLocale, key: string): string;
+function formatMessage(locale: SupportLocale, key: string, defaultMsg: string): string;
+function formatMessage(locale: SupportLocale, key: string, values: Record<string, any>): string;
+function formatMessage(
+  locale: SupportLocale,
+  key: string,
+  defaultMsg: string,
+  values: Record<string, any>,
+): string;
+function formatMessage(
+  locale: SupportLocale,
+  key: string,
+  arg2?: string | Record<string, any>,
+  arg3?: Record<string, any>,
+): string {
+  let defaultMsg: string | undefined;
+  let values: Record<string, any> | undefined;
+
+  if (typeof arg2 === 'string') {
+    defaultMsg = arg2;
+    values = arg3;
+  } else {
+    values = arg2;
+  }
+
+  let msg = (messages[locale] as Record<string, any>)?.[key] ?? (defaultMsg || key);
+
+  if (values) {
+    msg = msg.replace(/\{([^}]+)\}/gm, (match: any, name: string) => {
+      return values![name] ?? match;
+    });
+  }
+
+  return msg;
+}
+
+export function t(key: string): string;
+export function t(key: string, defaultMsg: string): string;
+export function t(key: string, values: Record<string, any>): string;
+export function t(key: string, defaultMsg: string, values: Record<string, any>): string;
+export function t(
+  key: string,
+  arg2?: string | Record<string, any>,
+  arg3?: Record<string, any>,
+): string {
+  return formatMessage(locale, key, arg2 as any, arg3 as any);
+}
+
 @Injectable({ providedIn: 'root' })
 export class I18nService {
-  private locale = signal<SupportLocale>(getClientLocale());
+  private locale = signal<SupportLocale>(locale);
 
   public messages: Messages = messages;
 
   public currentLocale = this.locale.asReadonly();
 
-  t(key: string): string;
-  t(key: string, defaultMsg: string): string;
-  t(key: string, values: Record<string, any>): string;
-  t(key: string, defaultMsg: string, values: Record<string, any>): string;
-
-  t(key: string, arg2?: string | Record<string, any>, arg3?: Record<string, any>): string {
-    let defaultMsg: string | undefined;
-    let values: Record<string, any> | undefined;
-
-    if (typeof arg2 === 'string') {
-      defaultMsg = arg2;
-      values = arg3;
-    } else {
-      values = arg2;
-    }
-
-    const lang = this.locale();
-    let msg = (this.messages[lang] as Record<string, any>)?.[key] ?? (defaultMsg || key);
-
-    if (values) {
-      msg = msg.replace(/\{([^}]+)\}/gm, (match: any, name: string) => {
-        return values![name] ?? match;
-      });
-    }
-
-    return msg;
+  public t(key: string): string;
+  public t(key: string, defaultMsg: string): string;
+  public t(key: string, values: Record<string, any>): string;
+  public t(key: string, defaultMsg: string, values: Record<string, any>): string;
+  public t(key: string, arg2?: string | Record<string, any>, arg3?: Record<string, any>): string {
+    return formatMessage(this.locale(), key, arg2 as any, arg3 as any);
   }
 
   setLocale(lang: SupportLocale) {
-    if (this.locale() === lang) return;
+    if (locale === lang) return;
+    locale = lang;
     this.locale.set(lang);
     localStorage.setItem('locale', lang);
   }

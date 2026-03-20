@@ -11,7 +11,7 @@ export default defineConfig({
   cleanTranslate: false,
   keepDefaultMsg: process.env.NODE_ENV === 'development',
   outputPath: 'src/locales/gen',
-  i18nPkgImportPath: '@/locales',
+  i18nPkgImportPath: '@/locales/I18nService',
   translateLangKeys: ['en', 'zh-tw', 'ja', 'ko'],
   customTranslatedText: (text: string, toLang: string): string => {
     if (toLang === 'en') {
