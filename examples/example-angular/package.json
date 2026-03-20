@@ -7,7 +7,8 @@
     "build": "extract-i18n && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "extract-i18n": "extract-i18n"
+    "extract-i18n": "extract-i18n",
+    "clean-i18n": "extract-i18n --cleanTranslate"
   },
   "private": true,
   "dependencies": {

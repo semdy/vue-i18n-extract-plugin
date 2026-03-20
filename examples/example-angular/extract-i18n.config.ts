@@ -8,6 +8,7 @@ export default defineConfig({
   translateKey: 't',
   rewrite: true,
   pipeStyle: true,
+  cleanTranslate: false,
   keepDefaultMsg: process.env.NODE_ENV === 'development',
   outputPath: 'src/locales/gen',
   i18nPkgImportPath: '@/locales',
