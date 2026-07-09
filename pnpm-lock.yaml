@@ -57,16 +57,16 @@ importers:
         specifier: ^3.6.0
         version: 3.6.0(esbuild@0.28.1)
       fs-extra:
-        specifier: ^11.3.5
+        specifier: ^11.3.6
         version: 11.3.6
       htmljs-parser:
-        specifier: ^5.12.0
-        version: 5.12.0
+        specifier: ^5.12.1
+        version: 5.12.1
       magic-string:
         specifier: ^0.30.21
         version: 0.30.21
       prettier:
-        specifier: ^3.9.1
+        specifier: ^3.9.4
         version: 3.9.4
       tinyglobby:
         specifier: ^0.2.17
@@ -79,14 +79,14 @@ importers:
         version: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)
     devDependencies:
       '@angular/compiler':
-        specifier: 22.0.4
-        version: 22.0.4
+        specifier: 22.0.5
+        version: 22.0.5
       '@glimmer/syntax':
         specifier: 0.95.0
         version: 0.95.0
       prettier-plugin-marko:
-        specifier: 4.0.9
-        version: 4.0.9
+        specifier: 4.0.10
+        version: 4.0.10
       prettier-plugin-svelte:
         specifier: 4.1.1
         version: 4.1.1(prettier@3.9.4)(svelte@5.56.4)
@@ -96,8 +96,8 @@ importers:
 
 packages:
 
-  '@angular/compiler@22.0.4':
-    resolution: {integrity: sha512-PvbsPr3d0OHm90vgq1v+0oPP/oHNuCcZQAhhD3fhHlx3DTxf6nkjUqBulzdJ6d5QwDsy378pwf8+dpGquFzbGQ==}
+  '@angular/compiler@22.0.5':
+    resolution: {integrity: sha512-yGhbEBh2WU1kCubjBD+Eo5bwvZPR+zacDhyPao/PgopH0PiVETd4Iv1gK0ZAvg7XdImgzZfipJXKqTK4JbOFiQ==}
     engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
 
   '@babel/code-frame@8.0.0':
@@ -778,8 +778,8 @@ packages:
     resolution: {integrity: sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==}
     engines: {node: '>= 0.4'}
 
-  htmljs-parser@5.12.0:
-    resolution: {integrity: sha512-AX7R1/VZXAFuywmX6xWIx+oYiSA8py1yUh+tPka+rVb+QIa+Gjw/nlDhNK+DYTYoYLOQ9J7pUGtsEoJj9ve6Zg==}
+  htmljs-parser@5.12.1:
+    resolution: {integrity: sha512-QnHLg5SWqoH5o8MD4iOWJFtdKSS2lXxtNgyznFXvEeeCK0CTi6URdYtFGkFGDANdq8RZzkuc91KaBgLx2WAhSA==}
 
   http-errors@2.0.1:
     resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}
@@ -952,8 +952,8 @@ packages:
     resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier-plugin-marko@4.0.9:
-    resolution: {integrity: sha512-njqNk0oF6jolUMXNUOSlvRe6Dd50DN4NvQk3EY/6hUrU4tJw/HSwvhDF1uTYVs5KjOY5lH+x5C13C1Av9jajWA==}
+  prettier-plugin-marko@4.0.10:
+    resolution: {integrity: sha512-xEzL8+T1/+3oNWJGPNDMlgbeJM7l48pWLiApMLJyvcMe36p4mw0Ld7FBaQVy7nSQDArKtIv4x+6Zb9j32hy2ng==}
 
   prettier-plugin-svelte@4.1.1:
     resolution: {integrity: sha512-wXvbXMjSvb4C9ENWTHXyd+ihakKCsJ6rJhLP6/8HFNj4GkZr48jqL9PoKsl2sk7SyCZRTnJ7O2TTowUpOxP/KA==}
@@ -1091,7 +1091,7 @@ packages:
 
 snapshots:
 
-  '@angular/compiler@22.0.4':
+  '@angular/compiler@22.0.5':
     dependencies:
       tslib: 2.8.1
 
@@ -1676,7 +1676,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  htmljs-parser@5.12.0: {}
+  htmljs-parser@5.12.1: {}
 
   http-errors@2.0.1:
     dependencies:
@@ -1808,9 +1808,9 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier-plugin-marko@4.0.9:
+  prettier-plugin-marko@4.0.10:
     dependencies:
-      htmljs-parser: 5.12.0
+      htmljs-parser: 5.12.1
 
   prettier-plugin-svelte@4.1.1(prettier@3.9.4)(svelte@5.56.4):
     dependencies:
