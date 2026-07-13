@@ -73,7 +73,7 @@
     "build": "node build.js"
   },
   "peerDependencies": {
-    "@angular/compiler": "^22.0.5",
+    "@angular/compiler": "^22.0.6",
     "@glimmer/syntax": "*",
     "prettier-plugin-marko": "^4.0.10",
     "prettier-plugin-svelte": "^4.1.1",
@@ -104,9 +104,9 @@
     "@babel/core": "^8.0.1",
     "@babel/generator": "^8.0.0",
     "@babel/helper-plugin-utils": "^8.0.1",
-    "@babel/parser": "^8.0.0",
-    "@babel/traverse": "^8.0.0",
-    "@babel/types": "^8.0.0",
+    "@babel/parser": "^8.0.4",
+    "@babel/traverse": "^8.0.4",
+    "@babel/types": "^8.0.4",
     "@rollup/pluginutils": "^5.4.0",
     "@types/tunnel": "^0.0.7",
     "@vitalets/google-translate-api": "^9.2.1",
@@ -120,12 +120,12 @@
     "fs-extra": "^11.3.6",
     "htmljs-parser": "^5.12.1",
     "magic-string": "^0.30.21",
-    "prettier": "^3.9.4",
+    "prettier": "^3.9.5",
     "tinyglobby": "^0.2.17",
     "tunnel": "0.0.6"
   },
   "devDependencies": {
-    "@angular/compiler": "22.0.5",
+    "@angular/compiler": "22.0.6",
     "@glimmer/syntax": "0.95.0",
     "prettier-plugin-marko": "4.0.10",
     "prettier-plugin-svelte": "4.1.1",
