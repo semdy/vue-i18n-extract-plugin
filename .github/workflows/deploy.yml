@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
-          node-version: 22
+          node-version: 24
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
@@ -34,7 +34,10 @@ jobs:
       - name: Build package
         run: pnpm run build
 
+      - name: Show publishing versions
+        run: |
+          node --version
+          npm --version
+
       - name: Publish package to NPM 📦
-        run: pnpm publish --no-git-checks --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public

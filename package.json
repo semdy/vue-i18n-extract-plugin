@@ -67,6 +67,10 @@
   ],
   "author": "501859275@qq.com",
   "homepage": "https://github.com/semdy/extract-i18n-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semdy/extract-i18n-plugin.git"
+  },
   "license": "MIT",
   "description": "A set of plugins for extracting i18n messages from source code and translate/compile them. Both supports React/Preact/Vue/Svelte/Solid/Qwik/Lit/Angular/Ember/Marko based apps",
   "scripts": {
