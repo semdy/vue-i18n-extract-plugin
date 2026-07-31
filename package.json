@@ -77,10 +77,10 @@
     "build": "node build.js"
   },
   "peerDependencies": {
-    "@angular/compiler": "^22",
+    "@angular/compiler": "^22.0.8",
     "@glimmer/syntax": "*",
-    "prettier-plugin-marko": "^4",
-    "prettier-plugin-svelte": "^4",
+    "prettier-plugin-marko": "^4.0.10",
+    "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^4 || ^5",
     "vite": ">5.0.0"
   },
