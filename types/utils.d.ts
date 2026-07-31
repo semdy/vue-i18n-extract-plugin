@@ -3,7 +3,6 @@ import { I18nOptions, LangKey } from "./options";
 
 export function hashKey(str: string): string;
 export function generateId(text: string, length?: number): string;
-export function parseArg(arg: string): any;
 export function isEmptyObject(obj: Record<string, any>): boolean;
 export function isVueLike(filePath: string): boolean;
 export function isSvelte(filePath: string): boolean;

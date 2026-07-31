@@ -11,7 +11,6 @@ export * as translators from "./translators";
 export {
   hashKey,
   generateId,
-  parseArg,
   isEmptyObject,
   checkAgainstRegexArray,
   extractFunctionName,
