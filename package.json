@@ -1,6 +1,6 @@
 {
   "name": "extract-i18n-plugin",
-  "version": "1.1.47",
+  "version": "2.0.0",
   "type": "module",
   "module": "lib/index.js",
   "main": "cjs/index.cjs",
@@ -77,10 +77,10 @@
     "build": "node build.js"
   },
   "peerDependencies": {
-    "@angular/compiler": "^21.2.16",
+    "@angular/compiler": "^22",
     "@glimmer/syntax": "*",
-    "prettier-plugin-marko": "^4.0.10",
-    "prettier-plugin-svelte": "^4.1.1",
+    "prettier-plugin-marko": "^4",
+    "prettier-plugin-svelte": "^4",
     "svelte": "^4 || ^5",
     "vite": ">5.0.0"
   },
@@ -105,12 +105,12 @@
     }
   },
   "dependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/generator": "^7.29.7",
-    "@babel/helper-plugin-utils": "^7.29.7",
-    "@babel/parser": "^7.29.7",
-    "@babel/traverse": "^7.29.7",
-    "@babel/types": "^7.29.7",
+    "@babel/core": "^8.0.1",
+    "@babel/generator": "^8.0.0",
+    "@babel/helper-plugin-utils": "^8.0.1",
+    "@babel/parser": "^8.0.4",
+    "@babel/traverse": "^8.0.4",
+    "@babel/types": "^8.0.4",
     "@rollup/pluginutils": "^5.4.0",
     "@types/tunnel": "^0.0.7",
     "@vitalets/google-translate-api": "^9.2.1",
@@ -123,17 +123,17 @@
     "esbuild-register": "^3.6.0",
     "fs-extra": "^11.4.0",
     "htmljs-parser": "^5.12.1",
-    "magic-string": "^0.30.21",
+    "magic-string": "^1.1.0",
     "mri": "^1.2.0",
     "prettier": "^3.9.6",
     "tinyglobby": "^0.2.17",
     "tunnel": "0.0.6"
   },
   "devDependencies": {
-    "@angular/compiler": "^21.2.16",
+    "@angular/compiler": "^22.1.0",
     "@glimmer/syntax": "^0.95.0",
     "prettier-plugin-marko": "^4.0.10",
-    "prettier-plugin-svelte": "^3.5.2",
+    "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^5.56.8"
   }
 }
