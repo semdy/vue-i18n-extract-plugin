@@ -75,7 +75,7 @@
     "eslint-plugin-n": "^17.24.0",
     "eslint-plugin-qunit": "^8.2.6",
     "eslint-plugin-warp-drive": "^5.8.1",
-    "extract-i18n-plugin": "^1.1.45",
+    "extract-i18n-plugin": "^2.0.0",
     "globals": "^16.5.0",
     "prettier": "^3.8.1",
     "prettier-plugin-ember-template-tag": "^2.1.3",
