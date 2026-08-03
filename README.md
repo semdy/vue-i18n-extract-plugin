@@ -35,6 +35,7 @@ bun add extract-i18n-plugin -d
 
 ```bash
 extract-i18n --includePath=src --rewrite
+
 # 参数优先级：cli参数 > 配置文件 > 默认值
 ```
 
@@ -362,15 +363,15 @@ export default i18n;
 
 ## Known issues & Guidelines
 
-- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
+- 由于svelte和solid-js编译器都有静态提升的优化策略，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式，或者先写纯文本然后开启`--rewrite --keepRaw`进行AOT编译。
 
-- Lit由于是静态模板，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式。
+- Lit由于是静态模板，因此不支持纯文本提取，需要在源码中使用显式调用`$t("文本")`的方式，或者先写纯文本然后开启`--rewrite --keepRaw`进行AOT编译。
 
 - vue编译器同样有静态提升以及静态节点标记(patchFlag)的优化，该插件会将它重新标记为动态节点，否则切换语言后，节点不会更新。绝大部分情况下纯文本提取没问题，有问题的地方建议使用显式调用`$t("文本")`的方式。
 
-- Angular底层编译工具链不基于babel，因此只能开启`rewrite`模式进行AOT编译，`<div>文本</div>`会被编译成`pipe`风格`<div>{{ 'id' | t }}</div>`.
+- Angular底层编译工具链不基于babel，因此只能开启`--rewrite --pipeStyle`模式进行AOT编译，`<div>文本</div>`会被编译成`pipe`风格`<div>{{ 'id' | t }}</div>`.
 
-- Ember的模板编译产物是纯字符串，该插件无法参与其中做二次转换，因此也只支持`rewrite`AOT编译模式。
+- Ember的模板编译产物是纯字符串，该插件无法参与其中做二次转换，因此也只支持`--rewrite`AOT编译模式。
 
 - 基于uni-app的小程序项目的建议：开发时直接写纯文本，然后使用`extract-i18n --rewrite --keepRaw`转换，会将`"文本"`转换成`$t("文本")`并写入源码，不然该插件将无法正常工作，因为根据uni-app编译器策略，静态文本会保留在wxml文件中，只有动态内容才会编译到js文件中，这样才能被正常提取和转换。
 

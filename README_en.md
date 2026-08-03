@@ -35,6 +35,7 @@ Example:
 
 ```bash
 extract-i18n --includePath=src --rewrite
+
 # Parameter priority：cli arguments > config file > default value
 ```
 
@@ -364,15 +365,15 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 ## Known Issues & Guidelines
 
-- Due to svelte and solid-js compilers' static hoisting optimization strategies, pure text extraction is not supported. Use explicit `$t("text")` calls in source code instead.
+- Due to svelte and solid-js compilers' static hoisting optimization strategies, pure text extraction is not supported. Use explicit `$t("text")` calls in source code instead, or write pure text first and enable `--rewrite --keepRaw` for AOT compilation.
 
-- Lit: Due to its static template design, pure text extraction is not supported. Translatable text must be explicitly wrapped with $t("text").
+- Lit: Due to its static template design, pure text extraction is not supported. Translatable text must be explicitly wrapped with $t("text"), or write pure text first and enable `--rewrite --keepRaw` for AOT compilation.
 
 - Vue compiler also has static hoisting and static node marking (patchFlag) optimizations. This plugin will remark them as dynamic nodes, otherwise when switching languages, nodes won't update. In most cases pure text extraction works fine, but if there are issues, use explicit `$t("text")` calls.
 
-- Angular’s underlying compilation toolchain is not based on Babel. Therefore, only the `rewrite` mode can be enabled to support AOT compilation. For example, <div>xxxx</div> will be transformed into a pipe-based expression: <div>{{ 'id' | t }}</div>.
+- Angular’s underlying compilation toolchain is not based on Babel. Therefore, only the `--rewrite` mode can be enabled to support AOT compilation. For example, <div>xxxx</div> will be transformed into a pipe-based expression: <div>{{ 'id' | t }}</div>.
 
-- Ember's template compilation output consists of pure strings, since this plugin cannot intervene to perform secondary transformations, it supports only the `rewrite` AOT compilation mode.
+- Ember's template compilation output consists of pure strings, since this plugin cannot intervene to perform secondary transformations, it supports only the `--rewrite` AOT compilation mode.
 
 - Recommendations for uni-app mini-program projects: Write plain text during development, then use `extract-i18n --rewrite --keepRaw` to convert, transforming `"text"` to `$t("text")` and writing to source code. The plugin won't work normally otherwise because according to uni-app compiler strategy, static text is kept in wxml files while only dynamic content is compiled to js files, allowing proper extraction and transformation.
 
