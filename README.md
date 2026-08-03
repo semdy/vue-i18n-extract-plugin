@@ -97,14 +97,14 @@ const defaultOptions = {
   customTranslatedText: (text, toLang) => text,
   /* 翻译器，默认使用GoogleTranslator，也可以自定义实现Translator接口 */
   translator: new GoogleTranslator()
-  /** 如开启了端口代理，请配置port，如：7890
+  /** 如果是VPN上网，需开启端口代理，请配置port，如：7890
   translator: new GoogleTranslator({
     proxyOption: {
-        port: 7890,
-        host: '127.0.0.1',
-        headers: {
-            'User-Agent': 'Node'
-        }
+      port: 7890,
+      host: '127.0.0.1',
+      headers: {
+        'User-Agent': 'Node'
+      }
     }
   })
   */

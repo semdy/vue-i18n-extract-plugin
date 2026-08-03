@@ -98,17 +98,6 @@ const defaultOptions = {
   customTranslatedText: (text, toLang) => text,
   /* Translator, uses GoogleTranslator by default, can also implement custom Translator interface */
   translator: new GoogleTranslator()
-  /** If port forwarding is enabled, configure the port, e.g.: 7890
-  translator: new GoogleTranslator({
-    proxyOption: {
-        port: 7890,
-        host: '127.0.0.1',
-        headers: {
-            'User-Agent': 'Node'
-        }
-    }
-  })
-  */
 };
 ```
 
