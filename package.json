@@ -77,10 +77,10 @@
     "build": "node build.js"
   },
   "peerDependencies": {
-    "@angular/compiler": "^22",
+    "@angular/compiler": "^22.1.0",
     "@glimmer/syntax": "*",
-    "prettier-plugin-marko": "^4",
-    "prettier-plugin-svelte": "^4",
+    "prettier-plugin-marko": "^4.0.10",
+    "prettier-plugin-svelte": "^4.1.1",
     "svelte": "^4 || ^5",
     "vite": ">5.0.0"
   },
@@ -116,7 +116,7 @@
     "@vitalets/google-translate-api": "^9.2.1",
     "@vue/compiler-dom": "^3.5.40",
     "@vue/compiler-sfc": "^3.5.40",
-    "axios": "^1.18.1",
+    "axios": "^1.19.0",
     "c12": "^4.0.0-beta.5",
     "crypto-js": "^4.2.0",
     "esbuild": "^0.28.1",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "extract-i18n": "extract-i18n --includePath=src --outputPath=src/locales/gen --jsx --injectHooks --rewrite"
+    "extract-i18n": "extract-i18n --includePath src --outputPath src/locales/gen --jsx --injectHooks --rewrite"
   },
   "author": "",
   "license": "ISC",
