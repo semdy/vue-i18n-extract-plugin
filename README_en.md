@@ -35,6 +35,7 @@ Example:
 
 ```bash
 extract-i18n --includePath=src --rewrite
+# Parameter priority：cli arguments > config file > default value
 ```
 
 This will extract all `fromLang` content from files with `allowedExtensions` in the src directory, automatically generate and translate JSON language packs, and create corresponding translation JSON files.
@@ -96,7 +97,7 @@ const defaultOptions = {
   customTranslatedText: (text, toLang) => text,
   /* Translator, uses GoogleTranslator by default, can also implement custom Translator interface */
   translator: new GoogleTranslator()
-  /** If port forwarding is enabled, configure the port, e.g.: 7890 */
+  /** If port forwarding is enabled, configure the port, e.g.: 7890
   translator: new GoogleTranslator({
     proxyOption: {
         port: 7890,
@@ -106,6 +107,7 @@ const defaultOptions = {
         }
     }
   })
+  */
 };
 ```
 

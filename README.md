@@ -35,6 +35,7 @@ bun add extract-i18n-plugin -d
 
 ```bash
 extract-i18n --includePath=src --rewrite
+# 参数优先级：cli参数 > 配置文件 > 默认值
 ```
 
 这会提取src目录下的所有`allowedExtensions`文件的`fromLang`，生成JSON语言包自动翻译并生成对应的翻译JSON文件.
@@ -95,7 +96,7 @@ const defaultOptions = {
   customTranslatedText: (text, toLang) => text,
   /* 翻译器，默认使用GoogleTranslator，也可以自定义实现Translator接口 */
   translator: new GoogleTranslator()
-  /** 如开启了端口代理，请配置port，如：7890 */
+  /** 如开启了端口代理，请配置port，如：7890
   translator: new GoogleTranslator({
     proxyOption: {
         port: 7890,
@@ -105,6 +106,7 @@ const defaultOptions = {
         }
     }
   })
+  */
 };
 ```
 
