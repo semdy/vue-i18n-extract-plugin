@@ -377,19 +377,45 @@ export default i18n;
 
 - uni-app X项目底层编译器是kotlin, 需要提前将源码进行转换。建议使用`extract-i18n --rewrite --keepDefaultMsg`将`"文本"`转换成`$t("id","文本")`，这样既保证了i18n的功能也不影响对源码的阅读。
 
-- svelte4 typescript项目静态提取不受支持，因为svelte 4.0编译器的parser不支持typescript。
+- Svelte4 typescript项目静态提取不受支持，因为svelte 4.0编译器的parser不支持typescript。Svelte 5完全支持。
 
-- svelte项目建议添加`prettier-plugin-svelte`依赖，因为`rewrite`模式会调用`prettier`格式化`.svelte`文件，`svelte`文件格式化依赖这个插件.
+- Svelte项目建议添加`prettier-plugin-svelte`依赖，因为`rewrite`模式会调用`prettier`格式化`.svelte`文件，`svelte`文件格式化依赖这个插件.
 
-- 对于纯英文项目，建议在源码中使用显式调用`$t("文本")` + `extractFromText:false`的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。
-
-- `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`和`Trans`组件中提取文本，能一定程序上提高性能。
+- `extractFromText`设为`false`，则纯文本不会被提取，只会从`$t()`和`Trans`组件中提取文本，能一定程度上提高性能。
 
 - 有动态插值的文本需要显式调用`$t()`，如：`$t("{name}的余额为{balance}", {name: '张三', balance: 100})`
+
+- 对于英文或其它拉丁语系的项目，建议在源码中使用显式调用$t("文本") + extractFromText:false的方式。因为该插件无法区分需要翻译的文本和代码中的字符串。推荐配置如下：
+
+```javascript
+{
+  extractFromText: false,
+  generateId(rawText, generateId){
+    return `_${generateId(rawText)}`
+  },
+  shouldExtract(rawText, fromLang) {
+    return rawText && !/^_[a-z0-9]{6}$/.test(rawText)
+  }
+}
+```
+
+- 本插件支持以文件为单位进行排除提取和转换，对于一个文件中需要部分排除的，建议先定义一个方法，然后将该方法配置到`excludedCall`中，推荐配置如下：
+
+```javascript
+// 定义一个方法，用于排除提取和转换
+function $$t(text) {
+  return text
+}
+// 配置excludedCall，将$$t方法排除
+{
+  excludedCall: ['$$t']
+}
+```
 
 总结：
 
 纯文本编写有很好的便利性，但`$t()`有更好的稳定性和可靠性（特别是vue项目），当然也可以混用。该插件已经服务了公司内部多个涵盖React、Vue、uni-app(APP-PLUS、X、H5、小程序)的项目，不管用哪种方式，稳定性和可靠性都不错。
+
 
 # Translators
 

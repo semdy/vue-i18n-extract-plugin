@@ -379,15 +379,39 @@ Additionally: If you don't want to use vite/webpack plugins, you can manually ca
 
 - For uni-app X projects with Kotlin-based underlying compiler, source code must be pre-converted. Recommended to use `extract-i18n --rewrite --keepDefaultMsg` to convert `"text"` to `$t("id","text")`, ensuring i18n functionality while maintaining source code readability.
 
-- Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript.
+- Svelte4 typescript projects do not support static extraction because the 4.0 compiler does not support typescript. Svelte 5 fully supported.
 
 - Svelte projects are recommended to add the `prettier-plugin-svelte` dependency, because the `rewrite` mode will call `prettier` to format `.svelte` files, and formatting `.svelte` files depends on this plugin.
-
-- For projects entirely in English, you should explicitly call `$t("text")` in the source code. Because the plugin cannot distinguish between the text to be translated and strings in the code.
 
 - If `extractFromText` is set to `false`, plain text will not be extracted. Only text from `$t()` and `Trans` component will be extracted, which can improve performance to some extent.
 
 - Text containing dynamic placeholders must explicitly call `$t()`, for example: `$t("{name}的余额为{balance}", {name: '张三', balance: 100})`.
+
+- For projects using English or other Latin-based languages, it is recommended to use explicit $t("text") calls in the source code along with extractFromText: false. This is because the plugin cannot distinguish between translatable text and string literals in the code. The recommended configuration is as follows:
+
+```javascript
+{
+  extractFromText: false,
+  generateId(rawText, generateId){
+    return `_${generateId(rawText)}`
+  },
+  shouldExtract(rawText, fromLang) {
+    return rawText && !/^_[a-z0-9]{6}$/.test(rawText)
+  }
+}
+```
+
+- This plugin supports excluding extraction and transformation on a per-file basis. For cases where only certain parts of a file need to be excluded, it is recommended to define a method first and then configure that method in `excludedCall`. The recommended configuration is as follows:
+
+```javascript
+function $$t(text) {
+  return text
+}
+
+{
+  excludedCall: ['$$t']
+}
+```
 
 Inclusion:
 
