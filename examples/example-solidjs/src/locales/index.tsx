@@ -5,6 +5,7 @@ import {
   onMount,
   useContext
 } from "solid-js";
+import { Dynamic } from "solid-js/web";
 import { createStore } from "solid-js/store";
 
 import en_gen from "./gen/en.json";
@@ -12,7 +13,6 @@ import ja_gen from "./gen/ja.json";
 import ko_gen from "./gen/ko.json";
 import zhHans_gen from "./gen/zh-cn.json";
 import zhHant_gen from "./gen/zh-tw.json";
-import { Dynamic } from "solid-js/web";
 
 export const messages = {
   "zh-CN": zhHans_gen,
