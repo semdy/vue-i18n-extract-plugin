@@ -34,7 +34,7 @@ bun add extract-i18n-plugin -d
 Example:
 
 ```bash
-extract-i18n --includePath=src --rewrite
+extract-i18n --includePath src --rewrite
 
 # Parameter priority：cli arguments > config file > default value
 ```

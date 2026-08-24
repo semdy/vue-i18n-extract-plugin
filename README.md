@@ -34,7 +34,7 @@ bun add extract-i18n-plugin -d
 例如：
 
 ```bash
-extract-i18n --includePath=src --rewrite
+extract-i18n --includePath src --rewrite
 
 # 参数优先级：cli参数 > 配置文件 > 默认值
 ```
