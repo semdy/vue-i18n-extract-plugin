@@ -77,7 +77,7 @@
     "build": "node build.js"
   },
   "peerDependencies": {
-    "@angular/compiler": "^22.1.4",
+    "@angular/compiler": "^22.1.5",
     "@glimmer/syntax": "*",
     "prettier-plugin-marko": "^4.1.0",
     "prettier-plugin-svelte": "^4.1.1",
@@ -117,7 +117,7 @@
     "@vue/compiler-dom": "^3.5.42",
     "@vue/compiler-sfc": "^3.5.42",
     "axios": "^1.20.0",
-    "c12": "^4.0.0-beta.5",
+    "c12": "^4.0.0-rc.1",
     "crypto-js": "^4.2.0",
     "esbuild": "^0.28.2",
     "esbuild-register": "^3.6.0",
@@ -130,7 +130,7 @@
     "tunnel": "0.0.6"
   },
   "devDependencies": {
-    "@angular/compiler": "^22.1.4",
+    "@angular/compiler": "^22.1.5",
     "@glimmer/syntax": "^0.95.0",
     "prettier-plugin-marko": "^4.1.0",
     "prettier-plugin-svelte": "^4.1.1",
